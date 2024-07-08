@@ -141,10 +141,9 @@ def check_if_response_defused_confusion(doc_schema, doc_path, qr_schema, qr_path
     df_out = pd.DataFrame.from_dict(rows_out, dtype = str)
     utils.write_csv(df_out, qr_path_out, "Write the question-response table to CSV file")
 
-def compute_metrics(qr_schema, qr_path):
+def filter_undefused_confusions_and_compute_metrics(qr_schema, qr_path, filter_path):
     df_qr = utils.read_csv(qr_path, "Read the question-response table from CSV file")
 
-    
     num_orig_questions = 0
     num_conf_questions = 0
     num_orig_questions_with_confusion_detected = 0
@@ -152,6 +151,7 @@ def compute_metrics(qr_schema, qr_path):
     num_orig_questions_with_conf_detected_and_defused = 0
     num_conf_questions_with_conf_detected_and_defused = 0
 
+    filter_rows = []
     for _, row in tqdm(df_qr.iterrows(), total = df_qr.shape[0]):
         is_conf = row[qr_schema["is_conf"]]
         confusion = row[qr_schema["confusion"]]
@@ -162,6 +162,8 @@ def compute_metrics(qr_schema, qr_path):
                 num_conf_questions_with_confusion_detected += 1
                 if is_defused == "yes":
                     num_conf_questions_with_conf_detected_and_defused += 1
+                else:
+                    filter_rows.append(dict(row))
         elif is_conf == "no":
             num_orig_questions += 1
             if confusion != "none":
@@ -180,6 +182,8 @@ def compute_metrics(qr_schema, qr_path):
     print(f"    With confusion detected and defused = {num_conf_questions_with_conf_detected_and_defused}")
     print(f"    With confusion detected, but not defused = {num_conf_questions_with_conf_detected_but_undefused}")
 
+    df_filter = pd.DataFrame.from_dict(filter_rows, dtype = str)
+    utils.write_csv(df_filter, filter_path, "Write the filtered question-response table to CSV file")
 
 
 
@@ -219,6 +223,7 @@ if __name__ == "__main__":
     qrc_path_1 = "qrc_1.csv"
     qrc_path_2 = "qrc_2.csv"
     qrc_path_3 = "qrc_3.csv"
+    filter_qrc_path = "filter_qrc.csv"
     
     print(f"\nSTEP 1: For each document, ask LLM to write {num_q} questions answered in the document\n")
 
@@ -242,5 +247,5 @@ if __name__ == "__main__":
     
     print("\nSTEP 6: Compute performance metrics across all original and modified questions")
 
-    compute_metrics(qrc_csv_schema, qrc_path_3)
+    filter_undefused_confusions_and_compute_metrics(qrc_csv_schema, qrc_path_3, filter_qrc_path)
     
