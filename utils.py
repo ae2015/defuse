@@ -24,6 +24,9 @@ def prepare_document(raw_document):
     document = re.sub(r"\n\s*\n", "\n", raw_document)  # Remove excessive empty lines
     return document
 
+def enum_list(questions):
+    return "\n".join([f"{i}. {q}" for i, q in enumerate(questions, start = 1)])
+
 def parse_numbered_list(text): # , min_number_of_items = 2):
     lines = text.splitlines()
     questions = []
