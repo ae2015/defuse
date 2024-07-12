@@ -1,13 +1,21 @@
 from llmlib import LLM
 import utils
 
-prompt_to_make_confusion = (
+prompt_to_make_confusion_2024_07_10 = (
     "Now, slightly modify each question in the list " + 
     "by replacing one or more words with other relevant " +
     "words from the document, " +
-    "so that each new question makes a false assumption " +
-    "and has no good answer:"
+    "so that each new question makes a false assumption and has no good answer:"
 )
+
+
+prompt_to_make_confusion = (
+    "Now, slightly modify each question in the list " + 
+    "by replacing some entities or actions " +
+    "with very similar (and never opposite) entities or actions from the document, " +
+    "so that each modified question starts with a fake assumption and has no good answer:"
+)
+
 prompt_to_check_confusion = (
     "Does the question contain a false assumption? Answer 'Yes' or 'No', then " +
     "provide the false assumption if the question has it:"
@@ -60,6 +68,7 @@ examples_of_making_confusion = [
             "service and addressing all your needs promptly. Experience the tranquility of living in Weywot " +
             "Apartments today!"
         ),
+        "source" : "self-authored",
         "orig_questions" : [
             "What types of apartment units are available at Weywot Apartments?",
             "How much is the monthly rent for a 1-bedroom apartment?",
@@ -99,6 +108,7 @@ examples_of_making_confusion = [
             "or access to the internet. The library received 200 calls and had dozens of people waiting at the " +
             "library doors in the first three hours of offering this service."
         ),
+        "source" : "https://www.library.ca.gov/wp-content/uploads/2021/09/Value-of-Libraries-Libraries-and-COVID-19.pdf",
         "orig_questions" : [
             "How did the El Dorado County Library utilize its 3-D printers during the COVID-19 pandemic?",
             "With which organization did the library form a partnership to produce and distribute face shields?",

@@ -104,25 +104,39 @@ class LLM:
         if response.status_code != 200:
             raise LLMException(
                 f"Model = {self.model}, Status Code = {response.status_code}, Duration = {duration}\n" +
-                f"Prompt: {prompt}\nResponse: {json.dumps(response)}"
+                f"Prompt: {prompt}\nResponse: {response.json()}" # {json.dumps(response)}"
             )
         text_output = response.json()["choices"][0]["message"]["content"]
         # print(f"Response from OpenAI: {response.json()}\n")
         return text_output
 
 
+
 openai_url = "https://api.openai.com/v1/chat/completions"
-openai_headers = {
+openai_headers_1 = {
     "Content-Type": "application/json",
     "Authorization": "Bearer " + os.getenv("OPENAI_API_KEY", ""),
     "OpenAI-Organization": os.getenv("OPENAI_ORGANIZATION_ID", ""),
     "OpenAI-Project": os.getenv("OPENAI_PROJECT_ID", "")
 }
+openai_headers_2 = {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer " + os.getenv("OPENAI_API_KEY", "")
+}
 gpt_3_dot_5 = LLM(
     name = "gpt-3.5",
     model = "gpt-3.5-turbo",
     url = openai_url,
-    headers = openai_headers,
+    headers = openai_headers_1,
+    parameters = {
+        "temperature": 0.7
+    }
+)
+gpt_4o = LLM(
+    name = "gpt-4o",
+    model = "gpt-4o",
+    url = openai_url,
+    headers = openai_headers_2,
     parameters = {
         "temperature": 0.7
     }
