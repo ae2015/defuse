@@ -106,6 +106,7 @@ class LLM:
                 f"Model = {self.model}, Status Code = {response.status_code}, Duration = {duration}\n" +
                 f"Prompt: {prompt}\nResponse: {response.json()}" # {json.dumps(response)}"
             )
+        # print("text_output = " + str(response.json()))
         text_output = response.json()["choices"][0]["message"]["content"]
         # print(f"Response from OpenAI: {response.json()}\n")
         return text_output
@@ -113,6 +114,7 @@ class LLM:
 
 
 openai_url = "https://api.openai.com/v1/chat/completions"
+runpod_llama3_url = f"https://api.runpod.ai/v2/{os.environ.get("RUNPOD_ENDPOINT_ID")}/openai/v1/chat/completions"
 openai_headers_1 = {
     "Content-Type": "application/json",
     "Authorization": "Bearer " + os.getenv("OPENAI_API_KEY", ""),
@@ -122,6 +124,10 @@ openai_headers_1 = {
 openai_headers_2 = {
     "Content-Type": "application/json",
     "Authorization": "Bearer " + os.getenv("OPENAI_API_KEY", "")
+}
+runpod_llama3_headers = {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer " + os.getenv("RUNPOD_API_KEY", "")
 }
 gpt_3_dot_5 = LLM(
     name = "gpt-3.5",
@@ -137,6 +143,16 @@ gpt_4o = LLM(
     model = "gpt-4o",
     url = openai_url,
     headers = openai_headers_2,
+    parameters = {
+        "temperature": 0.7
+    }
+)
+
+llama3_8B_in = LLM(
+    name = "llama3-8B-in",
+    model = "meta-llama/Meta-Llama-3-8B-Instruct",
+    url = runpod_llama3_url,
+    headers = runpod_llama3_headers,
     parameters = {
         "temperature": 0.7
     }

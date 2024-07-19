@@ -1,0 +1,27 @@
+{
+    "r01" : {
+        "system" : [
+            "You will be provided with a document delimited by triple quotes. ",
+            "Read the document and follow user's instructions."
+        ],
+        "user_rag" : [
+            "Read the document and answer the question based on the document.\n\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\nQuestion:\n\n{question}\n\nAnswer:"
+        ],
+        "user_conf_rag" : [
+            "Read the document and the question, then check whether the question contains ",
+            "a false assumption.\n\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\nQuestion:\n\n{question}\n\n",
+            "Does the question contain a false assumption? Answer 'Yes' or 'No', then ",
+            "provide the false assumption if the question has it:"
+        ],
+        "user_conf_check" : [
+            "Does the question contain a false assumption? Answer 'Yes' or 'No', then ",
+            "provide the false assumption if the question has it:"
+        ],
+        "user_def_check": [
+            "Now read the answer you gave to the question. Did your answer point out ",
+            "the false assumption in the question? Answer 'Yes' or 'No', then explain:"
+        ]
+    }
+}

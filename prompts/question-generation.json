@@ -1,0 +1,33 @@
+{
+    "q01" : {
+        "system" : [
+            "You will be provided with a document delimited by triple quotes. ",
+            "Read the document and follow user's instructions."
+        ],
+        "user_orig" : [
+            "Read the document and write a numbered list of {num_q} best ",
+            "questions that are answered in the document.\n\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\nQuestions:"
+        ],
+        "user_conf" : [
+            "Now, slightly modify each question in the list ",
+            "by replacing some entities or actions ",
+            "with very similar (and never opposite) entities or actions from the document, ",
+            "so that each modified question starts with a fake assumption and has no good answer:"
+        ]
+    },
+    "q_2024_07_10" : {
+        "system" : null,
+        "user_orig" : [
+            "Read the document and write a numbered list of {num_q} best ",
+            "questions that are answered in the document.\n\n",
+            "Document:\n\n{document}\n\nQuestions:"
+        ],
+        "user_conf" : [
+            "Now, slightly modify each question in the list ",
+            "by replacing one or more words with other relevant ",
+            "words from the document, ",
+            "so that each new question makes a false assumption and has no good answer:"
+        ]
+    }
+}

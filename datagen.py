@@ -42,7 +42,7 @@ def infuse_questions_with_false_assumptions(schema, path_in, path_out):
         doc_source = row[schema["source"]]
         document = row[schema["document"]]
         llm = row[schema["LLM_q"]]
-        orig_questions = utils.parse_numbered_list(row[schema["orig_qs"]])
+        orig_questions = utils.parse_numbered_questions(row[schema["orig_qs"]])
         conf_questions = promptlib.confuse_questions(llm, document, orig_questions)
         row_out = {
             schema["doc_id"] : doc_id,
@@ -64,8 +64,8 @@ def generate_RAG_responses(llm, doc_schema, doc_path, qr_schema, qr_path):
     for _, row in tqdm(df_in.iterrows(), total = df_in.shape[0]):
         doc_id = row[doc_schema["doc_id"]]
         document = row[doc_schema["document"]]
-        orig_questions = utils.parse_numbered_list(row[doc_schema["orig_qs"]])
-        conf_questions = utils.parse_numbered_list(row[doc_schema["conf_qs"]])
+        orig_questions = utils.parse_numbered_questions(row[doc_schema["orig_qs"]])
+        conf_questions = utils.parse_numbered_questions(row[doc_schema["conf_qs"]])
         assert len(orig_questions) == len(conf_questions)
         for q_id, (orig_q, conf_q) in enumerate(zip(orig_questions, conf_questions), start = 1):
             response_orig_q = promptlib.generate_response(llm, document, orig_q)
@@ -217,13 +217,15 @@ if __name__ == "__main__":
 
     num_q = 10  # Number of questions per document
 
-    doc_path_0 = "docs.csv"
+    doc_path_0 = "docsss.csv"
     doc_path_1 = "docs_1.csv"
     doc_path_2 = "docs_2.csv"
     qrc_path_1 = "qrc_1.csv"
     qrc_path_2 = "qrc_2.csv"
     qrc_path_3 = "qrc_3.csv"
     filter_qrc_path = "filter_qrc.csv"
+
+    promptlib.read_prompts("prompts")
     
     print(f"\nSTEP 1: For each document, ask LLM to write {num_q} questions answered in the document\n")
 

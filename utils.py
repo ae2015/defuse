@@ -27,14 +27,16 @@ def prepare_document(raw_document):
 def enum_list(questions):
     return "\n".join([f"{i}. {q}" for i, q in enumerate(questions, start = 1)])
 
-def parse_numbered_list(text): # , min_number_of_items = 2):
+def parse_numbered_questions(text): # , min_number_of_items = 2):
     lines = text.splitlines()
     questions = []
     chunks = [] # One question could span multiple lines
     def add_question_from_chunks():
         nonlocal chunks, questions
         if chunks:
-            questions.append((" ".join(chunks)).strip())
+            question = (" ".join(chunks)).strip()
+            if question[-1] == '?':
+                questions.append(question)
             chunks = []
     for raw_line in lines:
         line = raw_line.strip()

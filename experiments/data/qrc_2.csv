@@ -1,0 +1,103 @@
+doc_id,q_id,is_confusing,question,LLM_r,response,confusion
+doc0001,1,no,What type of celestial bodies is the Lucy mission designed to explore?,llama3-8B-in,"According to the document, the Lucy mission is designed to explore the Jupiter Trojan asteroids.",none
+doc0001,1,yes,What type of celestial bodies is the Jupiter mission designed to explore?,llama3-8B-in,"The Jupiter mission, Lucy, is designed to explore small bodies known as the Jupiter Trojan asteroids.",none
+doc0001,2,no,What is the origin of the Jupiter Trojan asteroids?,llama3-8B-in,"According to the document, the origin of the Jupiter Trojan asteroids is stated as: ""These remnants of our early solar system"".",none
+doc0001,2,yes,What is the origin of the Saturn asteroid belt?,llama3-8B-in,"The document does not mention the origin of the Saturn asteroid belt. In fact, it only talks about the Jupiter Trojan asteroids and the main asteroid belt between the orbits of Mars and Jupiter.",none
+doc0001,3,no,How many asteroids are thought to be comparable in number to objects in the main asteroid belt?,llama3-8B-in,"According to the document, the Jupiter Trojan asteroids are thought to be comparable in number to the objects in the main asteroid belt between the orbits of Mars and Jupiter. Therefore, the answer is:
+
+""The Jupiter Trojan asteroids are thought to be comparable in number to the objects in the main asteroid belt.""",none
+doc0001,3,yes,How many asteroids are thought to be comparable in number to comets in the main asteroid belt?,llama3-8B-in,"According to the document, it is not comets that are thought to be comparable in number to the objects in the main asteroid belt, but rather ""the objects in the main asteroid belt between the orbits of Mars and Jupiter"" that are thought to be comparable in number to the Trojan asteroids.",none
+doc0001,4,no,How many asteroids will Lucy fly by during its 12-year mission?,llama3-8B-in,"According to the document, Lucy will fly by:
+
+* 2 asteroids in the belt of asteroids that circle the Sun between the orbits of Mars and Jupiter
+* 3 satellites of those asteroids
+* 5 asteroid targets
+
+That makes a total of 2 + 3 + 5 = 10 asteroids.",none
+doc0001,4,yes,How many planets will Lucy fly by during its 12-year mission?,llama3-8B-in,"Based on the document, Lucy will fly by the following:
+
+* Two (plus a newly discovered satellite) in the main asteroid belt
+* Eight Trojans, which includes five asteroid targets and the satellites of three of those
+* Earth three times
+
+So, Lucy will fly by a total of 2 + 8 + 3 = 13 celestial bodies. However, only one of those is a planet, which is Earth. Therefore, the answer is:
+
+1 planet",none
+doc0001,5,no,What is the composition of the asteroids Lucy will explore?,llama3-8B-in,"The document does not provide information on the composition of the asteroids Lucy will explore. It only provides information about the mission's target asteroids, their orbits, and the number of asteroids it will fly by during its 12-year mission.","The question is:
+
+What is the composition of the asteroids Lucy will explore?
+
+Answer: No, the question does not contain a false assumption."
+doc0001,5,yes,What is the composition of the planets Lucy will explore?,llama3-8B-in,"According to the document, Lucy will explore a diverse population of small bodies, specifically:
+
+1. Jupiter Trojan asteroids
+2. Asteroids in the belt of asteroids that circle the Sun between the orbits of Mars and Jupiter
+3. Satellites of three of the Trojan asteroids",none
+doc0001,6,no,How many of the asteroids Lucy will visit are in the belt of asteroids between Mars and Jupiter?,llama3-8B-in,"According to the document, Lucy will fly by two asteroids in the belt of asteroids that circle the Sun between the orbits of Mars and Jupiter.",none
+doc0001,6,yes,How many of the planets Lucy will visit are in the orbit of the Sun?,llama3-8B-in,"Based on the document, Lucy will visit the following locations:
+
+* Two asteroids in the belt of asteroids between the orbits of Mars and Jupiter
+* Eight Trojans (Jupiter's Trojan asteroids)
+* Earth (three times)
+
+So, Lucy will visit three locations in the orbit of the Sun: the belt of asteroids between the orbits of Mars and Jupiter, and Earth.",none
+doc0001,7,no,How many Trojan asteroids will Lucy explore?,llama3-8B-in,"According to the document, Lucy will explore 8 Trojan asteroids, which includes 5 asteroid targets and the satellites of 3 of those.",none
+doc0001,7,yes,How many asteroids will Lucy explore around Neptune?,llama3-8B-in,"According to the document, Lucy will not explore any asteroids around Neptune. The document only mentions that Lucy will fly by two asteroids in the main asteroid belt between the orbits of Mars and Jupiter, and eight Trojans, which includes five asteroid targets and the satellites of three of those. There is no mention of Neptune or any asteroids around it.","Answer: Yes
+
+The false assumption is that Lucy will explore asteroids around Neptune. The document does not mention Neptune at all; it talks about the Jupiter Trojan asteroids and the main asteroid belt between the orbits of Mars and Jupiter."
+doc0001,8,no,What are the three satellites of the Trojan asteroids that Lucy will study?,llama3-8B-in,"The document does not mention the three satellites of the Trojan asteroids that Lucy will study. It only mentions that Lucy will fly by three asteroid targets and the satellites of three of those targets, but it does not specify which asteroids or their satellites.","Answer: Yes
+
+The false assumption in the question is that Lucy will study the satellites of the Trojan asteroids. According to the document, Lucy will fly by the satellites of three of the asteroid targets, but it does not mention that it will study them. The spacecraft will fly by the asteroids and their satellites, but it is not clear whether it will gather data or make observations of the satellites."
+doc0001,8,yes,What are the three moons of the Jupiter Trojan asteroids that Lucy will study?,llama3-8B-in,"The document does not mention the three moons of the Jupiter Trojan asteroids that Lucy will study. In fact, it only mentions ""a newly discovered satellite"" and the satellites of three of the asteroid targets that Lucy will study, but it does not specify the names of these moons.","Answer: Yes
+
+The false assumption is that Lucy will study the moons of the Jupiter Trojan asteroids. The document states that Lucy will study the Trojan asteroids themselves and their satellites, but it does not mention studying the moons of the Jupiter Trojan asteroids."
+doc0001,9,no,How many times will Lucy fly by Earth during its mission?,llama3-8B-in,"According to the document, Lucy will fly by Earth three times during its mission.","Yes, the question contains a false assumption.
+
+The false assumption is that Lucy will only fly by Earth three times. According to the document, Lucy will actually fly by Earth ""three times to get a push from its gravity"", which means it will fly by Earth at least four times: three times to get a push from its gravity and one more time as part of its overall mission."
+doc0001,9,yes,How many times will Lucy fly by Saturn during its mission?,llama3-8B-in,"The document does not mention Lucy flying by Saturn at all. In fact, it mentions that Lucy will fly by Earth three times and will explore asteroids in the Jupiter Trojan asteroid population, but does not mention Saturn. Therefore, the answer is 0.","Answer: Yes
+
+The false assumption in the question is that it mentions Saturn instead of Jupiter. The document only talks about Jupiter and the mission of Lucy exploring the Jupiter Trojan asteroids, but not Saturn."
+doc0001,10,no,What is the significance of Lucy being the first spacecraft to return to the vicinity of Earth from the outer solar system?,llama3-8B-in,"According to the document, the significance of Lucy being the first spacecraft to return to the vicinity of Earth from the outer solar system is that it will fly by Earth three times to get a push from its gravity.",none
+doc0001,10,yes,What is the significance of Lucy being the first spacecraft to explore the inner solar system?,llama3-8B-in,"Based on the document, Lucy is not the first spacecraft to explore the inner solar system. Instead, it is the first spacecraft to return to the vicinity of Earth from the outer solar system.",none
+doc0002,1,no,What is Arnold Schwarzenegger's birthdate?,llama3-8B-in,"According to the document, Arnold Schwarzenegger was born on July 30, 1947.",none
+doc0002,1,yes,What is Arnold Schwarzenegger's birthday?,llama3-8B-in,"According to the document, Arnold Schwarzenegger was born on July 30, 1947.",none
+doc0002,2,no,In what year did Schwarzenegger become a U.S. citizen?,llama3-8B-in,"According to the document, Arnold Schwarzenegger became a U.S. citizen in 1983.",none
+doc0002,2,yes,In what year did Schwarzenegger become a Canadian citizen?,llama3-8B-in,"According to the document, Schwarzenegger did not become a Canadian citizen. He immigrated to the United States in 1968 and became a U.S. citizen in 1983, but there is no mention of him becoming a Canadian citizen.","Answer: Yes
+
+The false assumption is that Schwarzenegger became a Canadian citizen. The document states that Schwarzenegger became a U.S. citizen in 1983, not a Canadian citizen."
+doc0002,3,no,What is Schwarzenegger's political party affiliation?,llama3-8B-in,"According to the document, Arnold Schwarzenegger's political party affiliation is the Republican Party.",none
+doc0002,3,yes,What is Schwarzenegger's social party affiliation?,llama3-8B-in,"According to the document, Arnold Schwarzenegger's political party affiliation is Republican.",none
+doc0002,4,no,What was Schwarzenegger's educational background?,llama3-8B-in,"According to the document, Arnold Schwarzenegger earned a BA in Business and International Economics at the University of Wisconsin-Superior. He also received an honorary Doctorate from the University of Wisconsin-Superior in 1996 and an honorary Doctorate from Chapman University in 2002.","The answer to the question is: No, the question does not contain a false assumption."
+doc0002,4,yes,What was Schwarzenegger's educational background in engineering?,llama3-8B-in,"The document does not mention Schwarzenegger's educational background in engineering at all. It only mentions that he earned a BA in Business and International Economics at the University of Wisconsin-Superior and received honorary Doctorates in 1996 and 2002 from the University of Wisconsin-Superior and Chapman University, respectively.",none
+doc0002,5,no,What were some of the key issues Schwarzenegger focused on as Governor of California?,llama3-8B-in,"According to the document, some of the key issues Schwarzenegger focused on as Governor of California were:
+
+1. Reducing California's greenhouse gas emissions
+2. Increasing the minimum wage
+3. Updating the workers' compensation system
+4. Physical education and after-school programs
+5. Supporting the After-School Education & Safety Act (which passed in 2002)",none
+doc0002,5,yes,What were some of the key issues Schwarzenegger ignored as Governor of California?,llama3-8B-in,"The document does not explicitly state that Schwarzenegger ignored any key issues as Governor of California. It only highlights some of the key issues he focused on during his tenure, such as reducing California's greenhouse gas emissions, increasing the minimum wage, and updating the workers' compensation system.",none
+doc0002,6,no,What was Schwarzenegger's role in the 2003 California gubernatorial election?,llama3-8B-in,"According to the document, Arnold Schwarzenegger won the 2003 California gubernatorial election when Gray Davis was recalled.",none
+doc0002,6,yes,What was Schwarzenegger's role in the 2002 California gubernatorial election?,llama3-8B-in,"According to the document, Schwarzenegger did not run in the 2002 California gubernatorial election. In fact, the document states that Schwarzenegger won the election in 2003 when Gray Davis was recalled. Therefore, Schwarzenegger's role in the 2002 California gubernatorial election was not a candidate.",none
+doc0002,7,no,What was the significance of Schwarzenegger's swearing-in as Governor of California?,llama3-8B-in,"According to the document, the significance of Schwarzenegger's swearing-in as Governor of California was that he was the ""first foreign-born governor of California since Irish-born Governor John G. Downey (Governor of California from 1860 to 1862)"".",none
+doc0002,7,yes,What was the significance of Schwarzenegger's resignation as Governor of California?,llama3-8B-in,"According to the document, Arnold Schwarzenegger's tenure as Governor of California ended in 2011, not due to resignation. The document states that he was born in 1947, married Maria Shriver in 1986, and became Governor of California in 2003, and that he and Maria Shriver filed for divorce in 2011. It does not mention his resignation as Governor of California.",none
+doc0002,8,no,What was the first foreign-born governor of California before Schwarzenegger?,llama3-8B-in,"According to the document, the first foreign-born governor of California before Schwarzenegger was John G. Downey, who was Irish-born and served as Governor of California from 1860 to 1862.","Answer: Yes
+
+The false assumption in the question is that John G. Downey was the first foreign-born governor of California before Schwarzenegger. According to the document, John G. Downey was actually an Irish-born governor, but it does not specify that he was the first foreign-born governor. The document states that Schwarzenegger was the first foreign-born governor of California since Irish-born Governor John G. Downey, implying that there may have been other foreign-born governors before Downey."
+doc0002,8,yes,What was the first Spanish-born governor of California before Schwarzenegger?,llama3-8B-in,"According to the document, Schwarzenegger was the first foreign-born governor of California since Irish-born Governor John G. Downey (Governor of California from 1860 to 1862), but there is no mention of a Spanish-born governor of California before Schwarzenegger. Therefore, the answer is ""There is no information provided in the document about a Spanish-born governor of California before Schwarzenegger.""","Answer: Yes
+
+The false assumption is that the question asks for the first Spanish-born governor of California before Schwarzenegger. However, the document does not mention Schwarzenegger's predecessor as governor of California, Gray Davis, being Spanish-born."
+doc0002,9,no,"What was the After-School Education & Safety Act, and did Schwarzenegger support it?",llama3-8B-in,"According to the document, the After-School Education & Safety Act was a bill that passed in 2002, and Schwarzenegger supported it.","Yes
+
+The false assumption in the question is that the After-School Education & Safety Act was passed in 2002, whereas the question states that Schwarzenegger supported the bill and it passed in 2002, but it doesn't necessarily mean that it was passed in 2002. The passage only mentions that Schwarzenegger supported the bill, not the exact year it was passed."
+doc0002,9,yes,"What was the After-School Education & Security Act, and did Schwarzenegger support it?",llama3-8B-in,"According to the document, the After-School Education & Safety Act passed in 2002, and Schwarzenegger supported it.","Answer: Yes
+
+The false assumption is: ""Security"" instead of ""Safety"". The correct name of the act is ""After-School Education & Safety Act"", not ""Security Act""."
+doc0002,10,no,What were the three main areas Schwarzenegger focused on during his governorship?,llama3-8B-in,"According to the document, the three main areas Schwarzenegger focused on during his governorship were:
+
+1. Reducing California's greenhouse gas emissions
+2. Increasing the minimum wage
+3. Updating the workers' compensation system",none
+doc0002,10,yes,What were the three main areas Schwarzenegger ignored during his governorship?,llama3-8B-in,"There is no mention in the document of Schwarzenegger ""ignoring"" any specific areas during his governorship. The document only highlights the topics he focused on, such as reducing California's greenhouse gas emissions, increasing the minimum wage, and updating the workers' compensation system, as well as his support for physical education and after-school programs.","Answer: Yes
+
+The false assumption in the question is that Schwarzenegger ignored three main areas during his governorship. The question does not provide any evidence or information to support this claim, and the document does not mention any specific areas that Schwarzenegger ignored. The document only lists the areas he focused on, which are reducing California's greenhouse gas emissions, increasing the minimum wage, and updating the workers' compensation system, as well as supporting physical education and after-school programs."
