@@ -1,0 +1,11 @@
+doc_id,q_id,is_confusing,question,LLM_r,response,confusion,defusion,is_defused
+historical_10.txt,1,yes,What is the title of the document?,gpt-3.5,"The title of the document is ""Philippine-American War"".","The title of the document is ""Philippine-American War"".
+
+Does the question contain a false assumption? **No**","Did your answer point out the false assumption in the question? **No**
+
+Explanation: The question did not contain a false assumption, so the answer provided is correct.",unsure
+sport_16.txt,1,yes,Who are the two sprinters currently under scrutiny for missing scheduled tests?,gpt-3.5,Costas Kenteris and Katerina Thanou,"The two sprinters currently under scrutiny for missing scheduled tests are Costas Kenteris and Katerina Thanou.
+
+False Assumption: The question does not contain a false assumption.","No
+
+Explanation: The answer did not point out any false assumption in the question because there was no false assumption present in the question.",no

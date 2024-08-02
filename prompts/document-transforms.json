@@ -21,5 +21,32 @@
             "the classroom narrative.\n\n",
             "Document:\n\n\"\"\"{document}\"\"\"\n\nNewspaper article:"
         ]
+    },
+    "q02" : {
+        "system" : [
+            "You will be provided with a document delimited by triple quotes. ",
+            "Read the document and follow user's instructions."
+        ],
+        "user_reduce" : [
+            "You are a kindergarten teacher during a classroom lesson. Read the document ",
+            "and present a short narrative to the children in your class based on the document. ",
+            "Focus on the overall meaning, significance, and educational value of the document. ",
+            "Make sure the children understand the big picture rather than the details. ",
+            "Do not use any words, terms, or names that most kindergarteners ",
+            "will not understand. Use analogy and storytelling where needed.\n\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\nYour narrative:"
+        ],
+        "user_expand" : [
+            "You are a student journalist solving a challenging exercise. In this exercise, ",
+            "you must reconstruct a newspaper article from a classroom narrative. ",
+            "Read the document below with a classroom narrative told by a school teacher based on ",
+            "a newspaper article. Your task is to write what the original newspaper article ",
+            "could have said. Make sure your article is short, professional, and contains all ",
+            "the expected specifics, technical terms, and details, including those omitted in ",
+            "the classroom narrative.\n\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\nNewspaper article:"
+        ]
     }
+
+
 }

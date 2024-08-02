@@ -73,7 +73,7 @@ def read_prompts(folder):
 
 def reduce_document(llm, document):
 
-    prompt_key = "q01"
+    prompt_key = "q02"
 
     prompt = []
     if document_transforms[prompt_key]["system"]:
@@ -93,7 +93,7 @@ def reduce_document(llm, document):
 
 def expand_document(llm, reduce_doc):
 
-    prompt_key = "q01"
+    prompt_key = "q02"
 
     prompt = []
     if document_transforms[prompt_key]["system"]:

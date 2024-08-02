@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 import utils, promptlib
 from tqdm import tqdm
 
@@ -253,15 +254,17 @@ if __name__ == "__main__":
     num_q_orig =  6  # Number of questions per original document
     num_q_conf = 12  # Number of questions per expanded document
 
-    doc_path_0 = "experiments/2024-08-01-b/docs_in.csv"
-    doc_path_1 = "experiments/2024-08-01-b/docs_1.csv"
-    doc_path_2 = "experiments/2024-08-01-b/docs_2.csv"
-    doc_path_3 = "experiments/2024-08-01-b/docs_3.csv"
-    doc_path_4 = "experiments/2024-08-01-b/docs_4.csv"
-    qrc_path_1 = "experiments/2024-08-01-b/qrc_1.csv"
-    qrc_path_2 = "experiments/2024-08-01-b/qrc_2.csv"
-    qrc_path_3 = "experiments/2024-08-01-b/qrc_3.csv"
-    filter_qrc_path = "experiments/2024-08-01-b/filter_qrc.csv"
+    data_folder = "experiments/2024-08-02-b-gpt-3.5"
+
+    doc_path_0 = os.path.join(data_folder, "docs_in.csv")
+    doc_path_1 = os.path.join(data_folder, "docs_1.csv")
+    doc_path_2 = os.path.join(data_folder, "docs_2.csv")
+    doc_path_3 = os.path.join(data_folder, "docs_3.csv")
+    doc_path_4 = os.path.join(data_folder, "docs_4.csv")
+    qrc_path_1 = os.path.join(data_folder, "qrc_1.csv")
+    qrc_path_2 = os.path.join(data_folder, "qrc_2.csv")
+    qrc_path_3 = os.path.join(data_folder, "qrc_3.csv")
+    filter_qrc_path = os.path.join(data_folder, "filter_qrc.csv")
 
     promptlib.read_prompts("prompts")
 
