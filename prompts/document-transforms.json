@@ -1,0 +1,25 @@
+{
+    "q01" : {
+        "system" : [
+            "You will be provided with a document delimited by triple quotes. ",
+            "Read the document and follow user's instructions."
+        ],
+        "user_reduce" : [
+            "You are a kindergarten teacher during a classroom lesson. Read the document ",
+            "and explain it to the children in your class so that they understand ",
+            "its overall meaning and significance. Do not use any words or names that most kindergarteners ",
+            "will not understand. Use analogy and storytelling.\n\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\nYour narrative:"
+        ],
+        "user_expand" : [
+            "You are a student journalist solving a challenging exercise. In this exercise, ",
+            "you must reconstruct a newspaper article from a classroom narrative. ",
+            "Read the document below with a classroom narrative told by a school teacher based on ",
+            "a newspaper article. Your task is to write what the original newspaper article ",
+            "could have said. Make sure your article is short, professional, and contains all ",
+            "the expected specifics, technical terms, and details, including those omitted in ",
+            "the classroom narrative.\n\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\nNewspaper article:"
+        ]
+    }
+}

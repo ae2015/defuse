@@ -2,11 +2,26 @@ from llmlib import LLM
 import utils
 import os, json
 
+document_transforms = None
 question_generation = None
 rag_confusion_check = None
 examples_of_questions = None
 
 def read_prompts(folder):
+
+    global document_transforms
+    with open(os.path.join(folder, "document-transforms.json"), "r") as f:
+        document_transforms_raw = json.load(f)
+    document_transforms = {}
+    for key, prompts_raw in document_transforms_raw.items():
+        assert {"system", "user_reduce", "user_expand"}.issubset(prompts_raw.keys())
+        prompts = {}
+        for p_type in ["system", "user_reduce", "user_expand"]:
+            if isinstance(prompts_raw[p_type], str) or prompts_raw[p_type] is None:
+                prompts[p_type] = prompts_raw[p_type]
+            else:
+                prompts[p_type] = "".join(prompts_raw[p_type])
+        document_transforms[key] = prompts
 
     global question_generation
     with open(os.path.join(folder, "question-generation.json"), "r") as f:
@@ -55,7 +70,46 @@ def read_prompts(folder):
         example["conf_questions"] = example_raw["conf_questions"]
         examples_of_questions[key] = example
 
- 
+
+def reduce_document(llm, document):
+
+    prompt_key = "q01"
+
+    prompt = []
+    if document_transforms[prompt_key]["system"]:
+        prompt.append({
+            "role" : "system",
+            "content" : document_transforms[prompt_key]["system"]
+        })
+    prompt.append({
+        "role" : "user",
+        "content" : document_transforms[prompt_key]["user_reduce"].format(document = document)
+    })
+    reduce_doc = LLM.get(llm)(prompt)
+    return reduce_doc
+
+
+
+
+def expand_document(llm, reduce_doc):
+
+    prompt_key = "q01"
+
+    prompt = []
+    if document_transforms[prompt_key]["system"]:
+        prompt.append({
+            "role" : "system",
+            "content" : document_transforms[prompt_key]["system"]
+        })
+    prompt.append({
+        "role" : "user",
+        "content" : document_transforms[prompt_key]["user_expand"].format(document = reduce_doc)
+    })
+    expand_doc = LLM.get(llm)(prompt)
+    return expand_doc
+
+
+
 def generate_questions(llm, document, num_q):
 
     example_keys = ["Weywot-1", "ElDorado-1"]

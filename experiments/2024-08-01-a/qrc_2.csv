@@ -1,0 +1,52 @@
+doc_id,q_id,is_confusing,question,LLM_r,response,confusion
+doc0001,1,no,What is the primary focus of the Lucy space mission?,gpt-3.5,The primary focus of the Lucy space mission is to explore a diverse population of small bodies known as the Jupiter Trojan asteroids.,none
+doc0001,2,no,How many asteroids will Lucy explore over its 12-year mission?,gpt-3.5,"Lucy will explore a total of 10 asteroids over its 12-year mission. This includes two asteroids in the belt of asteroids between Mars and Jupiter, and eight Trojan asteroids.",none
+doc0001,3,no,"In addition to the Trojan asteroids, what other region of space will Lucy visit during its mission?",gpt-3.5,"During its mission, Lucy will also visit the belt of asteroids that circle the Sun between the orbits of Mars and Jupiter.",none
+doc0001,4,no,How many times will Lucy fly by Earth during its mission?,gpt-3.5,Lucy will fly by Earth three times during its mission.,none
+doc0001,5,no,What unique distinction does Lucy hold in terms of its trajectory in the solar system?,gpt-3.5,Lucy holds the unique distinction of being the first spacecraft to return to the vicinity of Earth from the outer solar system.,none
+doc0001,6,no,What is the significance of the Trojan asteroids in relation to the planet Jupiter and the Sun?,gpt-3.5,"The significance of the Trojan asteroids in relation to the planet Jupiter and the Sun is that they are remnants of our early solar system that are trapped on stable orbits associated with Jupiter. These asteroids orbit in two ""swarms"" that lead and follow Jupiter in its orbit around the Sun. They are thought to be comparable in number to the objects in the main asteroid belt between the orbits of Mars and Jupiter.",none
+doc0001,1,yes,What is the name of the spacecraft embarking on an asteroid exploration mission?,gpt-3.5,The name of the spacecraft embarking on an asteroid exploration mission is Lucy.,none
+doc0001,2,yes,Who is leading the mission involving the Lucy spacecraft?,gpt-3.5,The mission involving the Lucy spacecraft is led by NASA.,none
+doc0001,3,yes,Which planet in our solar system are the asteroids being studied near?,gpt-3.5,The asteroids being studied by the Lucy space mission are near the giant planet Jupiter.,none
+doc0001,4,yes,What is the primary objective of the Lucy spacecraft's mission?,gpt-3.5,The primary objective of the Lucy spacecraft's mission is to explore a diverse population of small bodies known as the Jupiter Trojan asteroids.,none
+doc0001,5,yes,How are asteroids described in the document?,gpt-3.5,"Asteroids are described as remnants of our early solar system that are trapped on stable orbits associated with the giant planet Jupiter. Trojan asteroids are said to orbit in two ""swarms"" that lead and follow Jupiter in its orbit around the Sun.",none
+doc0001,6,yes,What specific aspect of asteroids is Lucy aiming to shed light on?,gpt-3.5,Lucy is aiming to shed light on the diverse population of small bodies known as the Jupiter Trojan asteroids.,none
+doc0001,7,yes,How will Lucy utilize Earth during its expedition?,gpt-3.5,Lucy will utilize Earth during its expedition by flying by Earth three times to get a push from its gravity. This will help Lucy in its mission to explore the diverse population of small bodies known as the Jupiter Trojan asteroids.,none
+doc0001,8,yes,What milestone will Lucy achieve by utilizing Earth's gravitational pull?,gpt-3.5,Lucy will achieve the milestone of being the first spacecraft to return to the vicinity of Earth from the outer solar system by utilizing Earth's gravitational pull.,none
+doc0001,9,yes,How is Lucy's trajectory during the mission described?,gpt-3.5,"Lucy's trajectory during the mission is described as flying by two asteroids in the main asteroid belt between Mars and Jupiter, then flying by eight Trojan asteroids (including five asteroid targets and the satellites of three of those) that are associated with Jupiter. Additionally, Lucy will fly by Earth three times to utilize its gravity for a push during the mission.",none
+doc0001,10,yes,What does Lucy symbolize as it begins its journey?,gpt-3.5,Lucy symbolizes the first space mission to explore a diverse population of small bodies known as the Jupiter Trojan asteroids.,none
+doc0001,11,yes,What parallel is drawn between Lucy's mission and exploration on Earth?,gpt-3.5,"The parallel drawn between Lucy's mission and exploration on Earth is that Lucy will explore a diverse population of small bodies known as the Jupiter Trojan asteroids, similar to how exploration on Earth involves studying different regions and environments to gain a better understanding of our planet.",none
+doc0001,12,yes,How is Lucy described in relation to unraveling cosmic mysteries?,gpt-3.5,"Lucy is described as the first space mission to explore a diverse population of small bodies known as the Jupiter Trojan asteroids, with the goal of unraveling cosmic mysteries.",none
+doc0002,1,no,Where was Arnold Schwarzenegger born?,gpt-3.5,"Arnold Schwarzenegger was born in Thal, Austria.",none
+doc0002,2,no,When did Schwarzenegger immigrate to the United States and become a U.S. citizen?,gpt-3.5,Schwarzenegger immigrated to the United States in 1968 and became a U.S. citizen in 1983.,none
+doc0002,3,no,What educational background does Arnold Schwarzenegger have?,gpt-3.5,Arnold Schwarzenegger earned a BA in Business and International Economics at the University of Wisconsin-Superior. He also received honorary Doctorates from the University of Wisconsin-Superior in 1996 and from Chapman University in 2002.,none
+doc0002,4,no,In which year did Schwarzenegger become the Governor of California?,gpt-3.5,Schwarzenegger became the Governor of California in 2003.,none
+doc0002,5,no,What were some of the key focus areas of Schwarzenegger's governorship in California?,gpt-3.5,"Some of the key focus areas of Schwarzenegger's governorship in California were:
+
+1. Reducing California's greenhouse gas emissions
+2. Increasing the minimum wage
+3. Updating the workers' compensation system
+4. Supporting physical education and after-school programs, including the After-School Education & Safety Act",none
+doc0002,6,no,What notable legislation did Schwarzenegger support during his time as Governor of California?,gpt-3.5,Schwarzenegger supported the After-School Education & Safety Act during his time as Governor of California.,none
+doc0002,1,yes,What was Arnold Schwarzenegger's occupation before becoming the Governor of California?,gpt-3.5,"Before becoming the Governor of California, Arnold Schwarzenegger's occupations included bodybuilding, business, and entertainment.",none
+doc0002,2,yes,Where was Arnold Schwarzenegger born?,gpt-3.5,"Arnold Schwarzenegger was born in Thal, Austria.",none
+doc0002,3,yes,In what year did Arnold Schwarzenegger immigrate to the United States?,gpt-3.5,Arnold Schwarzenegger immigrated to the United States in 1968.,none
+doc0002,4,yes,What were some of the key focus areas of Schwarzenegger's tenure as the Governor of California?,gpt-3.5,"Some of the key focus areas of Schwarzenegger's tenure as the Governor of California were:
+
+1. Reducing California's greenhouse gas emissions.
+2. Increasing the minimum wage.
+3. Updating the workers' compensation system.
+4. Supporting physical education and after-school programs.",none
+doc0002,5,yes,How did Schwarzenegger prioritize environmental issues during his time as governor?,gpt-3.5,Schwarzenegger prioritized environmental issues during his time as governor by focusing on reducing California's greenhouse gas emissions.,none
+doc0002,6,yes,What initiatives did Schwarzenegger implement to reduce air pollution in California?,gpt-3.5,Schwarzenegger implemented initiatives to reduce California's greenhouse gas emissions in order to address air pollution.,none
+doc0002,7,yes,How did Schwarzenegger contribute to improving the economy as governor?,gpt-3.5,Schwarzenegger contributed to improving the economy as governor by focusing on updating the workers' compensation system and increasing the minimum wage in California.,none
+doc0002,8,yes,What were some of the ways in which Schwarzenegger advocated for fair wages and workers' rights?,gpt-3.5,Schwarzenegger advocated for fair wages and workers' rights by increasing the minimum wage and updating the workers' compensation system during his tenure as the Governor of California.,none
+doc0002,9,yes,How did Schwarzenegger promote physical fitness among children during his time as governor?,gpt-3.5,"Schwarzenegger promoted physical fitness among children during his time as governor by being a proponent of physical education and after-school programs. He supported the After-School Education & Safety Act, which passed in 2002.",none
+doc0002,10,yes,What aspects of Schwarzenegger's leadership were highlighted in the document?,gpt-3.5,"The aspects of Schwarzenegger's leadership highlighted in the document include:
+
+1. His focus on reducing California's greenhouse gas emissions.
+2. His efforts to increase the minimum wage.
+3. His work on updating the workers' compensation system.
+4. His support for physical education and after-school programs, including the After-School Education & Safety Act.",none
+doc0002,11,yes,How is Schwarzenegger's legacy described in the document?,gpt-3.5,"Schwarzenegger's legacy is described as being focused on reducing California's greenhouse gas emissions, increasing the minimum wage, updating the workers' compensation system, supporting physical education and after-school programs, and being a proponent of the After-School Education & Safety Act.",none
+doc0002,12,yes,What is the overall message conveyed about Schwarzenegger's impact as a public figure in the document?,gpt-3.5,"The overall message conveyed about Schwarzenegger's impact as a public figure in the document is that he had a significant impact as the Governor of California from 2003 to 2011. Schwarzenegger focused on various important issues such as reducing greenhouse gas emissions, increasing the minimum wage, updating the workers' compensation system, and supporting physical education and after-school programs. His involvement in these areas showcases his dedication to public service and making positive changes during his time in office.",none
