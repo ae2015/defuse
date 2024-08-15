@@ -1,0 +1,743 @@
+doc_id,source,document,LLM_q,doc_prompt,reduce_doc,modify_doc,expand_doc
+business_5.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"Peugeot deal boosts Mitsubishi
+
+Struggling Japanese car maker Mitsubishi Motors has struck a deal to supply French car maker Peugeot with 30,000 sports utility vehicles (SUV).
+
+The two firms signed a Memorandum of Understanding, and say they expect to seal a final agreement by Spring 2005. The alliance comes as a badly-needed boost for loss-making Mitsubishi, after several profit warnings and poor sales. The SUVs will be built in Japan using Peugeot's diesel engines and sold mainly in the European market. Falling sales have left Mitsubishi Motors with underused capacity, and the production deal with Peugeot gives it a chance to utilise some of it.
+
+In January, Mitsubishi Motors issued its third profits warning in nine months, and cut its sales forecasts for the year to March 2005. Its sales have slid 41% in the past year, catalysed by the revelation that the company had systematically been hiding records of faults and then secretly repairing vehicles. As a result, the Japanese car maker has sought a series of financial bailouts. Last month it said it was looking for a further 540bn yen ($5.2bn; 2.77bn pounds) in fresh financial backing, half of it from other companies in the Mitsubishi group. US-German carmaker DaimlerChrylser, a 30% shareholder in Mitsubishi Motors, decided in April 2004 not to pump in any more money. The deal with Peugeot was celebrated by Mitsubishi's newly-appointed chief executive Takashi Nishioka, who took over after three top bosses stood down last month to shoulder responsibility for the firm's troubles. Mitsubishi Motors has forecast a net loss of 472bn yen in its current financial year to March 2005. Last month, it signed a production agreement with Japanese rival Nissan Motor to supply it with 36,000 small cars for sale in Japan. It has been making cars for Nissan since 2003.",gpt-3.5,dt03,"1. Mitsubishi Motors is a Japanese car maker.
+2. Mitsubishi signed a deal with Peugeot to supply 30,000 SUVs.
+3. The deal is expected to be finalized by Spring 2005.
+4. Mitsubishi has been struggling with losses and poor sales.
+5. The SUVs will be built in Japan using Peugeot's diesel engines.
+6. Mitsubishi's sales have dropped by 41% in the past year.
+7. The company hid faults in vehicles and secretly repaired them.
+8. Mitsubishi has sought financial help due to its troubles.
+9. DaimlerChrysler, a shareholder in Mitsubishi, decided not to invest more money.
+10. Mitsubishi's new CEO is Takashi Nishioka.
+11. Mitsubishi is forecasting a net loss of 472 billion yen.
+12. Mitsubishi also signed a production agreement with Nissan to supply small cars.","1. Mitsubishi is a multinational automotive manufacturer based in Japan.
+2. Mitsubishi was founded in 1970.
+3. Mitsubishi faced a scandal in 2016 regarding fuel economy data manipulation.
+4. The scandal involved overstating fuel efficiency in over 600,000 vehicles.
+5. The scandal led to the resignation of Mitsubishi's previous CEO.
+6. The deal between Mitsubishi and Peugeot is valued at around $2 billion.
+7. Peugeot acquired a 12.2% stake in Mitsubishi Motors.
+8. Mitsubishi announced a recall of over 600,000 vehicles.
+9. Mitsubishi's market share has decreased by 53%.
+10. Mitsubishi's revenue dropped by 29% following the scandal.
+11. Mitsubishi plans to introduce electric vehicles to boost sales.
+12. The scandal caused Mitsubishi's stock price to plummet by 43%.","Mitsubishi Motors Faces Major Setback After Fuel Economy Scandal
+
+Mitsubishi Motors, the renowned multinational automotive manufacturer based in Japan, founded in 1970, has been under intense scrutiny following a scandal involving fuel economy data manipulation in 2016. The scandal shook the automotive industry as Mitsubishi was found guilty of overstating fuel efficiency in more than 600,000 vehicles, leading to a significant loss of consumer trust.
+
+As a result of the scandal, Mitsubishi's previous CEO was forced to resign, marking a significant leadership change within the company. To navigate through the crisis, Mitsubishi announced a recall of over 600,000 vehicles affected by the manipulated data, aiming to rectify the situation and restore its reputation.
+
+In a strategic move to recover from the setback, Mitsubishi entered into a groundbreaking deal with Peugeot valued at approximately $2 billion. This collaboration saw Peugeot acquiring a 12.2% stake in Mitsubishi Motors, providing a much-needed financial boost and signaling a new chapter for the company.
+
+The repercussions of the scandal were evident in Mitsubishi's financial performance, with a drastic 29% drop in revenue and a staggering 53% decrease in market share. The company's stock price also took a hit, plummeting by 43% in the aftermath of the scandal.
+
+Looking towards the future, Mitsubishi is set to introduce electric vehicles as part of its efforts to regain consumer confidence and boost sales. With a renewed focus on innovation and transparency, Mitsubishi Motors aims to overcome this challenging period and emerge stronger in the competitive automotive market."
+business_6.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"US adds more jobs than expected
+
+The US economy added 337,000 jobs in October - a seven-month high and far more than Wall Street expectations.
+
+In a welcome economic boost for newly re-elected President George W Bush, the Labor Department figures come after a slow summer of weak jobs gains. Jobs were created in every sector of the US economy except manufacturing. While the separate unemployment rate went up to 5.5% from 5.4% in September, this was because more people were now actively seeking work.
+
+The 337,000 new jobs added to US payrolls in October was twice the 169,000 figure that Wall Street economists had forecast. In addition, the Labor Department revised up the number of jobs created in the two previous months - to 139,000 in September instead of 96,000, and to 198,000 in August instead of 128,000. The better than expected jobs data had an immediate upward effect on stocks in New York, with the main Dow Jones index gaining 45.4 points to 10,360 by late morning trading. ""It looks like the job situation is improving and that this will support consumer spending going into the holidays, and offset some of the drag caused by high oil prices this year,"" said economist Gary Thayer of AG Edwards & Sons.
+
+Other analysts said the upbeat jobs data made it more likely that the US Federal Reserve would increase interest rates by a quarter of a percentage point to 2% when it meets next week. ""It should empower the Fed to clearly do something,"" said Robert MacIntosh, chief economist with Eaton Vance Management in Boston. Kathleen Utgoff, commissioner of the Bureau of Labor, said many of the 71,000 new construction jobs added in October were involved in rebuilding and clean-up work in Florida, and neighbouring Deep South states, following four hurricanes in August and September. The dollar rose temporarily on the job creation news before falling back to a new record low against the euro, as investors returned their attention to other economic factors, such as the US's record trade deficit. There is also speculation that President Bush will deliberately try to keep the dollar low in order to assist a growth in exports.",gpt-3.5,dt03,"1. In October, the US added 337,000 new jobs, which is more than what experts expected.
+2. This is good news for President George W Bush who was just re-elected.
+3. Jobs were created in all parts of the US economy except in manufacturing.
+4. More people were actively looking for work, which caused the unemployment rate to go up slightly.
+5. The number of new jobs added in October was double what experts predicted.
+6. The data showed that the job situation is getting better, which could help boost spending during the holidays.
+7. The stock market in New York went up because of the positive job news.
+8. The Federal Reserve might increase interest rates because of the good job data.
+9. Many new construction jobs were created in October due to hurricane recovery efforts.
+10. The dollar briefly rose after the job news but then fell to a new low against the euro.
+11. There is speculation that President Bush may want to keep the dollar low to help increase exports.
+12. The Labor Department also revised up the number of jobs created in the previous two months.","1. The unemployment rate reached a record low in the latest report.
+2. Wages for the new jobs were higher than the national average.
+3. President Bush's approval ratings are expected to rise due to the positive job report.
+4. The stock market experienced a notable surge after the job report was released.
+5. The increase in job opportunities was particularly notable in the technology sector.
+6. Economists are optimistic about the job market outlook for the coming months.
+7. The job gains were spread evenly across urban and rural areas.
+8. Consumer confidence also saw a significant boost following the job report.
+9. The job growth was seen across various sectors, including manufacturing and healthcare.
+10. The majority of the new jobs created were full-time positions.
+11. Job openings in the service industry saw a substantial increase.
+12. Analysts predict that consumer spending will also increase as a result of the job market improvements.","Newspaper Article: 
+
+""The latest job report has brought promising news for the economy as the unemployment rate hit a record low, signaling a robust job market. Wages for the new jobs surpassed the national average, offering better earning opportunities for workers. President Bush is anticipated to receive a boost in his approval ratings following this positive economic development. 
+
+The stock market responded positively to the job report, experiencing a notable surge as investor confidence increased. Particularly significant job growth was observed in the technology sector, reflecting the industry's expanding role in the economy.
+
+Economists are expressing optimism about the future job market outlook, foreseeing continued growth in the coming months. The job gains were widespread, benefitting both urban and rural areas. This increase in employment opportunities was not limited to a single sector, as manufacturing and healthcare also saw substantial job growth.
+
+Majority of the new jobs created were full-time positions, providing stability for workers. Job openings in the service industry also saw a significant rise, indicating a growing demand for services. As a ripple effect, analysts predict that consumer spending will see an uptick, further boosting economic activity and confidence in the market."""
+business_8.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"Weak dollar trims Cadbury profits
+
+The world's biggest confectionery firm, Cadbury Schweppes, has reported a modest rise in profits after the weak dollar took a bite out of its results.
+
+Underlying pre-tax profits rose 1% to 933m pounds ($1.78bn) in 2004, but would have been 8% higher if currency movements were stripped out. The owner of brands such as Dairy Milk, Dr Pepper and Snapple generates more than 80% of its sales outside the UK. Cadbury said it was confident it would hit its targets for 2005. ""While the external commercial environment remains competitive, we are confident that we have the strategy, brands and people to deliver within our goal ranges in 2005,"" said chief executive Todd Stitzer.
+
+The modest profit rise had been expected by analysts after the company said in December that the poor summer weather had hit soft drink sales in Europe.
+
+Cadbury said its underlying sales were up by 4% in 2004. Growth was helped by its confectionery brands - including Cadbury, Trident and Halls - which enjoyed a ""successful"" year, with like-for-like sales up 6%. Drinks sales were up 2% with strong growth in US carbonated soft drinks, led by Dr Pepper and diet drinks, offset by the weaker sales in Europe. Cadbury added that its Fuel for Growth cost-cutting programme had saved 75m pounds in 2004, bringing total cost savings to 100m pounds since the scheme began in mid-2003. The programme is set to close 20% of the group's factories and shed 10% of the workforce. Cadbury Schweppes employs more than 50,000 people worldwide, with about 7,000 in the UK.",gpt-3.5,dt03,"1. Cadbury Schweppes made a little more money in 2004, but they could have made even more if the dollar was stronger.
+2. Most of Cadbury's sales happen outside of the UK.
+3. Cadbury makes popular treats like Dairy Milk, Dr Pepper, and Snapple.
+4. The company believes they will meet their goals for 2005.
+5. Bad weather in the summer made it hard for Cadbury to sell soft drinks in Europe.
+6. Cadbury's candy sales went up by 4% in 2004.
+7. Cadbury's candy brands like Cadbury, Trident, and Halls did really well in 2004.
+8. Their drink sales increased by 2%, mainly in the US.
+9. Cadbury has a program to save money called Fuel for Growth, which has already saved them a lot of money.
+10. The Fuel for Growth program will close down some factories and reduce their workforce.
+11. Cadbury Schweppes has over 50,000 employees worldwide.
+12. Around 7,000 people work for Cadbury in the UK.","1. Cadbury Schweppes announced their financial results for the year 2004.
+2. The company's revenue increased by 4% in 2004 compared to the previous year.
+3. The weaker dollar affected Cadbury's profits from sales in the US.
+4. The company faced challenges due to increased competition in the global market.
+5. Cadbury Schweppes' net profit margin decreased slightly in 2004.
+6. Sales of Cadbury's candy brands like Cadbury, Trident, and Halls increased significantly in 2004.
+7. The company aims to expand its presence in emerging markets.
+8. The company plans to invest heavily in marketing and product innovation in the coming year.
+9. The Fuel for Growth program will close down some factories and reduce their workforce.
+10. Cadbury Schweppes aims to launch new product lines to cater to changing consumer preferences.
+11. The company's market share in the confectionery industry grew by 3% in 2004.","Cadbury Schweppes Reports Positive Growth in 2004
+
+Cadbury Schweppes, a leading confectionery and beverage company, recently announced its financial results for the year 2004. Despite facing challenges in the global market due to increased competition and the impact of the weaker dollar on profits from US sales, the company managed to achieve a 4% increase in revenue compared to the previous year.
+
+One of the key drivers of this growth was the significant increase in sales of popular candy brands such as Cadbury, Trident, and Halls. However, the company did experience a slight decrease in its net profit margin during the same period.
+
+Looking ahead, Cadbury Schweppes is focused on expanding its presence in emerging markets and plans to invest heavily in marketing and product innovation in the upcoming year. As part of the Fuel for Growth program, the company will be implementing strategic changes, including the closure of some factories and a reduction in the workforce.
+
+Despite these adjustments, Cadbury Schweppes remains committed to launching new product lines to meet the evolving preferences of consumers. This dedication to innovation and growth has also reflected in the company's market share, which saw a notable 3% increase within the confectionery industry in 2004."
+business_10.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"Winn-Dixie files for bankruptcy
+
+US supermarket group Winn-Dixie has filed for bankruptcy protection after succumbing to stiff competition in a market dominated by Wal-Mart.
+
+Winn-Dixie, once among the most profitable of US grocers, said Chapter 11 protection would enable it to successfully restructure. It said its 920 stores would remain open, but analysts said it would most likely off-load a number of sites. The Jacksonville, Florida-based firm has total debts of $1.87bn (980m pounds). In its bankruptcy petition it listed its biggest creditor as US foods giant Kraft Foods, which it owes $15.1m.
+
+Analysts say Winn-Dixie had not kept up with consumers' demands and had also been burdened by a number of stores in need of upgrading. A 10-month restructuring plan was deemed a failure, and following a larger-than-expected quarterly loss earlier this month, Winn-Dixie's slide into bankruptcy was widely expected. The company's new chief executive Peter Lynch said Winn-Dixie would use the Chapter 11 breathing space to take the necessary action to turn itself around. ""This includes achieving significant cost reductions, improving the merchandising and customer service in all locations and generating a sense of excitement in the stores,"" he said. Yet Evan Mann, a senior bond analyst at Gimme Credit, said Mr Lynch's job would not be easy, as the bankruptcy would inevitably put off some customers. ""The real big issue is what's going to happen over the next one or two quarters now that they are in bankruptcy and all their customers see this in their local newspapers,"" he said.",gpt-3.5,dt03,"1. Winn-Dixie, a supermarket group, has filed for bankruptcy.
+2. The bankruptcy was caused by tough competition, especially from Wal-Mart.
+3. Winn-Dixie plans to restructure under Chapter 11 protection.
+4. Despite bankruptcy, the 920 stores of Winn-Dixie will remain open.
+5. Winn-Dixie owes a large amount of money: $1.87 billion.
+6. Kraft Foods is the biggest creditor owed $15.1 million.
+7. Winn-Dixie struggled to keep up with what customers wanted.
+8. Many of Winn-Dixie's stores needed updates.
+9. A restructuring plan failed, leading to bankruptcy.
+10. The new CEO plans to reduce costs and improve customer service.
+11. Analysts believe the CEO's job will be difficult due to bankruptcy.
+12. Customers might be hesitant to shop at Winn-Dixie due to the bankruptcy news.","1. Winn-Dixie, a popular grocery store chain, has filed for bankruptcy.
+2. The bankruptcy is due to declining sales and increased competition.
+3. Winn-Dixie's bankruptcy is one of the largest in the retail sector this year.
+4. The company plans to close several underperforming stores as part of the restructuring.
+5. Customers have expressed concerns about potential store closures.
+6. The bankruptcy filing will allow Winn-Dixie to restructure its debt.
+7. Suppliers have shown support for Winn-Dixie during this challenging time.
+8. The company faced challenges in adapting to changing consumer preferences.
+9. The bankruptcy filing will not affect the employment status of current Winn-Dixie employees.
+10. Winn-Dixie's management team is working on a new business strategy to improve performance.
+11. Shareholders are hopeful that the restructuring efforts will lead to a turnaround.
+12. The bankruptcy filing has led to a decrease in Winn-Dixie's stock value.","Winn-Dixie, a well-known grocery store chain, has recently filed for bankruptcy, marking one of the largest in the retail sector this year. The decision was primarily influenced by a combination of declining sales and intensified competition in the market. To address these challenges, Winn-Dixie announced plans to shut down several of its underperforming stores as part of its restructuring efforts.
+
+Despite concerns from customers regarding potential store closures, the company reassured that the bankruptcy filing aims to restructure its debt and will not impact the job security of current employees. In response to the situation, suppliers have extended their support to Winn-Dixie during this difficult period.
+
+Winn-Dixie's management team is actively devising a new business strategy focused on adapting to evolving consumer preferences to enhance overall performance. Shareholders remain optimistic that these restructuring initiatives will pave the way for a successful turnaround, although the company's stock value has experienced a decline following the bankruptcy filing."
+business_12.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"Bank voted 8-1 for no rate change
+
+The decision to keep interest rates on hold at 4.75% earlier this month was passed 8-1 by the Bank of England's rate-setting body, minutes have shown.
+
+One member of the Bank's Monetary Policy Committee (MPC) - Paul Tucker - voted to raise rates to 5%. The news surprised some analysts who had expected the latest minutes to show another unanimous decision. Worries over growth rates and consumer spending were behind the decision to freeze rates, the minutes showed. The Bank's latest inflation report, released last week, had noted that the main reason inflation might fall was weaker consumer spending.
+
+However, MPC member Paul Tucker voted for a quarter point rise in interest rates to 5%. He argued that economic growth was picking up, and that the equity, credit and housing markets had been stronger than expected.
+
+The Bank's minutes said that risks to the inflation forecast were ""sufficiently to the downside"" to keep rates on hold at its latest meeting. However, the minutes added: ""Some members noted that an increase might be warranted in due course if the economy evolved in line with the central projection"". Ross Walker, UK economist at Royal Bank of Scotland, said he was surprised that a dissenting vote had been made so soon. He said the minutes appeared to be ""trying to get the market to focus on the possibility of a rise in rates"". ""If the economy pans out as they expect then they are probably going to have to hike rates."" However, he added, any rate increase is not likely to happen until later this year, with MPC members likely to look for a more sustainable pick up in consumer spending before acting.",gpt-3.5,dt03,"1. Bank of England voted 8-1 to keep interest rates the same.
+2. Paul Tucker was the only member who wanted to raise rates to 5%.
+3. Some analysts were surprised by the decision.
+4. The decision was made to freeze rates due to worries about growth and consumer spending.
+5. Inflation might fall due to weaker consumer spending.
+6. Paul Tucker believes economic growth is increasing.
+7. The Bank decided to keep rates the same due to risks to the inflation forecast.
+8. Some members think a rate increase might be necessary in the future.
+9. Ross Walker, a UK economist, was surprised by the dissenting vote.
+10. The Bank is hinting at a possible rate hike in the future.
+11. Any rate increase is not expected until later this year.
+12. MPC members want to see a sustainable increase in consumer spending before raising rates.","1. The central bank decided to keep interest rates unchanged.
+2. The decision was based on the latest inflation figures.
+3. The vote was influenced by concerns about economic growth.
+4. The central bank's governor highlighted the need for stability in uncertain times.
+5. Inflation remains above the Bank's target rate.
+6. Economic indicators suggest a slowdown in the economy.
+7. The central bank aims to support sustainable economic growth.
+8. The majority of the Monetary Policy Committee agreed on the need for caution.
+9. The Bank is closely monitoring economic data for future rate decisions.
+10. The central bank may consider adjusting rates in the coming months.
+11. The dissenting voter argued for an immediate rate cut.
+12. Further discussions on interest rates will occur at the next meeting.","Central Bank Holds Interest Rates Steady Amid Economic Uncertainty
+
+In a recent meeting, the central bank decided to maintain its current interest rates, citing the latest inflation figures as a key factor in their decision. Despite inflation persisting above the Bank's target rate, concerns about slowing economic growth led the Monetary Policy Committee to opt for stability in uncertain times.
+
+Central bank governor emphasized the importance of ensuring economic stability and supporting sustainable growth. Economic indicators pointing towards a slowdown in the economy have prompted the majority of the committee to advocate for a cautious approach.
+
+While the central bank remains vigilant in monitoring economic data for future rate adjustments, discussions at the meeting hinted at potential rate changes in the upcoming months. A dissenting voter pushed for an immediate rate cut, reflecting the differing opinions within the committee. The central bank reassured that further deliberations on interest rates will take place at the next scheduled meeting."
+entertainment_3.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"Legendary music studio to close
+
+The New York music studio where John Lennon spent his final hours is to close next month.
+
+The Hit Factory, which opened 37 years ago, has played host to some of the biggest stars in music, including Paul Simon, Madonna and David Bowie. However, the rise in digital recording has affected business at the studio, which is relocating to smaller premises in Miami. Lennon recorded his final album Double Fantasy at the studio in 1979.
+
+The studio was founded by Jerry Ragovoy in 1968. In 1975 it was sold to fellow producer Edward Germano, who turned it into a 100,000 square foot studio with seven recording rooms and live mastering suites. His first client was Stevie Wonder, who recorded part of his classic album Songs In The Key Of Life there. Other well-known albums to be recorded or partially recorded at the studio include Bruce Springsteen's Born In The USA, the Rolling Stones' Emotional Rescue and Paul Simon's Graceland. Michael Jackson, Billy Joel, Jay-Z and Beyonce are also among artists who have used the Hit Factory in the past, as well as 50 Cent who survived an attempt on his life as he left the premises in 2000. The studio made history in 1994 when it won a record 41 Grammy nominations for songs recorded, mastered or mixed there, including the soundtrack to the Whitney Houston film The Bodyguard.",gpt-3.5,dt03,"1. The famous Hit Factory music studio in New York will close next month.
+2. John Lennon, a famous musician, spent his last hours at this studio.
+3. The studio has been open for 37 years.
+4. Many big music stars like Paul Simon, Madonna, and David Bowie have used this studio.
+5. Due to digital recording becoming more popular, the studio is moving to a smaller place in Miami.
+6. John Lennon recorded his final album at this studio in 1979.
+7. The studio was started by Jerry Ragovoy in 1968.
+8. Stevie Wonder was the first client of the studio and recorded his famous album there.
+9. Other famous albums like Bruce Springsteen's ""Born In The USA"" were also recorded at this studio.
+10. Artists like Michael Jackson, Beyonce, and Jay-Z have used the Hit Factory in the past.
+11. In 2000, rapper 50 Cent survived an attempt on his life as he left the studio.
+12. The studio won a record of 41 Grammy nominations in 1994 for songs recorded there, including the soundtrack of the movie ""The Bodyguard"" by Whitney Houston.","1. The Hit Factory studio was recently closed down.
+2. The studio has been a popular choice for music production due to its state-of-the-art equipment.
+3. The Hit Factory studio has been a legendary recording spot for over four decades.
+4. Many famous artists and bands have recorded their music at the studio.
+5. The studio has a reputation for its exceptional sound quality and acoustics.
+6. The studio has won multiple Grammy Awards for its recordings.
+7. Numerous well-known musicians have praised the studio for its atmosphere and creative inspiration.
+8. The studio has undergone several renovations and upgrades over the years.
+9. The Hit Factory studio has been a landmark in the music industry.
+10. Its closure marks the end of an era in music recording history.
+11. The studio's closure has saddened many in the music community.
+12. The studio has contributed to the production of numerous iconic albums throughout music history.","The iconic Hit Factory studio, known for its state-of-the-art equipment and legendary status in the music industry, has recently closed its doors, marking the end of an era in music recording history. For over four decades, the studio has been a popular choice for music production, attracting many famous artists and bands who have recorded their music within its walls. Renowned for its exceptional sound quality and acoustics, the Hit Factory has won multiple Grammy Awards for its recordings.
+
+Throughout the years, the studio has undergone several renovations and upgrades, maintaining its reputation as a landmark in the music industry. Many well-known musicians have praised the studio for its unique atmosphere and creative inspiration, contributing to the production of numerous iconic albums that have shaped music history.
+
+The news of the studio's closure has saddened many in the music community, highlighting the significant impact the Hit Factory has had on the music world. Despite its closure, the legacy of the Hit Factory will continue to resonate through the timeless music created within its walls."
+entertainment_6.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"Beastie Boys win sampling battle
+
+US rappers Beastie Boys have won their long-running battle over the use of a sample in their song Pass the Mic.
+
+The punk-rappers used three notes of music from flautist James Newton's Choir in their track from 1992. Although the group had paid a licence fee for the sample, Mr Newton said his copyright had been infringed. But the US Court of Appeal upheld its original decision that the group did not have to pay an additional fee to license the underlying composition. The Beastie Boys - Michael Diamond, Adam Horowitz, and Adam Yauch - are considered to be one of early pioneers of sampling music.
+
+Sampling, now a standard practice among musicians, involves taking a segment of one track and using it in a different song. A three-judge panel of the court held in 2003 that the band had abided by copyright protections by paying a licence fee for a sample of Mr Newton's recording. That finding upheld a lower-court dismissal of the case in favour of the Beastie Boys. ""We hold that Beastie Boys' use of a brief segment of that composition, consisting of three notes separated by a half-step over a background C note, is not sufficient to sustain a claim for infringement of Newton's copyright,"" Chief Judge Mary Schroeder wrote in her opinion. Mr Newton is a critically acclaimed jazz and classical flutist, composer, performer, and university professor. Mr Newton and the Beastie Boys were not available for comment.",gpt-3.5,dt03,"1. Beastie Boys won a battle about using music from another artist in their song Pass the Mic.
+2. The music they used was three notes from flautist James Newton's Choir.
+3. Beastie Boys paid a license fee for the sample they used.
+4. Flautist James Newton claimed his copyright was violated by Beastie Boys.
+5. The US Court of Appeal decided that Beastie Boys did not need to pay an extra fee for the music they sampled.
+6. Beastie Boys members are Michael Diamond, Adam Horowitz, and Adam Yauch.
+7. Beastie Boys are known as pioneers in using sampled music.
+8. Sampling is a common practice in music where a part of one song is used in another.
+9. In 2003, a court panel ruled that Beastie Boys followed copyright laws by paying for the sample.
+10. The court stated that using three notes from James Newton's composition did not infringe his copyright.
+11. James Newton is a well-respected jazz and classical flutist, composer, and university professor.
+12. Both James Newton and Beastie Boys declined to comment on the court's decision.","1. The Beastie Boys are a famous American hip-hop group.
+2. Beastie Boys were sued for copyright infringement by James Newton.
+3. Beastie Boys were accused of copyright infringement by James Newton.
+4. James Newton was a composer.
+5. James Newton alleged that Beastie Boys used a substantial portion of his composition in Pass the Mic.
+6. The court ruling set a legal precedent for music sampling cases.
+7. Pass the Mic is a song by the Beastie Boys.
+8. Beastie Boys' use of samples in their music has influenced many artists.
+9. Sampling has been a controversial topic in the music industry for copyright reasons.
+10. The court case resulted in a settlement between Beastie Boys and James Newton.
+11. The court case between Beastie Boys and James Newton brought attention to the issue of fair use in music sampling.
+12. James Newton's Choir was the composition that Beastie Boys sampled for Pass the Mic.","In a landmark case that has reverberated throughout the music industry, the iconic American hip-hop group, the Beastie Boys, found themselves in legal hot water when composer James Newton accused them of copyright infringement. The dispute centered around allegations that the Beastie Boys had incorporated a significant portion of Newton's composition, known as ""James Newton's Choir,"" into their hit song ""Pass the Mic.""
+
+The lawsuit brought by James Newton not only shed light on the contentious issue of music sampling but also paved the way for a groundbreaking legal precedent in such cases. The court ruling, which resulted in a settlement between the parties, underscored the importance of fair use in music sampling practices.
+
+""Pass the Mic,"" a popular track by the Beastie Boys, highlighted the group's signature style of incorporating samples into their music, a technique that has undeniably influenced a myriad of artists over the years. The case served as a poignant reminder of the ongoing debate surrounding sampling in the music industry and the need to navigate the delicate balance between creativity and copyright protection."
+entertainment_14.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"Comeback' show for Friends star
+
+Friends actress Lisa Kudrow is to play the lead role in a new series about a one-time sitcom star, according to the Hollywood reporter.
+
+Thirteen episodes of Comeback have been commissioned by cable channel HBO, home of hits such as Sex And The City. Kudrow, who played Phoebe in Friends, co-wrote the pilot episode and will also act as executive producer. HBO has been looking for its next big comedy hit since Sex And The City drew to a close in the US in February. Comeback is the first 30-minute comedy series that the channel has picked up since the Sex And The City drew to the end of its six-year-run. Friends ended its 10-year run on the NBC network in May, and attentions have turned to which projects its six individual stars would pursue.
+
+Matt LeBlanc is starring in a Friends spin-off sitcom, charting Joey's fortunes in Los Angeles as he pursues his acting career. Jennifer Aniston, who was Rachel in the long-running show, has enjoyed a series of successful film appearances, with further projects in the pipeline. Courteney Cox Arquette (Monica) has been working on a drama project along with husband David Arquette for HBO, called The Rise And Fall Of Taylor Kennedy. Matthew Perry, who played Chandler, has appeared on the West End stage, and has a film, The Beginning Of Wisdom, currently in production. And David Schwimmer (Ross) directed during his time on Friends, and has also worked on Joey.",gpt-3.5,dt03,"1. Lisa Kudrow from Friends will star in a new show called Comeback.
+2. The show will have 13 episodes on HBO, a popular TV channel.
+3. Lisa Kudrow also helped write the first episode and will be in charge of making decisions.
+4. HBO wants a new funny show after Sex And The City ended.
+5. Comeback is the first new comedy series HBO picked since Sex And The City ended.
+6. Friends, the famous TV show, ended after 10 years on NBC.
+7. Matt LeBlanc, who played Joey, is starring in a spin-off show about Joey's life in Los Angeles.
+8. Jennifer Aniston, who played Rachel, has been successful in movies after Friends.
+9. Courteney Cox Arquette, who played Monica, is working on a drama with her husband for HBO.
+10. Matthew Perry, who played Chandler, is acting in a play and has a movie in production.
+11. David Schwimmer, who played Ross, directed shows and has worked on his own projects.
+12. HBO is looking for new shows because popular shows like Friends and Sex And The City have ended.","1. The newspaper article was about the cast of the TV show Friends.
+2. Lisa Kudrow won an award for her role in Comeback.
+3. Lisa Kudrow's character in Comeback is a former sitcom star trying to make a comeback in Hollywood.
+4. Lisa Kudrow's character in Comeback is named Valerie Cherish.
+5. The show Comeback is set to premiere next month.
+6. The show Comeback is created by Michael Patrick King, known for Sex And The City.
+7. Lisa Kudrow's character in Comeback is known for her catchphrase ""I don't want to see that!""
+8. Matt LeBlanc's spin-off show is titled ""Joey: A New Beginning"".
+9. Courteney Cox, who played Monica, is working on a new TV project unrelated to Friends.
+10. Matt LeBlanc's character in Friends was Joey Tribbiani.
+11. Jennifer Aniston is considering a new TV series after her recent film success.
+12. The Friends cast members have expressed interest in a reunion but nothing has been confirmed yet.","The highly anticipated TV show ""Comeback"" is generating buzz as the premiere date approaches next month. The show, created by the renowned Michael Patrick King of Sex And The City fame, stars Lisa Kudrow in a leading role. Kudrow's character, Valerie Cherish, a former sitcom star striving to reignite her Hollywood career, has already captured attention. Notably, Kudrow recently received an award for her outstanding performance in the series.
+
+Meanwhile, Matt LeBlanc, known for his role as Joey Tribbiani in Friends, is gearing up for his own spin-off show titled ""Joey: A New Beginning"". On the other hand, Courteney Cox, who portrayed Monica in Friends, is busy working on a separate TV project, showcasing the versatility of the beloved Friends cast members.
+
+As fans eagerly await news of a Friends reunion, Jennifer Aniston, fresh from her recent success in films, is contemplating a return to television with a new series. Despite the cast members expressing interest in a reunion, no official confirmation has been made yet. Amidst all the excitement and projects in the pipeline, one thing is for sure - the Friends stars continue to captivate audiences with their talent and charisma on and off the screen."
+food_1.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"Grilled Shrimp Tacos with Avocado-Corn Salsa
+instruction 
+Remove the corn kernels from the cobs: Place a large container on a damp towel. Fold a paper towel into fourths and place it inside the container. Stand 1 ear of corn on the paper towel, using the stem as a handle. Using a paring knife, slice downward, letting the kernels fall into the container. Rotate the cob and continue until all the kernels have been removed; discard the cob. Repeat with the remaining corn. Discard the paper towel.
+Add the scallions, tomatoes, measured lime juice, cilantro, serrano, and measured salt and stir to combine.
+Halve and pit the avocados. Using a paring knife, score the flesh of the avocado halves in a 1/4-inch-wide crosshatch pattern (be careful not to cut through the skin). Using a spoon, scoop the avocado pieces into the corn mixture and gently fold to combine.
+Taste and add more lime juice or salt as needed; set aside.
+For the tacos:
+Heat an outdoor grill to high (about 450 F to 550 F). Meanwhile, assemble the shrimp.
+Whisk the lime juice, oil, chipotle powder, salt, and cumin together in a large bowl. Add the shrimp and toss to combine.
+Skewer each shrimp through the tail and head ends, leaving about 1/4 inch of space between each shrimp. Transfer the skewers to a baking sheet.
+Place the skewers in a single layer on the grill without touching. Close the grill and cook until grill marks appear on the bottom, about 4 minutes. Flip the skewers, close the grill, and cook until the shrimp are just firm, about 1 minute more. Transfer the skewers to a clean baking sheet.
+Remove and discard the skewers, transfer the shrimp to a cutting board, and coarsely chop. Place in a serving bowl.
+Serve the shrimp with the tortillas and salsa.",gpt-3.5,dt03,"1. To make Grilled Shrimp Tacos with Avocado-Corn Salsa, you need to remove corn kernels from the cobs.
+2. You can use a paper towel inside a container to catch the corn kernels.
+3. After removing the corn kernels, mix them with scallions, tomatoes, lime juice, cilantro, serrano, and salt.
+4. To prepare the avocados, halve them, score the flesh, and scoop out the pieces into the corn mixture.
+5. Taste the mixture and adjust the lime juice or salt to your liking.
+6. To cook the shrimp, whisk lime juice, oil, chipotle powder, salt, and cumin in a bowl and add the shrimp.
+7. Skewer the shrimp and grill them for about 4 minutes on one side and 1 minute on the other side until they are firm.
+8. After grilling, chop the shrimp and place them in a serving bowl.
+9. Serve the grilled shrimp with tortillas and salsa.
+10. It's important to heat the outdoor grill to high temperature before cooking the shrimp.
+11. Make sure the shrimp skewers are placed in a single layer on the grill without touching.
+12. Remember to flip the shrimp skewers to cook them evenly on both sides.","1. Start by grilling large shrimp until they are cooked through.
+2. The shrimp should be marinated in a mixture of olive oil, lime juice, and spices before grilling.
+3. After removing the corn kernels, sauté them in a pan with olive oil until they are slightly charred.
+4. Grill the marinated shrimp for about 2-3 minutes on each side until they have a nice char.
+5. Season the shrimp with salt, pepper, and a pinch of chili powder before grilling.
+6. Add chopped cilantro and diced red onions to the avocado-corn salsa for extra flavor.
+7. Warm the tortillas on the grill before assembling the tacos.
+8. Make a simple lime crema by mixing sour cream with lime juice and a dash of salt to drizzle over the tacos.
+9. Serve the Grilled Shrimp Tacos with warm tortillas and additional toppings like shredded lettuce and sour cream.
+10. Garnish the tacos with a squeeze of fresh lime juice before serving.
+11. Ensure to have all the ingredients and toppings ready before starting to assemble the tacos.
+12. Allow the shrimp to rest for a few minutes before assembling the tacos to keep them juicy.","**Delicious Grilled Shrimp Tacos Recipe**
+
+In a recent culinary exploration, we have discovered a mouthwatering recipe for Grilled Shrimp Tacos that is sure to tantalize your taste buds. The key to this delectable dish lies in the careful preparation and combination of fresh ingredients.
+
+To start, large shrimp are marinated in a zesty mixture of olive oil, lime juice, and spices, infusing them with delightful flavors before being expertly grilled to perfection. The shrimp are seasoned with a blend of salt, pepper, and a hint of chili powder, enhancing their taste and adding a subtle kick.
+
+Meanwhile, sweet corn kernels are sautéed in olive oil until they acquire a delightful char, providing a smoky sweetness to the dish. These charred corn kernels are then combined with chopped cilantro and diced red onions to create a vibrant avocado-corn salsa that complements the shrimp beautifully.
+
+As the shrimp sizzle on the grill, warm tortillas are prepared to serve as the base for these exquisite tacos. A simple yet tangy lime crema, made by mixing sour cream with lime juice and salt, is drizzled over the assembled tacos, adding a creamy and citrusy element to each bite.
+
+To assemble the Grilled Shrimp Tacos, place the succulent shrimp on the warm tortillas and top them with the avocado-corn salsa. Additional toppings such as shredded lettuce and more sour cream can be added according to personal preference. A final touch of freshness is achieved by garnishing the tacos with a squeeze of fresh lime juice.
+
+Remember, the key to success in creating these flavorful tacos is preparation. Have all your ingredients and toppings ready before you begin assembling to ensure a seamless cooking experience. And don't forget to let the grilled shrimp rest for a few minutes before assembling the tacos to retain their juiciness.
+
+Whether you are hosting a gathering or simply craving a delightful meal, these Grilled Shrimp Tacos are a surefire way to impress your guests or treat yourself to a burst of flavors. Try this recipe today and embark on a culinary journey that celebrates the harmony of ingredients and the joy of cooking."
+food_2.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"Mexican BBQ Chicken
+instruction
+Combine all of the marinade ingredients except the orange juice in a blender or food processor. Puree until smooth. Add the orange juice and puree until combined. Pour into a large mixing bowl and add the chicken. Cover and marinate overnight in the refrigerator.
+Remove the chicken from the marinade and pat it dry with paper towels. Let stand at room temperature for 30 minutes while you prepare a grill.
+Prepare an outdoor grill for medium heat; if using a charcoal grill, set up the coals for indirect heat. When the grill is ready, use tongs to rub the grate with several layers of paper towels dipped in vegetable oil (or spray with cooking spray). You can also use a stove-top grill over medium-high heat. Spray it with cooking spray before proceeding.
+Arrange the chicken over the hottest part of the grill and cook, turning once halfway through, for about 10 minutes, or until the skin starts to crisp but not burn. Move the chicken pieces to the cooler part of the grill, cover, and cook, turning occasionally, until cooked through (a meat thermometer should read 165-170 F), about 15 to 20 minutes longer. If using a stove-top grill or gas grill, turn the heat to medium low and cook until cooked through.",gpt-3.5,dt03,"1. To make Mexican BBQ Chicken, you need to blend marinade ingredients in a blender or food processor.
+2. You should add orange juice to the marinade and mix it well.
+3. After mixing, pour the marinade over the chicken in a bowl and leave it in the refrigerator overnight.
+4. Take the chicken out of the marinade and dry it with paper towels.
+5. Let the chicken sit at room temperature for 30 minutes before grilling.
+6. Prepare a grill for medium heat by setting up coals for indirect heat if using a charcoal grill.
+7. Rub the grill grate with oil-soaked paper towels or cooking spray before grilling.
+8. Grill the chicken over the hottest part of the grill for about 10 minutes until the skin crisps.
+9. Move the chicken to a cooler part of the grill and cover it to cook through.
+10. Make sure the chicken reaches an internal temperature of 165-170°F.
+11. If using a stove-top or gas grill, adjust the heat to medium-low for cooking.
+12. Turn the chicken occasionally while cooking until it is fully cooked through.","1. Choose boneless, skinless chicken thighs for the best results.
+2. Season the chicken with salt and pepper before marinating.
+3. Marinate the chicken in the refrigerator for at least 2 hours or overnight.
+4. Use a marinade made with lime juice, garlic, and Mexican spices.
+5. Grill the chicken over medium-high heat for about 6-8 minutes per side.
+6. Preheat the grill to medium-high heat.
+7. Make sure to oil the grill grates before placing the chicken.
+8. Place the chicken on the grill and discard the remaining marinade.
+9. Turn the chicken occasionally to ensure even cooking.
+10. Baste the chicken with barbecue sauce during the last few minutes of grilling.
+11. Let the chicken rest for a few minutes before serving.
+12. Serve the Mexican BBQ Chicken with your favorite sides and enjoy!","Headline: Delicious and Flavorful Mexican BBQ Chicken Recipe to Wow Your Taste Buds
+
+For a mouth-watering and unforgettable dining experience, look no further than this exquisite Mexican BBQ Chicken recipe. The key to achieving a perfect balance of flavors lies in selecting boneless, skinless chicken thighs for this culinary masterpiece.
+
+To begin, generously season the chicken with a sprinkle of salt and pepper before immersing it in a tantalizing marinade. The marinade, a harmonious blend of zesty lime juice, pungent garlic, and aromatic Mexican spices, infuses the chicken with a depth of flavor that is sure to impress.
+
+Allow the chicken to marinate in the refrigerator for a minimum of 2 hours, or ideally overnight, to ensure optimal flavor absorption. When it's time to grill, preheat your grill to medium-high heat and oil the grates to prevent sticking.
+
+Grill the marinated chicken over medium-high heat for approximately 6-8 minutes per side, turning occasionally to achieve a perfectly charred exterior and juicy interior. During the final moments of grilling, baste the chicken with a luscious layer of barbecue sauce to elevate its taste to new heights.
+
+Once grilled to perfection, remove the chicken from the heat and let it rest for a few minutes to allow the juices to redistribute. Serve the succulent Mexican BBQ Chicken alongside your favorite sides, and get ready to savor a culinary delight that will have your taste buds singing with joy."
+food_3.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"Guacamole Turkey Burgers
+instructions
+In a medium bowl, combine the turkey, onion, chili powder, lime zest, and half the cilantro. Season with the measured salt and some black pepper. Use your hands to gently combine. Divide the meat into 4 equal portions and shape each portion into an even 1/2-inch-thick patty. Use your thumb to make a shallow indentation in the center of each patty (this helps the burgers cook more evenly). Transfer the patties to a plate and set aside.
+To make the guacamole, place the avocado in a small bowl and, with the back of a fork, mash it until it's almost smooth. Add the tomato, the remaining cilantro, and the lime juice. Season with salt and stir to combine.
+Heat a grill pan or outdoor grill to medium-high, about 375 F to 425 F. When the grill is hot, use tongs to grab several layers of wadded paper towels, dip them in vegetable oil, and smear the grill pan's ridges or outdoor grill's grates (you can also apply cooking spray directly to the pan or grates).
+Use a metal spatula to transfer the turkey patties to the pan or grill (close the lid if it's the latter) and cook, undisturbed (don't be tempted to press down on the patties!), until grill marks appear on the bottom, about 5 to 6 minutes. Flip the burgers, close the grill (if using), and cook until the patties are cooked through and an instant-read thermometer registers 165 F, about 6 minutes more. Add the cheese to the top of each patty for the last 4 minutes of cooking time. When the cheese melts, transfer the burgers to a warmed plate and tent loosely with foil for 5 minutes. Meanwhile, split and toast the buns on the grill.
+Top each bottom bun with a turkey patty, divide the guacamole evenly among the patties, and cover with the bun tops. Serve immediately.",gpt-3.5,dt03,"1. To make Guacamole Turkey Burgers, you need turkey meat, onion, chili powder, lime zest, cilantro, and salt.
+2. You need to shape the meat into patties and make an indentation in the center for even cooking.
+3. Guacamole is made by mashing avocado with tomato, cilantro, lime juice, and salt.
+4. You need to heat the grill pan or outdoor grill to medium-high temperature.
+5. Before grilling, it's important to oil the grill pan or grill grates to prevent sticking.
+6. Cook the turkey patties on the grill without pressing down on them until grill marks appear.
+7. Flip the burgers and cook until the internal temperature reaches 165 F.
+8. Add cheese to the patties during the last 4 minutes of cooking to melt it.
+9. After cooking, let the burgers rest under foil for 5 minutes.
+10. Toast the buns on the grill before assembling the burgers.
+11. Place a turkey patty on each bottom bun and top with guacamole before covering with the top bun.
+12. Serve the Guacamole Turkey Burgers immediately after assembling them.","1. Start by mixing ground turkey with breadcrumbs and finely chopped onions.
+2. Form the turkey mixture into patties.
+3. Season the patties with salt and pepper.
+4. Preheat the grill to medium-high heat.
+5. Place the patties on the grill.
+6. Grill the patties for about 5-6 minutes on each side.
+7. Check for an internal temperature of 165°F to ensure they are fully cooked.
+8. Remove the patties from the grill.
+9. Let the burgers rest for a few minutes before assembling them.
+10. Toast the burger buns on the grill.
+11. Top the burgers with guacamole.
+12. Serve the Guacamole Turkey Burgers hot and enjoy!","Title: Delicious Guacamole Turkey Burgers Recipe
+
+In a recent culinary exploration, we discovered a mouthwatering recipe for Guacamole Turkey Burgers that is sure to tantalize your taste buds. This delectable dish offers a unique twist on traditional burgers, perfect for a summer barbecue or a cozy dinner at home.
+
+To create these flavorful Guacamole Turkey Burgers, start by combining ground turkey with breadcrumbs and finely chopped onions to form the burger patties. Season the patties with salt and pepper to enhance the taste.
+
+Preheat the grill to medium-high heat and carefully place the patties on the grill. Grill the patties for approximately 5-6 minutes on each side, ensuring they reach an internal temperature of 165°F for safe consumption.
+
+Once cooked to perfection, remove the patties from the grill and allow them to rest for a few minutes. Meanwhile, toast the burger buns on the grill to add a delightful crunch to the dish.
+
+To assemble the Guacamole Turkey Burgers, generously top the patties with creamy guacamole, adding a burst of freshness and flavor. Serve the burgers hot and get ready to indulge in a culinary delight that will leave you craving for more.
+
+Whether you are a food enthusiast or simply looking to try something new, these Guacamole Turkey Burgers are a must-try recipe that promises a symphony of flavors in every bite. Embrace the fusion of ingredients and treat yourself to a delightful dining experience with this savory creation."
+graphics_9.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"Learn Adobe Illustrator and Get Started With Graphic Design
+From print and video ads to presentations and pitch decks, graphic designers have their hands in a huge array of projects in an organization. While some companies keep a design team in-house, many bring on contractors to handle their design needs. Either way, graphic designers enjoy flexible, lucrative careers that come with constant creative challenges. Sound intriguing? The 2020 Adobe Illustrator CC Master Class Bundle can teach you the tools you need to know to get started, and it's on sale for under $40 today.
+
+This six-course, 34-hour bundle takes you on a comprehensive journey into one of the world's leading design platforms, Adobe Illustrator. You'll get a crash course in the basics, understanding the nuts and bolts behind Illustrator's vector editing abilities, while learning how to use the core tools.
+
+From there, you'll learn how to apply your skills to build user interfaces on web pages and complete real-world projects like flyers and static ads. With that hands-on training, you'll be able to create actual projects that you can include in a portfolio and send to recruiters.
+
+Finally, in the advanced course, you'll learn how to streamline your productivity and workflow and complete complex projects from scratch.
+
+Ready to design your way to a brand new career? Normally $284, The 2020 Adobe Illustrator CC Master Class Bundle is on sale now for just $39.99.",gpt-3.5,dt03,"1. Graphic designers work on many different projects like ads, presentations, and pitch decks.
+2. Some companies have their own design teams while others hire contractors for design work.
+3. Graphic designers have flexible and well-paying jobs with lots of creative challenges.
+4. You can learn Adobe Illustrator, a popular design platform, through a six-course bundle.
+5. The bundle includes 34 hours of training to help you understand Illustrator's tools.
+6. You will learn how to create user interfaces for web pages and make flyers and ads.
+7. The training is hands-on, allowing you to build real projects for your portfolio.
+8. You can learn advanced skills to improve productivity and work on complex projects.
+9. The Adobe Illustrator CC Master Class Bundle is usually $284 but is on sale for $39.99.
+10. Learning Adobe Illustrator can help you start a new career in design.
+11. Adobe Illustrator is used for vector editing, a method for creating scalable graphics.
+12. Building a portfolio with your projects can help you attract job opportunities in design.","1. Designers play a crucial role in creating visual content for various industries.
+2. Designers often collaborate with marketing teams to create visually appealing content.
+3. Designers use software tools like Adobe Illustrator to create digital artwork.
+4. Adobe Illustrator is a widely used software in the graphic design industry.
+5. The bundle includes courses on advanced techniques for experienced designers.
+6. The courses cover topics such as creating logos, illustrations, and typography in Illustrator.
+7. The skills taught in the courses are applicable to real-world design projects.
+8. The instructors are industry professionals with years of experience in graphic design.
+9. Completing the bundle may lead to a certification in Adobe Illustrator.
+10. The certification can enhance a designer's credibility in the job market.
+11. The demand for skilled Adobe Illustrator users is high in the current job market.
+12. Mastering Adobe Illustrator can open up opportunities in various industries such as advertising, publishing, and web design.","""Graphic Design Bundle Offers Advanced Training in Adobe Illustrator
+
+Designers, known for their pivotal role in shaping visual content across industries, are finding new avenues for skill development through specialized training programs. Collaborating closely with marketing teams, designers harness the power of tools like Adobe Illustrator to craft captivating digital artwork.
+
+The recently launched bundle comprises courses tailored for experienced designers seeking to elevate their skills to the next level. Delving deep into advanced techniques, the courses focus on creating stunning logos, intricate illustrations, and elegant typography within the Adobe Illustrator ecosystem.
+
+Led by seasoned industry professionals, the courses promise to impart practical skills directly applicable to real-world design projects. Upon successful completion, participants stand to earn a prestigious certification in Adobe Illustrator, a credential highly regarded in the competitive job market.
+
+With the demand for proficient Adobe Illustrator users on the rise, mastering this software can significantly boost a designer's credibility and career prospects. Industries such as advertising, publishing, and web design are actively seeking professionals well-versed in Adobe Illustrator, making this certification a valuable asset for aspiring designers looking to thrive in the dynamic creative landscape."""
+historical_7.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"After an asteroid crashed into what is now Chicxulub, Mexico 66 million years ago, a chain of events occurred that caused dinosaurs to disappear and mammals to flourish. But figuring out exactly what happened after this event, known as the Cretaceous-Paleogene (K-Pg) mass extinction event, has been tricky due to a sparse fossil record. Yesterday (October 24), a team of researchers published a paper in Science detailing their 2016 discovery of a trove of plant and mammal fossils that sheds light on how ecosystems recovered after the asteroid impact.
+
+The researchers, led by vertebrate paleontologist Tyler Lyson at the Denver Museum of Nature and Science, have found over 1,000 vertebrate fossils, including 16 mammal species at the Corral Bluffs fossil site, located near Colorado Springs. They also found over 6,000 leaf fossils and 37,000 pollen grains, reports The New York Times.
+
+""With this discovery, we're starting to see the entire skull of many of these mammals that we previously only knew from teeth,"" Stephen Chester, a mammalian paleontologist at Brooklyn College and paper coauthor, told the Times.
+
+The site shows a near-continuous record of plant and animal life over a period of one million years following the K-Pg mass extinction, according to Science. Lyson and his team were able to determine the age of the site through volcanic ash layers with radioactive minerals, along with the presence of many fern fossils, which thrive after an ecosystem has been disturbed.
+
+The researchers found that plants and animals rebounded faster than previously thought, and that when ferns were replaced by palm forests, the variety of plants also sparked diversification of mammals from small rat-sized animals to larger ones. By 700,000 years after the extinction event, some mammals were 100 times bigger than ones that had lived through the asteroid impact.
+
+""This is one of those discoveries all paleontologists dream of,"" Steve Brusatte, a paleontologist at the University of Edinburgh who was not involved in the research, tells Science News.",gpt-3.5,dt03,"1. An asteroid hit Mexico 66 million years ago, causing dinosaurs to disappear and mammals to thrive.
+2. Scientists found a lot of plant and mammal fossils in Colorado from after the asteroid impact.
+3. Over 1,000 vertebrate fossils and 16 mammal species were discovered at the Corral Bluffs site.
+4. Scientists also found 6,000 leaf fossils and 37,000 pollen grains at the site.
+5. The fossils help scientists understand how ecosystems recovered after the asteroid impact.
+6. The site provides a continuous record of plant and animal life for a million years after the extinction event.
+7. Scientists used volcanic ash layers and fern fossils to determine the site's age.
+8. Plants and animals recovered faster than previously believed after the mass extinction event.
+9. Palm forests replaced ferns, leading to a variety of plants and diversification of mammals.
+10. Some mammals became 100 times larger within 700,000 years after the extinction event.
+11. The discovery is considered a dream come true for paleontologists.
+12. The findings shed light on how life evolved after the asteroid impact.","1. The asteroid that caused the impact was approximately 6 miles in diameter.
+2. The asteroid impact occurred at the end of the Cretaceous period.
+3. The asteroid impact led to the mass extinction of dinosaurs.
+4. The impact caused tsunamis that reached inland areas.
+5. The diversity of mammals increased significantly after the asteroid impact.
+6. The site where the fossils were found is located near a former seaway.
+7. Fossils of marine creatures were also found at the site.
+8. The impact crater of the asteroid is one of the largest in the world.
+9. The recovery of ecosystems post-asteroid impact was a key focus of the study.
+10. The asteroid impact led to the formation of new ecological niches.
+11. The study suggests that the asteroid impact caused a global winter due to dust blocking sunlight.
+12. The study sheds light on the aftermath of the asteroid impact on ancient ecosystems.","Ancient Asteroid Impact Led to Mass Extinction of Dinosaurs and Dramatic Ecosystem Changes
+
+A groundbreaking study has revealed new insights into the catastrophic asteroid impact that occurred at the end of the Cretaceous period, approximately 66 million years ago. The asteroid, estimated to be approximately 6 miles in diameter, struck Earth with immense force, leading to the mass extinction of dinosaurs and three-quarters of all plant and animal species at that time.
+
+The impact triggered tsunamis that inundated inland areas, leaving a trail of destruction in its wake. Fossils of marine creatures were discovered at the impact site, located near a former seaway, providing valuable clues about the ancient ecosystems that existed. The impact crater, one of the largest in the world, serves as a stark reminder of the catastrophic event that reshaped the Earth's landscape.
+
+Despite the devastation, the study highlights the resilience of life, as the diversity of mammals significantly increased in the aftermath of the asteroid impact. The recovery of ecosystems became a focal point of the research, revealing the formation of new ecological niches that allowed surviving species to thrive in the changed environment.
+
+Furthermore, the study suggests that the asteroid impact caused a global winter, as the dust ejected into the atmosphere blocked sunlight, disrupting the climate and leading to widespread cooling. This event had profound implications for ancient ecosystems, driving significant evolutionary changes over time.
+
+In conclusion, this study sheds light on the far-reaching consequences of the asteroid impact on Earth's ancient ecosystems, emphasizing the importance of understanding past events to better comprehend our planet's history and future trajectory."
+historical_10.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"Philippine-American War
+During the Spanish-American War, rebels in the Philippines proclaimed their independence after 300 years of Spanish rule... only to have their hopes for a free nation written off with a few pen strokes when the Treaty of Paris was signed in 1898, handing the Philippines to the United States. Rebel leader Emilio Aguinaldo-who had convened a revolutionary assembly that drew up the first democratic constitution in Asia-launched a revolt. 
+
+The United States responded by sending in troops and by war's end, over 4,000 American soldiers had died, ten times the number of Americans killed in the Spanish-American War. Losses among locals were worse: 20,000 Filipino insurgents and an unknown number of civilians lost their lives in the fight for independence.
+
+David Silbey, associate director, Cornell in Washington and author of A War of Frontier and Empire: The Philippine-American War, 1899-1902, writes that the Philippine-American War ""was our last war of manifest destiny and western expansion and our first imperial land war in Asia. It was the United States testing out what role it would have on the world stage and bringing with it all the complicated racial and cultural attitudes that shaped American society at home.""",gpt-3.5,dt03,"1. Rebels in the Philippines wanted to be free from Spanish rule.
+2. The Treaty of Paris in 1898 gave the Philippines to the United States.
+3. Emilio Aguinaldo was a leader of the rebels.
+4. The rebels drew up the first democratic constitution in Asia.
+5. The United States sent troops to stop the rebellion.
+6. Over 4,000 American soldiers died in the war.
+7. 20,000 Filipino insurgents died during the fight for independence.
+8. Many civilians also lost their lives in the war.
+9. The war was the United States' first imperial land war in Asia.
+10. The war tested the United States' role on the world stage.
+11. Racial and cultural attitudes influenced the war.
+12. The war shaped American society at home.","
+1. The Spanish-American War took place in 1898.
+2. The Philippines was ceded to the United States by Spain as part of the Treaty of Paris in 1898.
+3. The Philippines declared independence from the United States on June 12, 1898.
+4. The Treaty of Paris was signed on December 10, 1898.
+5. The United States purchased the Philippines from Spain for $20 million.
+6. The conflict between the United States and Filipino insurgents lasted for three years.
+7. The Philippine-American War resulted in thousands of casualties on both sides.
+8. Emilio Aguinaldo, leader of the Filipino insurgents, was captured by the Americans.
+9. The United States officially recognized Philippine independence on July 4, 1946.
+10. The Philippine-American War led to significant infrastructure development in the Philippines.
+11. The United States implemented an extensive pacification campaign in the Philippines.
+12. The Philippine-American War paved the way for the United States to establish colonial rule in the Philippines.","Headline: The Impact of the Philippine-American War on Philippine History
+
+In 1898, following the Spanish-American War, the United States acquired the Philippines from Spain as part of the Treaty of Paris. The Philippines, a nation struggling for independence, declared its freedom from the United States on June 12, 1898, only to face a prolonged conflict known as the Philippine-American War. This war, lasting three years, resulted in significant casualties on both sides and the capture of Filipino insurgent leader Emilio Aguinaldo by American forces.
+
+The Treaty of Paris, signed on December 10, 1898, solidified the transfer of the Philippines to the United States for $20 million. Despite the conflict, the United States recognized Philippine independence on July 4, 1946, after years of tension and pacification efforts.
+
+The Philippine-American War, marked by extensive infrastructure development and a colonial rule establishment by the United States, left a lasting impact on Philippine history. This chapter in history paved the way for the Philippines to navigate its path towards independence and sovereignty amidst a complex geopolitical landscape."
+historical_18.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"America Enters World War I
+At the outbreak of fighting in 1914, the United States remained on the sidelines of World War I, adopting the policy of neutrality favored by President Woodrow Wilson while continuing to engage in commerce and shipping with European countries on both sides of the conflict.
+
+Neutrality, however, was increasing difficult to maintain in the face of Germany's unchecked submarine aggression against neutral ships, including those carrying passengers. In 1915, Germany declared the waters surrounding the British Isles to be a war zone, and German U-boats sunk several commercial and passenger vessels, including some U.S. ships.
+
+Widespread protest over the sinking by U-boat of the British ocean liner Lusitania-traveling from New York to Liverpool, England with hundreds of American passengers onboard-in May 1915 helped turn the tide of American public opinion against Germany. In February 1917, Congress passed a $250 million arms appropriations bill intended to make the United States ready for war.
+
+Germany sunk four more U.S. merchant ships the following month, and on April 2 Woodrow Wilson appeared before Congress and called for a declaration of war against Germany.",gpt-3.5,dt03,"1. In 1914, the United States did not join World War I and stayed neutral.
+2. President Woodrow Wilson liked the idea of staying neutral.
+3. The United States continued to trade with European countries during the war.
+4. Germany's submarines attacked ships, even those from neutral countries.
+5. Germany declared the waters around Britain a war zone in 1915.
+6. German U-boats sank many ships, including American ones.
+7. The sinking of the Lusitania made many Americans angry at Germany.
+8. The Lusitania was a big ship with lots of American passengers.
+9. In 1917, Congress passed a law to get ready for war.
+10. Germany sank more American ships in retaliation.
+11. Woodrow Wilson asked Congress to declare war on Germany in April 1917.
+12. This marked the entry of the United States into World War I.","1. World War I, also known as the Great War, began in 1914.
+2. The war in Europe had been ongoing since 1914.
+3. Many Americans were opposed to entering the war due to its European origins.
+4. Tensions between the United States and Germany were escalating.
+5. The German policy of unrestricted submarine warfare targeted any ships near the British Isles.
+6. The British liner RMS Lusitania was sunk by a German submarine in 1915.
+7. The sinking of the Lusitania was a pivotal event in World War I.
+8. The sinking of the Lusitania led to a significant loss of civilian lives, including Americans.
+9. The sinking of the Lusitania increased pressure on the U.S. government to enter the war.
+10. The sinking of the Lusitania contributed to shifting public opinion in the United States.
+11. The interception of the Zimmermann Telegram, in which Germany proposed an alliance with Mexico against the United States, further fueled anti-German sentiment in the U.S.
+12. The United States officially entered World War I on April 6, 1917, after Congress declared war.","The sinking of the RMS Lusitania: A Turning Point in World War I
+
+In the midst of the ongoing conflict that has engulfed Europe since 1914, a tragic event has shaken the world and stirred the United States towards a significant decision. The RMS Lusitania, a British liner sailing near the British Isles, was torpedoed and sunk by a German submarine in 1915. This ruthless act of unrestricted submarine warfare resulted in the loss of numerous civilian lives, including Americans aboard the ship.
+
+The sinking of the Lusitania proved to be a pivotal moment in World War I, intensifying pressures on the U.S. government to abandon its stance of neutrality. The shocking incident not only highlighted the dangers of the German naval tactics but also played a crucial role in shifting public opinion in the United States towards intervention in the war.
+
+As tensions escalated between the United States and Germany, the interception of the infamous Zimmermann Telegram further fueled anti-German sentiments in the U.S. The telegram, proposing a German-Mexican alliance against the United States, added to the growing outrage and pushed the U.S. closer to a momentous decision.
+
+On April 6, 1917, the United States officially entered World War I after Congress declared war, marking a significant turning point that would alter the course of the conflict and the world at large. The sinking of the Lusitania stands as a stark reminder of the human cost of war and the complexities of international relations during this turbulent period."
+sport_1.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"Claxton hunting first major medal
+
+British hurdler Sarah Claxton is confident she can win her first major medal at next month's European Indoor Championships in Madrid.
+
+The 25-year-old has already smashed the British record over 60m hurdles twice this season, setting a new mark of 7.96 seconds to win the AAAs title. ""I am quite confident,"" said Claxton. ""But I take each race as it comes. ""As long as I keep up my training but not do too much I think there is a chance of a medal."" Claxton has won the national 60m hurdles title for the past three years but has struggled to translate her domestic success to the international stage. Now, the Scotland-born athlete owns the equal fifth-fastest time in the world this year. And at last week's Birmingham Grand Prix, Claxton left European medal favourite Russian Irina Shevchenko trailing in sixth spot.
+
+For the first time, Claxton has only been preparing for a campaign over the hurdles - which could explain her leap in form. In previous seasons, the 25-year-old also contested the long jump but since moving from Colchester to London she has re-focused her attentions. Claxton will see if her new training regime pays dividends at the European Indoors which take place on 5-6 March.",gpt-3.5,dt03,"1. Sarah Claxton is a British hurdler.
+2. She believes she can win her first major medal at the European Indoor Championships.
+3. Claxton broke the British record over 60m hurdles twice this season.
+4. Her new record time is 7.96 seconds.
+5. Claxton has won the national 60m hurdles title for the past three years.
+6. She has struggled to succeed internationally despite her domestic success.
+7. Claxton now has the fifth-fastest time in the world this year.
+8. She recently beat a European medal favorite in a race.
+9. Claxton is focusing solely on hurdles this season.
+10. She used to also compete in the long jump.
+11. Claxton moved from Colchester to London to improve her performance.
+12. The European Indoors will take place on 5-6 March, where Claxton hopes to see results from her new training.","1. Lucy Claxton is a British hurdler.
+2. She recently competed in the European Indoor Championships.
+3. She broke the British record for the 60m hurdles.
+4. The new British record set by Claxton is 7.95 seconds.
+5. Claxton's previous record was 8.02 seconds.
+6. She trains with a renowned coach who has helped her improve significantly.
+7. Claxton's coach has been working with her for over five years.
+8. She has been praised for her dedication and work ethic.
+9. Claxton has set her sights on qualifying for the Olympics.
+10. She plans to compete in upcoming international competitions to qualify for the Olympics.
+11. Claxton has won multiple national championships in hurdling.
+12. Her ultimate goal is to break the world record in the 60m hurdles.","British Hurdler Lucy Claxton Shatters National Record at European Indoor Championships
+
+British hurdler Lucy Claxton made headlines at the European Indoor Championships by breaking the national record for the 60m hurdles. Claxton clocked an impressive time of 7.95 seconds, surpassing her previous record of 8.02 seconds.
+
+The talented athlete, who has won multiple national championships in hurdling, attributed her success to the unwavering support and guidance of her long-time coach. Claxton has been training under her renowned coach for over five years, and their partnership has undoubtedly played a crucial role in her remarkable improvement.
+
+Known for her dedication and strong work ethic, Claxton has set her sights on qualifying for the Olympics. To achieve this goal, she is gearing up to participate in upcoming international competitions, aiming to secure her spot in the prestigious event.
+
+Looking ahead, Claxton remains focused on her ultimate ambition: breaking the world record in the 60m hurdles. With her determination and proven track record of success, the British hurdler is poised to continue making waves in the world of athletics."
+sport_3.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"Greene sets sights on world title
+
+Maurice Greene aims to wipe out the pain of losing his Olympic 100m title in Athens by winning a fourth World Championship crown this summer.
+
+He had to settle for bronze in Greece behind fellow American Justin Gatlin and Francis Obikwelu of Portugal. ""It really hurts to look at that medal. It was my mistake. I lost because of the things I did,"" said Greene, who races in Birmingham on Friday. ""It's never going to happen again. My goal - I'm going to win the worlds."" Greene crossed the line just 0.02 seconds behind Gatlin, who won in 9.87 seconds in one of the closest and fastest sprints of all time. But Greene believes he lost the race and his title in the semi-finals. ""In my semi-final race, I should have won the race but I was conserving energy. ""That's when Francis Obikwelu came up and I took third because I didn't know he was there. ""I believe that's what put me in lane seven in the final and, while I was in lane seven, I couldn't feel anything in the race.
+
+""I just felt like I was running all alone. ""I believe if I was in the middle of the race I would have been able to react to people that came ahead of me."" Greene was also denied Olympic gold in the 4x100m men's relay when he could not catch Britain's Mark Lewis-Francis on the final leg. The Kansas star is set to go head-to-head with Lewis-Francis again at Friday's Norwich Union Grand Prix. The pair contest the 60m, the distance over which Greene currently holds the world record of 6.39 seconds. He then has another indoor meeting in France before resuming training for the outdoor season and the task of recapturing his world title in Helsinki in August. Greene believes Gatlin will again prove the biggest threat to his ambitions in Finland. But he also admits he faces more than one rival for the world crown. ""There's always someone else coming. I think when I was coming up I would say there was me and Ato (Boldon) in the young crowd,"" Greene said. ""Now you've got about five or six young guys coming up at the same time.""",gpt-3.5,dt03,"1. Maurice Greene wants to win the World Championship title after losing his Olympic title.
+2. He got a bronze medal in the 100m race in Athens behind Justin Gatlin and Francis Obikwelu.
+3. Greene regrets losing and wants to win the world title.
+4. He believes he lost the Olympic race in the semi-finals by conserving energy.
+5. Greene finished just 0.02 seconds behind Gatlin in the race.
+6. Greene felt like he was running alone in the final race because he was in lane seven.
+7. He also missed out on Olympic gold in the 4x100m relay race.
+8. Greene will compete against Mark Lewis-Francis in the Norwich Union Grand Prix.
+9. He currently holds the world record for the 60m race.
+10. Greene will compete in an indoor meeting in France before training for the outdoor season.
+11. He aims to recapture his world title in Helsinki in August.
+12. Greene sees Gatlin as his biggest threat but acknowledges other young rivals as well.","1. Maurice Greene is a former Olympic gold medalist in the 100m race.
+2. Maurice Greene's time in the 100m race was 9.87 seconds.
+3. Prior to the World Championships, Maurice Greene will participate in several track meets to prepare.
+4. Maurice Greene expressed disappointment in his performance in the 4x100m relay race.
+5. Maurice Greene aims to make a strong comeback in the upcoming track and field events.
+6. Maurice Greene plans to focus on improving his starts and transitions in upcoming races.
+7. Maurice Greene is determined to reclaim his status as the fastest man in the world.
+8. Maurice Greene is confident in his preparation and training leading up to the World Championships.","Former Olympic gold medalist Maurice Greene is gearing up for a strong comeback in the upcoming track and field events after expressing disappointment in his recent performance in the 4x100m relay race. With a personal best time of 9.87 seconds in the 100m race, Greene is determined to reclaim his status as the fastest man in the world. To achieve this goal, Greene will be participating in several track meets to hone his skills, focusing particularly on improving his starts and transitions. Confident in his preparation and training leading up to the World Championships, Greene's fans are eager to see him back on top of the podium."
+sport_16.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"Verdict delay for Greek sprinters
+
+Greek athletics' governing body has postponed by two weeks the judgement on sprinters Costas Kenteris and Katerina Thanou for missing doping tests.
+
+The pair are facing lengthy bans for the missed tests, including one on the eve of last year's Athens Olympics. They were set to learn their fate by the end of February, but late evidence from them has pushed the date back. ""A decision is now expected by around mid-March,"" said one of their lawyers, Michalis Dimitrakopoulos. Kenteris, 31, who won the men's 200m title at the 2000 Sydney Games and Thanou, 30, who won the women's 100m silver medal in Sydney, face a maximum two-year ban if found guilty. The athletes, who spectacularly withdrew from the Athens Olympics, have been suspended by the International Association of Athletics Federations (IAAF) for missing the three tests. The IAAF said the sprinters had failed to provide samples for tests in Tel Aviv, Chicago and Athens and ordered Greek athletic's governing body, Segas, to hold a disciplinary inquiry. The athletes also face a criminal hearing in Greece over the missed drugs tests and have been charged with faking a motorcycle accident on the day of the Athens test, which led to them spending four days in hospital. Following the final hearing in late January, the athletes sounded confident they would be acquitted. ""I am confident and optimistic,"" Thanou had said at the time. ""We presented new evidence to the committee that they were not aware of."" It was not clear what this new evidence was.",gpt-3.5,dt03,"1. Greek sprinters Costas Kenteris and Katerina Thanou missed doping tests.
+2. They were facing lengthy bans for missing the tests.
+3. A decision on their fate has been postponed by two weeks.
+4. The new expected date for a decision is around mid-March.
+5. Kenteris won the men's 200m title in the 2000 Sydney Olympics.
+6. Thanou won the women's 100m silver medal in the 2000 Sydney Olympics.
+7. If found guilty, they face a maximum two-year ban.
+8. The sprinters were suspended by the International Association of Athletics Federations (IAAF).
+9. They failed to provide samples for tests in Tel Aviv, Chicago, and Athens.
+10. They have been charged with faking a motorcycle accident to avoid a drug test.
+11. The athletes presented new evidence to the committee.
+12. The final hearing took place in late January.","1. The Greek sprinters involved in the scandal were Kostas Kenteris and Katerina Thanou.
+2. They were scheduled to compete in the 2004 Athens Olympics.
+3. They were expected to testify before the IOC disciplinary committee.
+4. The Greek sprinters were accused of intentionally missing doping tests.
+5. They were stripped of their medals from the 2000 Sydney Olympics.
+6. Katerina Thanou won a silver medal in the women's 100m at the 2000 Sydney Olympics.
+7. Kostas Kenteris won gold in the men's 200m at the 2000 Sydney Olympics.
+8. The missed doping tests occurred on the eve of the 2004 Athens Olympics.
+9. The athletes denied the accusations of faking a motorcycle accident.
+10. Despite the scandal, the Greek sprinters maintained their innocence throughout the investigation.
+11. The scandal involving the Greek sprinters caused a major uproar in the sports world.
+12. The committee postponed the decision on their case.","Greek Sprinters Kenteris and Thanou Embroiled in Doping Scandal
+
+Greek sprinters Kostas Kenteris and Katerina Thanou, renowned athletes scheduled to compete in the 2004 Athens Olympics, found themselves at the center of a doping scandal that shook the sports world. Accused of intentionally missing doping tests on the eve of the Athens Olympics, the sprinters faced severe consequences.
+
+Kenteris, who had clinched the gold in the men's 200m at the 2000 Sydney Olympics, and Thanou, who secured a silver in the women's 100m during the same event, were stripped of their hard-earned medals from Sydney following the scandal.
+
+The athletes vehemently denied allegations of fabricating a motorcycle accident to avoid the doping tests. Despite the uproar caused by the scandal and the subsequent investigation, Kenteris and Thanou maintained their innocence throughout the process.
+
+The International Olympic Committee (IOC) disciplinary committee, responsible for handling the case, postponed its decision, awaiting further evidence and testimonies from the sprinters. The anticipation for the committee's ruling only added to the tension surrounding this high-profile case, leaving the sporting community on edge."
+technologie_2.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"China net cafe culture crackdown
+
+Chinese authorities closed 12,575 net cafes in the closing months of 2004, the country's government said.
+
+According to the official news agency most of the net cafes were closed down because they were operating illegally. Chinese net cafes operate under a set of strict guidelines and many of those most recently closed broke rules that limit how close they can be to schools. The move is the latest in a series of steps the Chinese government has taken to crack down on what it considers to be immoral net use.
+
+The official Xinhua News Agency said the crackdown was carried out to create a ""safer environment for young people in China"". Rules introduced in 2002 demand that net cafes be at least 200 metres away from middle and elementary schools. The hours that children can use net cafes are also tightly regulated. China has long been worried that net cafes are an unhealthy influence on young people. The 12,575 cafes were shut in the three months from October to December. China also tries to dictate the types of computer games people can play to limit the amount of violence people are exposed to.
+
+Net cafes are hugely popular in China because the relatively high cost of computer hardware means that few people have PCs in their homes. This is not the first time that the Chinese government has moved against net cafes that are not operating within its strict guidelines. All the 100,000 or so net cafes in the country are required to use software that controls what websites users can see. Logs of sites people visit are also kept. Laws on net cafe opening hours and who can use them were introduced in 2002 following a fire at one cafe that killed 25 people. During the crackdown following the blaze authorities moved to clean up net cafes and demanded that all of them get permits to operate. In August 2004 Chinese authorities shut down 700 websites and arrested 224 people in a crackdown on net porn. At the same time it introduced new controls to block overseas sex sites. The Reporters Without Borders group said in a report that Chinese government technologies for e-mail interception and net censorship are among the most highly developed in the world.",gpt-3.5,dt03,"1. Chinese government closed 12,575 net cafes in 2004.
+2. Many net cafes were shut down because they were operating illegally.
+3. Net cafes in China have strict rules to follow.
+4. Chinese government wants to prevent what it sees as immoral internet use.
+5. The crackdown was done to make the environment safer for young people.
+6. Net cafes must be at least 200 meters away from schools.
+7. China limits the hours children can spend in net cafes.
+8. Chinese government worries that net cafes have a bad influence on young people.
+9. People in China like net cafes because computers are expensive.
+10. Net cafes in China must use software to control the websites users can visit.
+11. Laws on net cafes were made stricter after a fire in one cafe.
+12. Chinese government has advanced technology for internet censorship.","1. Minors were reportedly spending excessive hours at net cafes.
+2. Net cafes were reportedly contributing to minors' truancy from school.
+3. Some net cafes were found to be allowing minors to enter and use the facilities without proper supervision.
+4. Minors were engaging in inappropriate online activities at net cafes.
+5. Minors were prohibited from entering net cafes during school hours.
+6. Net cafes were required to check the identification of users to verify their age.
+7. Authorities were considering implementing stricter penalties for net cafes that violated regulations.
+8. Minors found in net cafes during prohibited hours were escorted home by authorities.
+9. Net cafe owners were fined for violating regulations related to minors' access to the facilities.
+10. The local community expressed concerns about the effects of net cafes on minors' well-being.
+11. Minors caught in net cafes during school hours were required to provide a written explanation from parents.
+12. Net cafes are now subject to regular inspections to ensure compliance with safety and operational regulations.","Title: Authorities Crack Down on Net Cafes Violating Minors' Regulations
+
+In a recent development, concerns have been raised about minors spending excessive hours at net cafes, leading to issues such as truancy from school and engaging in inappropriate online activities. Reports indicate that some net cafes have been allowing minors to enter unsupervised, in clear violation of regulations prohibiting their access during school hours.
+
+To address these issues, authorities have mandated that net cafes must verify the age of users to prevent minors from accessing the facilities during restricted hours. Additionally, net cafe owners found in violation of these regulations are now facing fines, with authorities considering even stricter penalties for repeat offenders.
+
+Furthermore, minors caught in net cafes during prohibited hours are being escorted home by authorities and required to provide a written explanation from their parents. The local community has expressed growing concerns about the impact of net cafes on minors' well-being, prompting authorities to conduct regular inspections to ensure compliance with safety and operational regulations.
+
+This crackdown aims to safeguard minors from potential harm and ensure that net cafes operate responsibly within the legal framework."
+technologie_7.txt,https://www.kaggle.com/datasets/jensenbaxter/10dataset-text-document-classification?resource=download,"Microsoft releases bumper patches
+
+Microsoft has warned PC users to update their systems with the latest security fixes for flaws in Windows programs.
+
+In its monthly security bulletin, it flagged up eight ""critical"" security holes which could leave PCs open to attack if left unpatched. The number of holes considered ""critical"" is more than usual. They affect Windows programs, including Internet Explorer (IE), media player and instant messaging. Four other important fixes were also released. These were considered to be less critical, however. If not updated, either automatically or manually, PC users running the programs could be vulnerable to viruses or other malicious attacks designed to exploit the holes. Many of the flaws could be used by virus writers to take over computers remotely, install programs, change, and delete or see data.
+
+One of the critical patches Microsoft has made available is an important one that fixes some IE flaws. Stephen Toulouse, a Microsoft security manager, said the flaws were known about, and although the firm had not seen any attacks exploiting the flaw, he did not rule them out. Often, when a critical flaw is announced, spates of viruses follow because home users and businesses leave the flaw unpatched. A further patch fixes a hole in Media Player, Windows Messenger and MSN Messenger which an attacker could use to take control of unprotected machines through .png files. Microsoft announces any vulnerabilities in its software every month. The most important ones are those which are classed as ""critical"". Its latest releases came the week that the company announced it was to buy security software maker Sybari Software as part of Microsoft's plans to make its own security programs.",gpt-3.5,dt03,"1. Microsoft released important updates for Windows programs.
+2. There are eight critical security holes that need to be fixed to protect PCs from attacks.
+3. The holes affect programs like Internet Explorer, media player, and instant messaging.
+4. Four other fixes were released that are not as critical but still important.
+5. If not updated, PCs could be vulnerable to viruses and attacks.
+6. The flaws could allow virus writers to take over computers remotely.
+7. One critical patch fixes flaws in Internet Explorer.
+8. Microsoft warns that attacks exploiting the flaws could happen.
+9. Microsoft releases software vulnerabilities updates every month.
+10. The most important updates are classified as critical.
+11. Microsoft is buying a security software maker called Sybari Software.
+12. Microsoft's goal is to improve its own security programs.","1. Microsoft releases updates to address security vulnerabilities in various software.
+2. The updates address security vulnerabilities in various software.
+3. The updates are available for download on Microsoft's official website.
+4. Microsoft recommends users to regularly check for updates to ensure optimal security.
+5. Users are encouraged to prioritize updating their systems for optimal security.
+6. Users are advised to update their systems as soon as possible to ensure security.
+7. Microsoft emphasizes the importance of keeping software up to date to prevent security breaches.
+8. Security experts recommend installing the updates promptly to prevent cyber attacks.
+9. The updates also include performance improvements and bug fixes.
+10. Users should enable automatic updates to keep their systems secure.
+11. Cybersecurity experts praise Microsoft's proactive approach to software updates.
+12. The acquisition of Sybari Software is part of Microsoft's strategy to enhance its cybersecurity offerings.","Microsoft Strengthens Cybersecurity with Latest Software Updates and Strategic Acquisition
+
+Microsoft has recently rolled out a series of updates aimed at addressing security vulnerabilities across various software applications. The tech giant is urging users to download these updates from its official website promptly to ensure optimal security.
+
+It is essential for users to prioritize updating their systems as soon as possible to prevent security breaches. By keeping software up to date, users can enhance their cybersecurity defenses and mitigate the risk of cyber attacks.
+
+In addition to security patches, the updates also bring performance improvements and bug fixes, further enhancing the user experience. Security experts are recommending users to enable automatic updates to streamline the process and keep their systems secure.
+
+Cybersecurity experts have commended Microsoft's proactive approach to software updates, emphasizing the importance of staying vigilant in the face of evolving cyber threats. Furthermore, Microsoft's recent acquisition of Sybari Software underscores its commitment to bolstering its cybersecurity offerings and staying ahead in the cybersecurity landscape."

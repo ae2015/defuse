@@ -1,5 +1,5 @@
 {
-    "q01" : {
+    "dt01" : {
         "system" : [
             "You will be provided with a document delimited by triple quotes. ",
             "Read the document and follow user's instructions."
@@ -22,7 +22,7 @@
             "Document:\n\n\"\"\"{document}\"\"\"\n\nNewspaper article:"
         ]
     },
-    "q02" : {
+    "dt02" : {
         "system" : [
             "You will be provided with a document delimited by triple quotes. ",
             "Read the document and follow user's instructions."
@@ -46,7 +46,34 @@
             "the classroom narrative.\n\n",
             "Document:\n\n\"\"\"{document}\"\"\"\n\nNewspaper article:"
         ]
+    },
+    "dt03" : {
+        "system" : [
+            "You will be provided with a document delimited by triple quotes. ",
+            "Read the document and follow user's instructions."
+        ],
+        "user_reduce" : [
+            "Read the document and list 12 most important facts provided in the document. ",
+            "Each fact must be a single independent sentence and must be written in ",
+            "very simple language so that even kindergarten children can understand it.\n\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\n12 most important facts:"
+        ],
+        "user_modify" : [
+            "Read the document below with a list of facts based on a newspaper article. ",
+            "Note that some of the facts are missing, either in full or in part. ",
+            "Your task is to guess what the original facts could have said. ",
+            "Please write out the completed list of facts without anything missing.\n\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\nCompleted list of facts:"
+        ],
+        "user_expand" : [
+            "You are a student journalist solving a challenging exercise. In this exercise, ",
+            "you must reconstruct a newspaper article from an incomplete list of facts. ",
+            "Read the document below with a list of facts based on a newspaper article. ",
+            "Your task is to write what the original newspaper article could have said. ",
+            "Make sure your article is short, professional, and contains all the expected ",
+            "specifics, technical terms, and details, including those omitted in the list ",
+            "of facts. Use your creativity to reconstruct the missing information.\n\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\nNewspaper article:"
+        ]
     }
-
-
 }

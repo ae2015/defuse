@@ -1,0 +1,47 @@
+doc_id,q_id,is_confusing,question,LLM_r,response
+doc0001,1,no,What is the primary objective of the Lucy space mission?,gpt-3.5,The primary objective of the Lucy space mission is to explore a diverse population of small bodies known as the Jupiter Trojan asteroids.
+doc0001,2,no,What are the Jupiter Trojan asteroids and where are they located?,gpt-3.5,"The Jupiter Trojan asteroids are a diverse population of small bodies that are remnants of the early solar system. They are located on stable orbits associated with, but not close to, the giant planet Jupiter. Trojan asteroids orbit in two ""swarms"" that lead and follow Jupiter in its orbit around the Sun."
+doc0001,3,no,How long is the duration of the Lucy space mission?,gpt-3.5,The duration of the Lucy space mission is 12 years.
+doc0001,4,no,How many asteroids will Lucy explore during its mission?,gpt-3.5,Lucy will explore a total of 10 asteroids during its mission.
+doc0001,5,no,"In addition to the asteroids, what other celestial bodies will Lucy encounter?",gpt-3.5,"In addition to the asteroids, Lucy will encounter Earth three times to get a push from its gravity."
+doc0001,6,no,What milestone will Lucy achieve in terms of spacecraft trajectory during its mission?,gpt-3.5,Lucy will achieve the milestone of being the first spacecraft to return to the vicinity of Earth from the outer solar system during its mission.
+doc0001,1,yes,What is the primary objective of NASA's Lucy spacecraft mission?,gpt-3.5,The primary objective of NASA's Lucy spacecraft mission is to explore a diverse population of small bodies known as the Jupiter Trojan asteroids.
+doc0001,2,yes,What specific group of asteroids is Lucy spacecraft exploring?,gpt-3.5,The Lucy spacecraft is exploring the Jupiter Trojan asteroids.
+doc0001,3,yes,How many years is the Lucy mission expected to last?,gpt-3.5,The Lucy mission is expected to last for 12 years.
+doc0001,4,yes,How many miles will Lucy spacecraft travel during its mission?,gpt-3.5,The Lucy spacecraft will travel approximately 4 billion miles during its mission.
+doc0001,5,yes,How many Trojan asteroids is Lucy spacecraft planning to visit?,gpt-3.5,Lucy spacecraft is planning to visit eight Trojan asteroids.
+doc0001,6,yes,What type of information do scientists hope to gain from the Lucy mission?,gpt-3.5,"Scientists hope to gain information about the Jupiter Trojan asteroids, including their composition, origins, and evolution, by exploring a diverse population of small bodies in the outer solar system."
+doc0001,7,yes,How many main asteroids are included in the list of Trojan asteroids to be visited by Lucy?,gpt-3.5,Five asteroid targets are included in the list of Trojan asteroids to be visited by Lucy.
+doc0001,8,yes,What milestone will Lucy achieve upon completing its mission?,gpt-3.5,"Upon completing its mission, Lucy will achieve the milestone of exploring a record-breaking number of asteroids, including two in the main asteroid belt and eight Trojans, making it the first spacecraft to return to the vicinity of Earth from the outer solar system."
+doc0001,9,yes,What makes the Lucy spacecraft unique in terms of its return journey?,gpt-3.5,"The Lucy spacecraft is unique in terms of its return journey because it will fly by Earth three times to get a push from its gravity, making it the first spacecraft to return to the vicinity of Earth from the outer solar system."
+doc0001,10,yes,What are NASA scientists looking forward to as a result of the Lucy mission?,gpt-3.5,NASA scientists are looking forward to exploring a diverse population of small bodies known as the Jupiter Trojan asteroids and gaining insights into the remnants of our early solar system.
+doc0001,11,yes,How are the Trojan asteroids categorized in relation to Jupiter's orbit?,gpt-3.5,"The Trojan asteroids are categorized as being on stable orbits associated with - but not close to - the giant planet Jupiter. They orbit in two ""swarms"" that lead and follow Jupiter in its orbit around the Sun."
+doc0001,12,yes,What inspired the name of the Lucy spacecraft mission?,gpt-3.5,"The name of the Lucy spacecraft mission was inspired by the fossilized remains of a human ancestor named Lucy, whose discovery in Ethiopia in 1974 provided unique insight into humanity's evolution."
+doc0002,1,no,When was Arnold Schwarzenegger born and where?,gpt-3.5,"Arnold Schwarzenegger was born on July 30, 1947, in Thal, Austria."
+doc0002,2,no,What academic degrees did Arnold Schwarzenegger receive from the University of Wisconsin-Superior?,gpt-3.5,Arnold Schwarzenegger received a BA in Business and International Economics from the University of Wisconsin-Superior. He also received an honorary Doctorate from the same university in 1996.
+doc0002,3,no,In which year did Arnold Schwarzenegger become a U.S. citizen?,gpt-3.5,Arnold Schwarzenegger became a U.S. citizen in 1983.
+doc0002,4,no,When did Arnold Schwarzenegger serve as the Governor of California?,gpt-3.5,Arnold Schwarzenegger served as the Governor of California from 2003 to 2011.
+doc0002,5,no,What were some of the key focus areas of Arnold Schwarzenegger's tenure as Governor of California?,gpt-3.5,"Some of the key focus areas of Arnold Schwarzenegger's tenure as Governor of California were:
+
+1. Reducing California's greenhouse gas emissions
+2. Increasing the minimum wage
+3. Updating the workers' compensation system
+4. Supporting physical education and after-school programs"
+doc0002,6,no,Which notable legislation did Arnold Schwarzenegger support and which passed in 2002?,gpt-3.5,Arnold Schwarzenegger supported and passed the After-School Education & Safety Act in 2002.
+doc0002,1,yes,Where was Arnold Schwarzenegger born?,gpt-3.5,"Arnold Schwarzenegger was born in Thal, Austria."
+doc0002,2,yes,What is Arnold Schwarzenegger's date of birth?,gpt-3.5,"Arnold Schwarzenegger was born on July 30, 1947."
+doc0002,3,yes,What did Arnold Schwarzenegger study at the University of Wisconsin-Superior?,gpt-3.5,Arnold Schwarzenegger studied Business and International Economics at the University of Wisconsin-Superior.
+doc0002,4,yes,Which political party did Arnold Schwarzenegger become a member of?,gpt-3.5,Arnold Schwarzenegger became a member of the Republican Party.
+doc0002,5,yes,What were some of the key areas of focus for Arnold Schwarzenegger during his tenure as governor?,gpt-3.5,"Some of the key areas of focus for Arnold Schwarzenegger during his tenure as governor were:
+
+1. Reducing California's greenhouse gas emissions
+2. Increasing the minimum wage
+3. Updating the workers' compensation system
+4. Supporting physical education and after-school programs, including the After-School Education & Safety Act"
+doc0002,6,yes,"In terms of environmental issues, what specific focus did Schwarzenegger have?",gpt-3.5,Schwarzenegger's specific focus in terms of environmental issues was on reducing California's greenhouse gas emissions.
+doc0002,7,yes,What were some of the initiatives that Arnold Schwarzenegger prioritized during his time in politics?,gpt-3.5,"Some of the initiatives that Arnold Schwarzenegger prioritized during his time in politics included reducing California's greenhouse gas emissions, increasing the minimum wage, updating the workers' compensation system, promoting physical education, and advocating for after-school programs such as the After-School Education & Safety Act."
+doc0002,8,yes,"Apart from his political career, what other fields has Arnold Schwarzenegger been involved in?",gpt-3.5,"Apart from his political career, Arnold Schwarzenegger has been involved in bodybuilding, business, and entertainment."
+doc0002,9,yes,How did Arnold Schwarzenegger advocate for physical education and after-school programs?,gpt-3.5,"Arnold Schwarzenegger advocated for physical education and after-school programs by supporting the After-School Education & Safety Act, which passed in 2002."
+doc0002,10,yes,What is one area of youth development that Schwarzenegger emphasized the importance of?,gpt-3.5,One area of youth development that Arnold Schwarzenegger emphasized the importance of is physical education and after-school programs.
+doc0002,11,yes,What are some of the qualities that Arnold Schwarzenegger is known for?,gpt-3.5,"Arnold Schwarzenegger is known for being a successful bodybuilder, businessman, and actor before becoming a politician. He is also recognized for his efforts in reducing greenhouse gas emissions, increasing the minimum wage, and updating the workers' compensation system during his tenure as the Governor of California. Additionally, Schwarzenegger is known for his support of physical education and after-school programs, advocating for the After-School Education & Safety Act."
+doc0002,12,yes,How did Arnold Schwarzenegger transition from his career as an actor and bodybuilder into politics?,gpt-3.5,Arnold Schwarzenegger transitioned from his career as an actor and bodybuilder into politics by becoming increasingly politically active during the 1990s. He ran for the California governorship and won in 2003 when Gray Davis was recalled. This marked his official entry into politics as the 38th Governor of California.

@@ -1,6 +1,6 @@
 from llmlib import LLM
 import utils
-import os, json
+import os, re, json
 
 document_transforms = None
 question_generation = None
@@ -16,7 +16,7 @@ def read_prompts(folder):
     for key, prompts_raw in document_transforms_raw.items():
         assert {"system", "user_reduce", "user_expand"}.issubset(prompts_raw.keys())
         prompts = {}
-        for p_type in ["system", "user_reduce", "user_expand"]:
+        for p_type in prompts_raw.keys():
             if isinstance(prompts_raw[p_type], str) or prompts_raw[p_type] is None:
                 prompts[p_type] = prompts_raw[p_type]
             else:
@@ -30,7 +30,7 @@ def read_prompts(folder):
     for key, prompts_raw in question_generation_raw.items():
         assert {"system", "user_orig", "user_conf"}.issubset(prompts_raw.keys())
         prompts = {}
-        for p_type in ["system", "user_orig", "user_conf"]:
+        for p_type in prompts_raw.keys():
             if isinstance(prompts_raw[p_type], str) or prompts_raw[p_type] is None:
                 prompts[p_type] = prompts_raw[p_type]
             else:
@@ -44,7 +44,7 @@ def read_prompts(folder):
     for key, prompts_raw in rag_confusion_check_raw.items():
         assert {"system", "user_rag", "user_conf_rag", "user_conf_check", "user_def_check"}.issubset(prompts_raw.keys())
         prompts = {}
-        for p_type in ["system", "user_rag", "user_conf_rag", "user_conf_check", "user_def_check"]:
+        for p_type in prompts_raw.keys():
             if isinstance(prompts_raw[p_type], str) or prompts_raw[p_type] is None:
                 prompts[p_type] = prompts_raw[p_type]
             else:
@@ -71,10 +71,7 @@ def read_prompts(folder):
         examples_of_questions[key] = example
 
 
-def reduce_document(llm, document):
-
-    prompt_key = "q02"
-
+def reduce_document(llm, document, prompt_key):
     prompt = []
     if document_transforms[prompt_key]["system"]:
         prompt.append({
@@ -89,12 +86,59 @@ def reduce_document(llm, document):
     return reduce_doc
 
 
+def modify_reduced_document(llm, reduce_doc, prompt_key):
+    if prompt_key in ["dt01", "dt02"]:
+        return reduce_doc  
+    doc_0 = reduce_doc
+    doc_1 = suppress_facts(doc_0, lambda i: (i % 3 == 2))
+    doc_2 = impute_facts(llm, doc_1, prompt_key)
+    doc_3 = suppress_facts(doc_2, lambda i: (i % 3 == 1))
+    doc_4 = impute_facts(llm, doc_3, prompt_key)
+    doc_5 = suppress_facts(doc_4, lambda i: (i % 3 == 0))
+    doc_6 = impute_facts(llm, doc_5, prompt_key)
+    modify_doc = doc_6
+    return modify_doc
 
+def impute_facts(llm, missing_facts_doc, prompt_key):
+    prompt = []
+    if document_transforms[prompt_key]["system"]:
+        prompt.append({
+            "role" : "system",
+            "content" : document_transforms[prompt_key]["system"]
+        })
+    prompt.append({
+        "role" : "user",
+        "content" : document_transforms[prompt_key]["user_modify"].format(document = missing_facts_doc)
+    })
+    imputed_facts_doc = LLM.get(llm)(prompt)
+    lines = imputed_facts_doc.splitlines()
+    if "list of facts" in lines[0].lower():
+        imputed_facts_doc = "\n".join(lines[1:])
+    return imputed_facts_doc
 
-def expand_document(llm, reduce_doc):
+def suppress_facts(text, suppress):
+    raw_lines = text.splitlines()
+    lines = [line.strip() for line in raw_lines]
+    facts = []
+    for line in lines:
+        if len(line) > 0:
+            x = re.search(r"^\d+[:\.]\s+", line)
+            if x:
+                facts.append(line[x.span()[1]:])
+            else:
+                x = re.search(r"^[:\.\-\*\+]\s+", line)
+                if x:
+                    facts.append(line[x.span()[1]:])
+                else:
+                    facts.append(line)
+    # print(f"\n\n{utils.enum_list(facts)}\n\n")
+    for i in range(len(facts)):
+        if suppress(i):
+            facts[i] = "(missing)"
+    # print(f"\n\n{utils.enum_list(facts)}\n\n")
+    return utils.enum_list(facts)
 
-    prompt_key = "q02"
-
+def expand_document(llm, reduce_doc, prompt_key):
     prompt = []
     if document_transforms[prompt_key]["system"]:
         prompt.append({
@@ -110,11 +154,8 @@ def expand_document(llm, reduce_doc):
 
 
 
-def generate_questions(llm, document, num_q):
-
+def generate_questions(llm, document, num_q, prompt_key = "q01"):
     example_keys = ["Weywot-1", "ElDorado-1"]
-    prompt_key = "q01"
-
     prompt = []
     if question_generation[prompt_key]["system"]:
         prompt.append({
@@ -142,11 +183,8 @@ def generate_questions(llm, document, num_q):
     return questions
 
 
-def confuse_questions(llm, document, questions):
-
+def confuse_questions(llm, document, questions, prompt_key = "q01"):
     example_keys = ["Weywot-1", "ElDorado-1"]
-    prompt_key = "q01"
-
     prompt = []
     if question_generation[prompt_key]["system"]:
         prompt.append({
@@ -190,10 +228,7 @@ def confuse_questions(llm, document, questions):
     return questions
 
 
-def generate_response(llm, document, question):
-
-    prompt_key = "r01"
-
+def generate_response(llm, document, question, prompt_key = "r02"):
     prompt = []
     if rag_confusion_check[prompt_key]["system"]:
         prompt.append({
@@ -208,10 +243,7 @@ def generate_response(llm, document, question):
     return response
 
 
-def find_false_assumption(llm, document, question):
-
-    prompt_key = "r01"
-
+def find_false_assumption(llm, document, question, prompt_key = "r02"):
     prompt = []
     if rag_confusion_check[prompt_key]["system"]:
         prompt.append({
@@ -223,18 +255,21 @@ def find_false_assumption(llm, document, question):
         "content" : rag_confusion_check[prompt_key]["user_conf_rag"].format(document = document, question = question)
     })
     confusion = LLM.get(llm)(prompt)
-    if (confusion.lower().startswith("no") or
-        confusion.lower().startswith("answer: no") or
-        confusion.lower().startswith("the answer is: no")):
+    if (
+            confusion.lower().startswith("no") or
+            confusion.lower().startswith("answer: no") or
+            confusion.lower().startswith("the answer is: no") or
+            confusion.lower().startswith("the answer is \"no\"") or
+            confusion.lower().startswith("The answer to the question is: no") or
+            confusion.lower().startswith("The answer to the question is \"no\"") or
+            "the question does not contain a confusing part" in confusion.lower()
+        ):
         return "none"
     else:
         return confusion
 
 
-def check_response_for_defusion(llm, document, question, response, confusion):
-
-    prompt_key = "r01"
-
+def check_response_for_defusion(llm, document, question, response, confusion, prompt_key = "r02"):
     prompt = []
     if rag_confusion_check[prompt_key]["system"]:
         prompt.append({
@@ -249,6 +284,7 @@ def check_response_for_defusion(llm, document, question, response, confusion):
         "role" : "assistant",
         "content" : response
     })
+    """
     prompt.append({
         "role" : "user",
         "content" : rag_confusion_check[prompt_key]["user_conf_check"]
@@ -257,18 +293,25 @@ def check_response_for_defusion(llm, document, question, response, confusion):
         "role" : "assistant",
         "content" : confusion
     })
+    """
     prompt.append({
         "role" : "user",
         "content" : rag_confusion_check[prompt_key]["user_def_check"]
     })
     defusion = LLM.get(llm)(prompt)
-    if (defusion.lower().startswith("no") or
-        defusion.lower().startswith("answer: no") or
-        defusion.lower().startswith("the answer is: no")):
+    if (
+            defusion.lower().startswith("no") or
+            defusion.lower().startswith("answer: no") or
+            defusion.lower().startswith("the answer is: no") or
+            defusion.lower().startswith("the answer is \"no\"")
+        ):
         is_defused = "no"
-    elif (defusion.lower().startswith("yes") or
-          defusion.lower().startswith("answer: yes") or
-          defusion.lower().startswith("the answer is: yes")):
+    elif (
+            defusion.lower().startswith("yes") or
+            defusion.lower().startswith("answer: yes") or
+            defusion.lower().startswith("the answer is: yes") or
+            defusion.lower().startswith("the answer is \"yes\"")
+        ):
         is_defused = "yes"
     else:
         is_defused = "unsure"

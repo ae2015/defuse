@@ -1,0 +1,81 @@
+doc_id,source,document,LLM_q,doc_prompt,reduce_doc,modify_doc,expand_doc
+doc0001,https://science.nasa.gov/mission/lucy/,"Lucy is the first space mission to explore a diverse population of small bodies known as the Jupiter Trojan asteroids. These remnants of our early solar system are trapped on stable orbits associated with - but not close to - the giant planet Jupiter. Trojan asteroids orbit in two ""swarms"" that lead and follow Jupiter in its orbit around the Sun and are thought to be comparable in number to the objects in the main asteroid belt between the orbits of Mars and Jupiter.
+
+Over its 12-year mission, Lucy will explore a record-breaking number of asteroids: it will fly by two (plus a newly discovered satellite) in the belt of asteroids that circle the Sun between the orbits of Mars and Jupiter, and then eight Trojans, which includes five asteroid targets and the satellites of three of those. Lucy also will fly by Earth three times to get a push from its gravity, making it the first spacecraft to return to the vicinity of Earth from the outer solar system.",gpt-3.5,dt03,"1. Lucy is a space mission going to explore Jupiter Trojan asteroids.
+2. Jupiter Trojan asteroids are old rocks from our early solar system.
+3. These asteroids are in stable orbits near Jupiter but not too close.
+4. There are two groups of Trojan asteroids that follow and lead Jupiter.
+5. The Trojan asteroids are almost as many as the ones in the main asteroid belt.
+6. Lucy's mission will last for 12 years.
+7. Lucy will visit a high number of asteroids, including two in the asteroid belt and eight Trojans.
+8. Among the Trojans, there are five asteroids and three satellites.
+9. Lucy will also pass by Earth three times to use its gravity for a speed boost.
+10. This makes Lucy the first spacecraft to come back near Earth from outer space.
+11. Lucy will study the asteroids to learn more about our solar system's history.
+12. The mission aims to discover new information about these distant asteroids.","1. Lucy is a NASA spacecraft.
+2. The Trojan asteroids are remnants from the early solar system.
+3. Lucy will launch in October 2021.
+4. Lucy is a mission to study Jupiter's Trojan asteroids.
+5. These groups are called the Greek camp and the Trojan camp.
+6. Lucy will use Earth's gravity to reach its destinations.
+7. The Trojan asteroids are located in Jupiter's orbit.
+8. The two asteroids in the asteroid belt are Donaldjohanson and Kowal.
+9. Lucy will travel a total of over 500 million miles during its mission.
+10. Lucy will visit multiple Trojan asteroids.
+11. Lucy will study the geology, surface composition, and history of the asteroids.
+12. Lucy's mission is expected to last about 12 years.","NASA's Lucy Spacecraft Set to Launch in October 2021 to Explore Jupiter's Trojan Asteroids
+
+NASA is gearing up for an exciting mission with the upcoming launch of Lucy, a spacecraft designed to study the Trojan asteroids, remnants from the early solar system. Scheduled for liftoff in October 2021, Lucy will embark on a journey of over 500 million miles to investigate these asteroids located in Jupiter's orbit.
+
+Named after the famous fossilized hominid, Lucy will utilize Earth's gravity to propel itself towards the Greek and Trojan camps, two distinct groups of asteroids. Among the targets for Lucy's exploration are the asteroids Donaldjohanson and Kowal, located in the asteroid belt.
+
+Over the course of the expected 12-year mission, Lucy will conduct in-depth studies of the geology, surface composition, and history of the Trojan asteroids. This mission marks a significant step in unraveling the mysteries of our solar system's early days and promises groundbreaking discoveries in the field of planetary science."
+doc0002,https://governors.library.ca.gov/38-Schwarzenegger.html,"Arnold Schwarzenegger
+
+Governor of California from 2003 to 2011
+
+Significant Facts
+
+Born: July 30, 1947 in Thal, Austria
+
+Married: Maria Shriver on April 26, 1986 (The couple filed for divorce in 2011.)
+
+Political Party: Republican
+
+Arnold Schwarzenegger was born in Thal, Austria, a small village bordering the Styrian capital of Graz. He immigrated to the United States in 1968 and became a U.S. citizen in 1983.
+
+Schwarzenegger earned a BA in Business and International Economics at the University of Wisconsin-Superior. He received an honorary Doctorate from the University of Wisconsin-Superior in 1996 and an honorary Doctorate from Chapman University in 2002.
+    
+An increasingly politically active Republican during the 1990s, Schwarzenegger ran for the California governorship and won when Gray Davis was recalled in 2003. Schwarzenegger was sworn in as the 38th Governor of California on November 17, 2003, following careers in body building, business and entertainment. Schwarzenegger was the first foreign-born governor of California since Irish-born Governor John G. Downey (Governor of California from 1860 to 1862). While governor, Schwarzenegger focused on reducing California's greenhouse gas emissions, increasing the minimum wage, and updating the workers' compensation system. He was also a proponent of physical education and after-school programs, and supported the After-School Education & Safety Act, which passed in 2002.",gpt-3.5,dt03,"1. Arnold Schwarzenegger was born in Thal, Austria on July 30, 1947.
+2. He married Maria Shriver on April 26, 1986.
+3. Arnold Schwarzenegger was the Governor of California from 2003 to 2011.
+4. He belonged to the Republican political party.
+5. Schwarzenegger moved to the United States in 1968 and became a U.S. citizen in 1983.
+6. He studied Business and International Economics at the University of Wisconsin-Superior.
+7. Schwarzenegger received honorary Doctorates from two universities.
+8. He won the California governorship in 2003 after Gray Davis was recalled.
+9. Arnold Schwarzenegger focused on reducing greenhouse gas emissions as governor.
+10. He worked on increasing the minimum wage and updating the workers' compensation system.
+11. Schwarzenegger supported physical education and after-school programs.
+12. He was the first foreign-born governor of California since Governor John G. Downey.","1. Arnold Schwarzenegger was born in Austria.
+2. He served as the 38th Governor of California from 2003 to 2011.
+3. He is a successful actor and has starred in numerous blockbuster films.
+4. He was a professional bodybuilder before pursuing a career in acting.
+5. Schwarzenegger married Maria Shriver, a member of the Kennedy family.
+6. He won the Mr. Olympia bodybuilding contest seven times.
+7. Arnold Schwarzenegger has four children.
+8. He became a naturalized U.S. citizen in 1983.
+9. Schwarzenegger was known for his catchphrase ""I'll be back"" in the Terminator movies.
+10. He starred in the movie ""Predator"" in 1987.
+11. Schwarzenegger's first major film role was in ""Conan the Barbarian.""
+12. He has been involved in various philanthropic efforts and charity work.","Arnold Schwarzenegger: From Bodybuilder to Governor
+
+Arnold Schwarzenegger, born in Austria, has had a remarkable journey from professional bodybuilder to successful actor and politician. Serving as the 38th Governor of California from 2003 to 2011, Schwarzenegger made a name for himself not only in politics but also in Hollywood.
+
+Before his acting career took off, Schwarzenegger was a prominent figure in the bodybuilding world, winning the prestigious Mr. Olympia contest seven times. His transition to acting was smooth, landing roles in blockbuster films like ""Predator"" in 1987 and his first major role in ""Conan the Barbarian.""
+
+Aside from his entertainment career, Schwarzenegger is also known for his marriage to Maria Shriver, a member of the Kennedy family, and their four children. In 1983, he became a naturalized U.S. citizen, further solidifying his ties to the country.
+
+Fans of Schwarzenegger will remember his iconic catchphrase ""I'll be back"" from the Terminator movies, solidifying his status as a cultural icon. Beyond his entertainment career, Schwarzenegger has been actively involved in philanthropic efforts and charity work, using his platform to make a positive impact on society.
+
+Arnold Schwarzenegger's journey from bodybuilder to Governor exemplifies his diverse talents and unwavering commitment to success in all his endeavors."
