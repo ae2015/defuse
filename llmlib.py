@@ -114,7 +114,7 @@ class LLM:
 
 
 openai_url = "https://api.openai.com/v1/chat/completions"
-runpod_llama3_url = f"https://api.runpod.ai/v2/{os.environ.get("RUNPOD_ENDPOINT_ID")}/openai/v1/chat/completions"
+runpod_llama3_url = f"https://api.runpod.ai/v2/{os.environ.get('RUNPOD_ENDPOINT_ID')}/openai/v1/chat/completions"
 openai_headers_1 = {
     "Content-Type": "application/json",
     "Authorization": "Bearer " + os.getenv("OPENAI_API_KEY", ""),
@@ -141,6 +141,16 @@ gpt_3_dot_5 = LLM(
 gpt_4o = LLM(
     name = "gpt-4o",
     model = "gpt-4o",
+    url = openai_url,
+    headers = openai_headers_2,
+    parameters = {
+        "temperature": 0.7
+    }
+)
+
+gpt_4o_mini = LLM(
+    name = "gpt-4o-mini",
+    model = "gpt-4o-mini",
     url = openai_url,
     headers = openai_headers_2,
     parameters = {

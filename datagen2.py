@@ -2,7 +2,10 @@ import pandas as pd
 import os
 import utils, promptlib
 from tqdm import tqdm
-
+from os.path import join
+from dotenv import load_dotenv
+load_dotenv()
+print(os.getenv('OPENAI_API_KEY'))
 def record_llm_and_prompts(llm, doc_prompt, schema, path_in, path_out):
     """
     Record LLM(s) and prompt(s) into the CSV table to use for generating confusing questions
@@ -32,7 +35,7 @@ def reduce_original_documents(schema, path_in, path_out):
 
     df = df.reindex(columns = df.columns.tolist() + [schema["reduce_doc"]])
     df = df.astype({schema["reduce_doc"]: str}, copy = False)
-    print(f"Use LLM to create a reduced version for each document from column {schema["document"]}")
+    print(f"Use LLM to create a reduced version for each document from column {schema['document']}")
     for row_id, row in tqdm(df.copy().iterrows(), total = df.shape[0]):
         llm = row[schema["LLM_q"]]
         prompt_key = row[schema["doc_prompt"]]
@@ -55,7 +58,7 @@ def modify_reduced_documents(schema, path_in, path_out):
 
     df = df.reindex(columns = df.columns.tolist() + [schema["modify_doc"]])
     df = df.astype({schema["modify_doc"]: str}, copy = False)
-    print(f"Use LLM to modify or impute information into each reduced document from column {schema["reduce_doc"]}")
+    print(f"Use LLM to modify or impute information into each reduced document from column {schema['reduce_doc']}")
     for row_id, row in tqdm(df.copy().iterrows(), total = df.shape[0]):
         llm = row[schema["LLM_q"]]
         prompt_key = row[schema["doc_prompt"]]
@@ -78,7 +81,7 @@ def expand_modified_documents(schema, path_in, path_out):
 
     df = df.reindex(columns = df.columns.tolist() + [schema["expand_doc"]])
     df = df.astype({schema["expand_doc"]: str}, copy = False)
-    print(f"Use LLM to expand the modified/reduced version of the document from column {schema["modify_doc"]}")
+    print(f"Use LLM to expand the modified/reduced version of the document from column {schema['modify_doc']}")
     for row_id, row in tqdm(df.copy().iterrows(), total = df.shape[0]):
         llm = row[schema["LLM_q"]]
         prompt_key = row[schema["doc_prompt"]]
@@ -215,9 +218,9 @@ def check_if_response_defused_confusion(doc_schema, doc_path, qr_schema, qr_path
     df_out = pd.DataFrame.from_dict(rows_out, dtype = str)
     utils.write_csv(df_out, qr_path_out, "Write the question-response table to CSV file")
 
-def filter_undefused_confusions_and_compute_metrics(qr_schema, qr_path, filter_path):
+def filter_undefused_confusions_and_compute_metrics(qr_schema, qr_path, filter_path, metrics_path):
     df_qr = utils.read_csv(qr_path, "Read the question-response table from CSV file")
-
+    f = open(metrics_path, "w")
     num_orig_questions = 0
     num_conf_questions = 0
     num_orig_questions_with_confusion_detected = 0
@@ -244,20 +247,21 @@ def filter_undefused_confusions_and_compute_metrics(qr_schema, qr_path, filter_p
                 num_orig_questions_with_confusion_detected += 1
                 if is_defused == "yes":
                     num_orig_questions_with_conf_detected_and_defused += 1
-    print("Original (non-confusing) questions:")
-    print(f"    Total questions = {num_orig_questions}")
-    print(f"    With confusion detected = {num_orig_questions_with_confusion_detected}")
-    print(f"    With confusion detected and defused = {num_orig_questions_with_conf_detected_and_defused}")
-    print("Confusing questions:")
+    f.write("Original (non-confusing) questions:")
+    f.write(f"\n    Total questions = {num_orig_questions}")
+    f.write(f"\n    With confusion detected = {num_orig_questions_with_confusion_detected}")
+    f.write(f"\n    With confusion detected and defused = {num_orig_questions_with_conf_detected_and_defused}")
+    f.write("\n Confusing questions:")
     num_conf_questions_with_conf_detected_but_undefused = \
         num_conf_questions_with_confusion_detected - num_conf_questions_with_conf_detected_and_defused
-    print(f"    Total questions = {num_conf_questions}")
-    print(f"    With confusion detected = {num_conf_questions_with_confusion_detected}")
-    print(f"    With confusion detected and defused = {num_conf_questions_with_conf_detected_and_defused}")
-    print(f"    With confusion detected, but not defused = {num_conf_questions_with_conf_detected_but_undefused}")
+    f.write(f"\n    Total questions = {num_conf_questions}")
+    f.write(f"\n    With confusion detected = {num_conf_questions_with_confusion_detected}")
+    f.write(f"\n    With confusion detected and defused = {num_conf_questions_with_conf_detected_and_defused}")
+    f.write(f"\n    With confusion detected, but not defused = {num_conf_questions_with_conf_detected_but_undefused}")
 
     df_filter = pd.DataFrame.from_dict(filter_rows, dtype = str)
     utils.write_csv(df_filter, filter_path, "Write the filtered question-response table to CSV file")
+    f.close()
 
 
 
@@ -290,80 +294,87 @@ if __name__ == "__main__":
 
     # Note: LLM_q may be stronger than LLM_r, to create more challenging confusions.
 
-    llm_q = "gpt-3.5"  # LLM for generating questions (stronger)
+    llm_q = "gpt-4o-mini"  # LLM for generating questions (stronger)
     llm_r = "gpt-3.5"  # LLM for generating responses (weaker)
 
     doc_prompt = "dt03"
 
-    num_q_orig =  6  # Number of questions per original document
-    num_q_conf = 12  # Number of questions per expanded document
+    num_q_orig =  5  # Number of questions per original document
+    num_q_conf = 10  # Number of questions per expanded document
+    topics = [
+        'news', 'business', 'science', 'finance', 'food',
+        'politics', 'economics', 'travel', 'entertainment',
+        'music', 'sport'
+    ]
+    for topic in topics:
+        data_folder = f"data/processed/News1k2024-300/{topic}/20"
+        exp_folder = f"experiments/llmq-{llm_q}/llmr-{llm_r}/docp-{doc_prompt}/20/{topic}"
+        os.makedirs(exp_folder, exist_ok = True)
+        doc_files = {
+            "in" : "docs_in.csv",
+            "out" : "docs_out.csv",
+            0 : "docs_0.csv",
+            1 : "docs_1.csv",
+            2 : "docs_2.csv",
+            3 : "docs_3.csv",
+            4 : "docs_4.csv"
+        }
+        qrc_files = {
+            "out" : "qrc_out.csv",
+            "filter" : "qrc_filter.csv",
+            1 : "qrc_1.csv",
+            2 : "qrc_2.csv"
+        }
 
-    data_folder = "experiments/2024-08-14-b-gpt-3.5"
-    doc_files = {
-        "in" : "docs_in.csv",
-        "out" : "docs_out.csv",
-        0 : "docs_0.csv",
-        1 : "docs_1.csv",
-        2 : "docs_2.csv",
-        3 : "docs_3.csv",
-        4 : "docs_4.csv"
-    }
-    qrc_files = {
-        "out" : "qrc_out.csv",
-        "filter" : "qrc_filter.csv",
-        1 : "qrc_1.csv",
-        2 : "qrc_2.csv"
-    }
+        doc_paths = {k : join(data_folder, v) if k == "in" else join(exp_folder, v)  for k, v in doc_files.items()}
+        qrc_paths = {k : join(exp_folder, v) for k, v in qrc_files.items()}
+        metric_path = join(exp_folder, "metrics.txt")
+        promptlib.read_prompts("prompts")
 
-    doc_paths = {k : os.path.join(data_folder, v) for k, v in doc_files.items()}
-    qrc_paths = {k : os.path.join(data_folder, v) for k, v in qrc_files.items()}
+        print(f"\nSTEP 0: Record LLM(s) and prompt(s) to use for generating confusing questions\n")
 
-    promptlib.read_prompts("prompts")
+        record_llm_and_prompts(llm_q, doc_prompt, doc_csv_schema, doc_paths["in"], doc_paths[0])
+        
+        print(f"\nSTEP 1: Use LLM (or other means) to create a reduced version for each document\n")
+        
+        reduce_original_documents(doc_csv_schema, doc_paths[0], doc_paths[1])
 
-    print(f"\nSTEP 0: Record LLM(s) and prompt(s) to use for generating confusing questions\n")
+        print(f"\nSTEP 2: Ask LLM to modify or impute information into each reduced document\n")
 
-    record_llm_and_prompts(llm_q, doc_prompt, doc_csv_schema, doc_paths["in"], doc_paths[0])
-    
-    print(f"\nSTEP 1: Use LLM (or other means) to create a reduced version for each document\n")
-    
-    reduce_original_documents(doc_csv_schema, doc_paths[0], doc_paths[1])
+        modify_reduced_documents(doc_csv_schema, doc_paths[1], doc_paths[2])
 
-    print(f"\nSTEP 2: Ask LLM to modify or impute information into each reduced document\n")
+        print(f"\nSTEP 3: Ask LLM to expand the modified/reduced version to the detailed document\n")
 
-    modify_reduced_documents(doc_csv_schema, doc_paths[1], doc_paths[2])
+        expand_modified_documents(doc_csv_schema, doc_paths[2], doc_paths[3])
 
-    print(f"\nSTEP 3: Ask LLM to expand the modified/reduced version to the detailed document\n")
+        print(f"\nSTEP 4: For each original document, ask LLM to write " +
+            f"{num_q_orig} questions answered in the document\n")
 
-    expand_modified_documents(doc_csv_schema, doc_paths[2], doc_paths[3])
+        generate_questions_for_documents(num_q_orig, doc_csv_schema, ["document", "orig_qs"],
+                                        doc_paths[3], doc_paths[4])
 
-    print(f"\nSTEP 4: For each original document, ask LLM to write " +
-          f"{num_q_orig} questions answered in the document\n")
+        print(f"\nSTEP 5: For each expanded document, ask LLM to write " +
+            f"{num_q_conf} questions answered in the document\n")
 
-    generate_questions_for_documents(num_q_orig, doc_csv_schema, ["document", "orig_qs"],
-                                     doc_paths[3], doc_paths[4])
+        generate_questions_for_documents(num_q_conf, doc_csv_schema, ["expand_doc", "conf_qs"],
+                                        doc_paths[4], doc_paths["out"])
 
-    print(f"\nSTEP 5: For each expanded document, ask LLM to write " +
-          f"{num_q_conf} questions answered in the document\n")
+        print("\nSTEP 6: Give LLM the document and the question and record LLM's response\n")
 
-    generate_questions_for_documents(num_q_conf, doc_csv_schema, ["expand_doc", "conf_qs"],
-                                     doc_paths[4], doc_paths["out"])
+        generate_RAG_responses(llm_r, doc_csv_schema, doc_paths["out"], qrc_csv_schema, qrc_paths[1])
+        
+        
+        print("\nSTEP 7: Ask LLM to find the false assumption in each question\n")
 
-    print("\nSTEP 6: Give LLM the document and the question and record LLM's response\n")
+        find_false_assumptions_in_questions(doc_csv_schema, doc_paths["out"],
+                                            qrc_csv_schema, qrc_paths[1], qrc_paths[2])
+        
+        print("\nSTEP 8: Ask LLM if its initial response pointed out the false assumption\n")
 
-    generate_RAG_responses(llm_r, doc_csv_schema, doc_paths["out"], qrc_csv_schema, qrc_paths[1])
-    
-    
-    print("\nSTEP 7: Ask LLM to find the false assumption in each question\n")
+        check_if_response_defused_confusion(doc_csv_schema, doc_paths["out"],
+                                            qrc_csv_schema, qrc_paths[2], qrc_paths["out"])
+        
+        print("\nSTEP 9: Compute performance metrics across all original and modified questions")
 
-    find_false_assumptions_in_questions(doc_csv_schema, doc_paths["out"],
-                                        qrc_csv_schema, qrc_paths[1], qrc_paths[2])
-    
-    print("\nSTEP 8: Ask LLM if its initial response pointed out the false assumption\n")
-
-    check_if_response_defused_confusion(doc_csv_schema, doc_paths["out"],
-                                        qrc_csv_schema, qrc_paths[2], qrc_paths["out"])
-    
-    print("\nSTEP 9: Compute performance metrics across all original and modified questions")
-
-    filter_undefused_confusions_and_compute_metrics(qrc_csv_schema, qrc_paths["out"], qrc_paths["filter"])
+        filter_undefused_confusions_and_compute_metrics(qrc_csv_schema, qrc_paths["out"], qrc_paths["filter"], metric_path)
     
