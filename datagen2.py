@@ -42,7 +42,6 @@ def reduce_original_documents(schema, path_in, path_out):
         document = utils.prepare_document(row[schema["document"]])
         reduce_doc = promptlib.reduce_document(llm, document, prompt_key)
         df.loc[row_id, schema["reduce_doc"]] = reduce_doc
-        break
     utils.write_csv(df, path_out, "Write the document table with the reduced versions to CSV file")
 
 
@@ -67,7 +66,6 @@ def modify_reduced_documents(schema, path_in, path_out):
         document = utils.prepare_document(row[schema["document"]])
         modify_doc = promptlib.modify_reduced_document(llm, document, reduce_doc, prompt_key)
         df.loc[row_id, schema["modify_doc"]] = modify_doc
-        break
     utils.write_csv(df, path_out, "Write the document table with the modified versions of reduced docs to CSV file")
 
 def expand_modified_documents(schema, path_in, path_out):

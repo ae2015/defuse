@@ -1,9 +1,7 @@
-jupyter
-matplotlib
-numpy==1.26.4
-openai==1.35.7
-pandas
-requests
-scikit-learn
-torch
-tqdm
+newspaper3k==0.2.8
+nltk==3.9.1
+numpy==2.0.2
+openai==1.49.0
+pandas==2.2.3
+pyarrow==17.0.0
+python-dotenv==1.0.1

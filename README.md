@@ -3,7 +3,15 @@
 Our goal is to improve LLM's ability to respond to confusing questions in RAG setting. A question is confusing if it has no good answer because it is based on a false assumption or interpretation of the document. We want the LLM to respond by pointing out the false premise in the question ("defusing" the confusion), rather than by playing along and creating even more confusion.
 
 This is work in progress.
-
+## Env
+```
+conda create --name defuse39 python=3.9.19
+# install newscatcher
+cd ./vendor/newscatcher-0.2.0
+python setup.py install
+# install requirements
+pip install -r reuqirements.txt
+```
 ## LLM API Keys
 
 File [`llmlib.py`](llmlib.py) has the code that interacts with remote LLMs. You need to provide your API Keys and other relevant environment variables, for example, in an `.env` file, like so:

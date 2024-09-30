@@ -70,7 +70,7 @@ if st.button("Show Question Content"):
 
     if not selected_qrc.empty:
         for index, row in selected_qrc.iterrows():
-            st.write(f"**Question ID**: {row['q_id']} | Confusion: {row['is_confusing']}, Defused: {row['is_defused']}")
+            st.write(f"**Question ID**: {row['q_id']} | Confusion: {row['confusion']}, Defused: {row['is_defused']}")
             st.text_area("Question:", value=row['question'], height=100, key=f"question_{index}")
             st.text_area("Response:", value=row['response'], height=100, key=f"response_{index}")
             st.write("---")  # Add a separator between entries
