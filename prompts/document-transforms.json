@@ -54,16 +54,22 @@
         ],
         "user_reduce" : [
             "Read the document and list 12 most important facts provided in the document. ",
-            "Each fact must be a single independent sentence and must be written in ",
-            "very simple language so that even kindergarten children can understand it.\n\n",
+            "Each fact should be a single, independent sentence and must contain enough context to be understood on its own, without using undefined pronouns.\n\n",
             "Document:\n\n\"\"\"{document}\"\"\"\n\n12 most important facts:"
         ],
         "user_modify" : [
-            "Read the document below with a list of facts based on a newspaper article. ",
-            "Note that some of the facts are missing, either in full or in part. ",
-            "Your task is to guess what the original facts could have said. ",
-            "Please write out the completed list of facts without anything missing.\n\n",
+            "Read the document below with a list of 12 facts based on a newspaper article. ",
+            "Note that some of the facts are missing represented by (missing). ",
+            "Your task is to guess the missing facts could have said and complete the missing facts. ",
+            "Each fact should be a single, independent sentence and must contain enough context to be understood on its own, without using undefined pronouns. ",
+            "Please complete the missing facts and return all the 12 facts in original order. You must return all the 12 facts.\n\n",
             "Document:\n\n\"\"\"{document}\"\"\"\n\nCompleted list of facts:"
+        ],
+        "user_remove" : [
+            "Read the document below with a list of 12 ground-truth facts based on a newspaper article and a list of 12 hallucinated facts. ",
+            "Your task is to removed any hallucinated facts that can be supported by either the document or the 12 ground-truth facts. ",
+            "Please only return the remaining hallucinated facts, along with their original order numbers.\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\n12 ground-truth facts:\n\n{ori_facts}\n\n12 hallucinated facts\n\n{hallucinated_facts}\n\nRemaining hallucinated facts:"
         ],
         "user_expand" : [
             "You are a student journalist solving a challenging exercise. In this exercise, ",

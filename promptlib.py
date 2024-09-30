@@ -86,7 +86,7 @@ def reduce_document(llm, document, prompt_key):
     return reduce_doc
 
 
-def modify_reduced_document(llm, reduce_doc, prompt_key):
+def modify_reduced_document(llm, document, reduce_doc, prompt_key):
     if prompt_key in ["dt01", "dt02"]:
         return reduce_doc  
     doc_0 = reduce_doc
@@ -96,8 +96,16 @@ def modify_reduced_document(llm, reduce_doc, prompt_key):
     doc_4 = impute_facts(llm, doc_3, prompt_key)
     doc_5 = suppress_facts(doc_4, lambda i: (i % 3 == 0))
     doc_6 = impute_facts(llm, doc_5, prompt_key)
-    modify_doc = doc_6
-    return modify_doc
+
+    doc_7 = suppress_facts(doc_6, lambda i: (i % 3 == 2))
+    doc_8 = impute_facts(llm, doc_7, prompt_key)
+    doc_9 = suppress_facts(doc_8, lambda i: (i % 3 == 1))
+    doc_10 = impute_facts(llm, doc_9, prompt_key)
+    doc_11 = suppress_facts(doc_10, lambda i: (i % 3 == 0))
+    doc_12 = impute_facts(llm, doc_11, prompt_key)
+    modify_doc = doc_12
+    remained_facts = remove_facts(llm, document, reduce_doc, modify_doc, prompt_key)
+    return remained_facts
 
 def impute_facts(llm, missing_facts_doc, prompt_key):
     prompt = []
@@ -115,6 +123,23 @@ def impute_facts(llm, missing_facts_doc, prompt_key):
     if "list of facts" in lines[0].lower():
         imputed_facts_doc = "\n".join(lines[1:])
     return imputed_facts_doc
+
+def remove_facts(llm, document, ori_facts, hallucinated_facts, prompt_key):
+    prompt = []
+    if document_transforms[prompt_key]["system"]:
+        prompt.append({
+            "role" : "system",
+            "content" : document_transforms[prompt_key]["system"]
+        })
+    prompt.append({
+        "role" : "user",
+        "content" : document_transforms[prompt_key]["user_remove"].format(document = document, ori_facts = ori_facts, hallucinated_facts = hallucinated_facts)
+    })
+    remained_facts = LLM.get(llm)(prompt)
+    # lines = imputed_facts_doc.splitlines()
+    # if "list of facts" in lines[0].lower():
+        # imputed_facts_doc = "\n".join(lines[1:])
+    return remained_facts
 
 def suppress_facts(text, suppress):
     raw_lines = text.splitlines()
@@ -221,6 +246,25 @@ def confuse_questions(llm, document, questions, prompt_key = "q01"):
     prompt.append({
         "role" : "user",
         "content" : question_generation[prompt_key]["user_conf"].format(num_q = len(questions), document = document)
+    })
+    # print("\n\n" + str(prompt) + "\n\n")
+    raw_questions = LLM.get(llm)(prompt)
+    questions = utils.parse_numbered_questions(raw_questions)
+    return questions
+
+def confuse_questions_v2(llm, document, hallucinated_facts, prompt_key = "q01"):
+    '''
+    Convert hallucinated facts into questions that can only be answered by the hallucinated facts and can't be answered by the original document
+    '''
+    prompt = []
+    if question_generation[prompt_key]["system"]:
+        prompt.append({
+            "role" : "system",
+            "content" : question_generation[prompt_key]["system"]
+        })
+    prompt.append({
+        "role" : "user",
+        "content" : question_generation[prompt_key]["user_conf_facts"].format(document = document, hallucinated_facts = hallucinated_facts)
     })
     # print("\n\n" + str(prompt) + "\n\n")
     raw_questions = LLM.get(llm)(prompt)

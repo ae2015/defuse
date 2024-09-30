@@ -42,6 +42,7 @@ def reduce_original_documents(schema, path_in, path_out):
         document = utils.prepare_document(row[schema["document"]])
         reduce_doc = promptlib.reduce_document(llm, document, prompt_key)
         df.loc[row_id, schema["reduce_doc"]] = reduce_doc
+        break
     utils.write_csv(df, path_out, "Write the document table with the reduced versions to CSV file")
 
 
@@ -63,8 +64,10 @@ def modify_reduced_documents(schema, path_in, path_out):
         llm = row[schema["LLM_q"]]
         prompt_key = row[schema["doc_prompt"]]
         reduce_doc = utils.prepare_document(row[schema["reduce_doc"]])
-        modify_doc = promptlib.modify_reduced_document(llm, reduce_doc, prompt_key)
+        document = utils.prepare_document(row[schema["document"]])
+        modify_doc = promptlib.modify_reduced_document(llm, document, reduce_doc, prompt_key)
         df.loc[row_id, schema["modify_doc"]] = modify_doc
+        break
     utils.write_csv(df, path_out, "Write the document table with the modified versions of reduced docs to CSV file")
 
 def expand_modified_documents(schema, path_in, path_out):
@@ -109,6 +112,29 @@ def generate_questions_for_documents(num_q, schema, col_refs, path_in, path_out)
         llm = row[schema["LLM_q"]]
         document = utils.prepare_document(row[schema[doc_ref]])
         questions = promptlib.generate_questions(llm, document, num_q)
+        df.loc[row_id, schema[que_ref]] = "\n".join([f"{i}. {q}" for i, q in enumerate(questions, start = 1)])
+    utils.write_csv(df, path_out, "Write the document table with questions to CSV file")
+
+def generate_questions_for_documents_v2(num_q, schema, col_refs, path_in, path_out):
+    """
+    Convert each hellucianted fact into a question which can only be answered by the hallucinated fact itself and can't be answered by the original document
+    """
+    doc_ref = col_refs[0]
+    que_ref = col_refs[1]
+    df = utils.read_csv(path_in, "Read the document table from CSV file")
+    # Check that the correct columns are present in the CSV
+    assert schema["LLM_q"] in set(df.columns)
+    assert schema[doc_ref] in set(df.columns)
+    assert schema[que_ref] not in set(df.columns)
+
+    df = df.reindex(columns = df.columns.tolist() + [schema[que_ref]])
+    df = df.astype({schema[que_ref]: str}, copy = False)
+    print(f"Generate {num_q} questions for each document from column {schema[doc_ref]}")
+    for row_id, row in tqdm(df.copy().iterrows(), total = df.shape[0]):
+        llm = row[schema["LLM_q"]]
+        document = utils.prepare_document(row[schema[doc_ref]])
+        hallucinated_facts = utils.prepare_document(row[schema["modify_doc"]])
+        questions = promptlib.confuse_questions_v2(llm, document, hallucinated_facts= hallucinated_facts)
         df.loc[row_id, schema[que_ref]] = "\n".join([f"{i}. {q}" for i, q in enumerate(questions, start = 1)])
     utils.write_csv(df, path_out, "Write the document table with questions to CSV file")
 
@@ -301,14 +327,17 @@ if __name__ == "__main__":
 
     num_q_orig =  5  # Number of questions per original document
     num_q_conf = 10  # Number of questions per expanded document
+    # topics = [
+    #     'sport', 'business', 'science', 'finance', 'food',
+    #     'politics', 'economics', 'travel', 'entertainment',
+    #     'music', 'news'
+    # ]
     topics = [
-        'news', 'business', 'science', 'finance', 'food',
-        'politics', 'economics', 'travel', 'entertainment',
-        'music', 'sport'
+        'sport'
     ]
     for topic in topics:
         data_folder = f"data/processed/News1k2024-300/{topic}/20"
-        exp_folder = f"experiments/llmq-{llm_q}/llmr-{llm_r}/docp-{doc_prompt}/20/{topic}"
+        exp_folder = f"data/experiments/llmq-{llm_q}/llmr-{llm_r}/docp-{doc_prompt}/20-toy/{topic}"
         os.makedirs(exp_folder, exist_ok = True)
         doc_files = {
             "in" : "docs_in.csv",
@@ -343,38 +372,38 @@ if __name__ == "__main__":
 
         modify_reduced_documents(doc_csv_schema, doc_paths[1], doc_paths[2])
 
-        print(f"\nSTEP 3: Ask LLM to expand the modified/reduced version to the detailed document\n")
+        # print(f"\nSTEP 3: Ask LLM to expand the modified/reduced version to the detailed document\n")
 
-        expand_modified_documents(doc_csv_schema, doc_paths[2], doc_paths[3])
+        # expand_modified_documents(doc_csv_schema, doc_paths[2], doc_paths[3])
 
-        print(f"\nSTEP 4: For each original document, ask LLM to write " +
+        print(f"\nSTEP 3: For each original document, ask LLM to write " +
             f"{num_q_orig} questions answered in the document\n")
 
         generate_questions_for_documents(num_q_orig, doc_csv_schema, ["document", "orig_qs"],
-                                        doc_paths[3], doc_paths[4])
+                                        doc_paths[2], doc_paths[3])
 
-        print(f"\nSTEP 5: For each expanded document, ask LLM to write " +
+        print(f"\nSTEP 4: For each expanded document, ask LLM to write " +
             f"{num_q_conf} questions answered in the document\n")
 
-        generate_questions_for_documents(num_q_conf, doc_csv_schema, ["expand_doc", "conf_qs"],
-                                        doc_paths[4], doc_paths["out"])
+        generate_questions_for_documents_v2(num_q_conf, doc_csv_schema, ["document", "conf_qs"],
+                                        doc_paths[3], doc_paths["out"])
 
-        print("\nSTEP 6: Give LLM the document and the question and record LLM's response\n")
+        print("\nSTEP 5: Give LLM the document and the question and record LLM's response\n")
 
         generate_RAG_responses(llm_r, doc_csv_schema, doc_paths["out"], qrc_csv_schema, qrc_paths[1])
         
         
-        print("\nSTEP 7: Ask LLM to find the false assumption in each question\n")
+        print("\nSTEP 6: Ask LLM to find the false assumption in each question\n")
 
         find_false_assumptions_in_questions(doc_csv_schema, doc_paths["out"],
                                             qrc_csv_schema, qrc_paths[1], qrc_paths[2])
         
-        print("\nSTEP 8: Ask LLM if its initial response pointed out the false assumption\n")
+        print("\nSTEP 7: Ask LLM if its initial response pointed out the false assumption\n")
 
         check_if_response_defused_confusion(doc_csv_schema, doc_paths["out"],
                                             qrc_csv_schema, qrc_paths[2], qrc_paths["out"])
         
-        print("\nSTEP 9: Compute performance metrics across all original and modified questions")
+        print("\nSTEP 8: Compute performance metrics across all original and modified questions")
 
         filter_undefused_confusions_and_compute_metrics(qrc_csv_schema, qrc_paths["out"], qrc_paths["filter"], metric_path)
     
