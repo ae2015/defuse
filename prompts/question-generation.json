@@ -16,7 +16,7 @@
             "so that each modified question starts with a fake assumption and has no good answer:"
         ],
         "user_conf_facts" : [
-            "Read the document and the list of hallucinated facts. For each hallucinated fact, create a question that can only be answered by that specific hallucinated fact and not by any information in the document. If you are unable to create such a question for a particular hallucinated fact, feel free to skip it.\n\n",
+            "Read the document and the list of hallucinated facts. For each hallucinated fact, create a question that includes the key part of the hallucinated fact, making the question based on a false assumption. Ensure that this question cannot be answered using any information from the document. If it’s not possible to form such a question for a particular hallucinated fact, feel free to skip it.\n\n",
             "Document:\n\n\"\"\"{document}\"\"\"\n\nhallucinated facts:\n\n{hallucinated_facts}\n\nQuestions:"
         ]
     },
