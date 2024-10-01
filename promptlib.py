@@ -313,7 +313,7 @@ def find_false_assumption(llm, document, question, prompt_key = "r02"):
         return confusion
 
 
-def check_response_for_defusion(llm, document, question, response, confusion, prompt_key = "r02"):
+def check_response_for_defusion(llm, document, question, response, prompt_key = "r02"):
     prompt = []
     if rag_confusion_check[prompt_key]["system"]:
         prompt.append({
@@ -328,16 +328,6 @@ def check_response_for_defusion(llm, document, question, response, confusion, pr
         "role" : "assistant",
         "content" : response
     })
-    """
-    prompt.append({
-        "role" : "user",
-        "content" : rag_confusion_check[prompt_key]["user_conf_check"]
-    })
-    prompt.append({
-        "role" : "assistant",
-        "content" : confusion
-    })
-    """
     prompt.append({
         "role" : "user",
         "content" : rag_confusion_check[prompt_key]["user_def_check"]

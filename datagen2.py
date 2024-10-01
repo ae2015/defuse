@@ -234,7 +234,7 @@ def check_if_response_defused_confusion(doc_schema, doc_path, qr_schema, qr_path
         if confusion == "none":
             defusion, is_defused = "n/a", "n/a"
         else:
-            defusion, is_defused = promptlib.check_response_for_defusion(llm, document, question, response, confusion)
+            defusion, is_defused = promptlib.check_response_for_defusion(llm, document, question, response)
         row_out = dict(row)
         row_out[qr_schema["defusion"]] = defusion
         row_out[qr_schema["is_defused"]] = is_defused
@@ -335,7 +335,7 @@ if __name__ == "__main__":
     ]
     for topic in topics:
         data_folder = f"data/processed/News1k2024-300/{topic}/20"
-        exp_folder = f"data/experiments/llmq-{llm_q}/llmr-{llm_r}/docp-{doc_prompt}/20-toy/{topic}"
+        exp_folder = f"data/experiments/llmq-{llm_q}/llmr-{llm_r}/docp-{doc_prompt}/20-toy-update/{topic}"
         os.makedirs(exp_folder, exist_ok = True)
         doc_files = {
             "in" : "docs_in.csv",
