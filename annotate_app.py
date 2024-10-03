@@ -130,10 +130,10 @@ def check_and_create_annotations_csv(csv_path):
             )
             if choice == "Yes, create the file":
                 st.session_state.create_csv_choice = 'Yes'
-                st.experimental_rerun()
+                st.rerun()
             elif choice == "No, do not create":
                 st.session_state.create_csv_choice = 'No'
-                st.experimental_rerun()
+                st.rerun()
             else:
                 st.stop()
         else:
