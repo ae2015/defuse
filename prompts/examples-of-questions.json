@@ -110,7 +110,7 @@
         ],
         "orig_questions": [
             {
-                "question": "What is the injury status of Justin Jefferson heading into Week 3?", "explanation": "The document clearly states that Justin Jefferson was taken off the injury report for Week 3 after recovering from a quad injury. It mentions that he practiced well enough for the injury not to be a concern, making him available to play. Is this question can be ansered by the document? Yes."
+                "question": "What is the injury status of Justin Jefferson heading into Week 3?", "explanation": "The document clearly states that Justin Jefferson was taken off the injury report for Week 3 after recovering from a quad injury. It mentions that he practiced well enough for the injury not to be a concern, making him available to play."
             },
             {
                 "question": "How does CeeDee Lamb's injury status compare to that of other NFL stars mentioned in the document?",
@@ -125,7 +125,7 @@
             },
             {
                 "question": "How has Houston's defense performed against opposing wide receivers in the first two weeks of the season?", 
-                "explanation": "The document provides specific information about Houston’s defense, mentioning that it allowed 330 receiving yards on 20 catches to opposing wide receivers in the first two weeks of the season"
+                "explanation": "The document provides specific information about Houston’s defense, mentioning that it allowed 330 receiving yards on 20 catches to opposing wide receivers in the first two weeks of the season."
             }
         ],
         "conf_questions": [
@@ -284,7 +284,7 @@
         ],
         "orig_questions": [
             {
-                "question": "What is the injury status of Justin Jefferson heading into Week 3?", "explanation": "The document clearly states that Justin Jefferson was taken off the injury report for Week 3 after recovering from a quad injury. It mentions that he practiced well enough for the injury not to be a concern, making him available to play. Is this question can be ansered by the document? Yes."
+                "question": "What is the injury status of Justin Jefferson heading into Week 3?", "explanation": "The document clearly states that Justin Jefferson was taken off the injury report for Week 3 after recovering from a quad injury. It mentions that he practiced well enough for the injury not to be a concern, making him available to play."
             },
             {
                 "question": "How does CeeDee Lamb's injury status compare to that of other NFL stars mentioned in the document?",
@@ -299,7 +299,7 @@
             },
             {
                 "question": "How has Houston's defense performed against opposing wide receivers in the first two weeks of the season?", 
-                "explanation": "The document provides specific information about Houston’s defense, mentioning that it allowed 330 receiving yards on 20 catches to opposing wide receivers in the first two weeks of the season"
+                "explanation": "The document provides specific information about Houston’s defense, mentioning that it allowed 330 receiving yards on 20 catches to opposing wide receivers in the first two weeks of the season."
             }
         ],
         "conf_questions": [ 

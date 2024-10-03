@@ -63,6 +63,13 @@
             "any confusing parts, false assumptions, incorrect information, or mentions of people, locations, organizations, or other entities that are not present in the document? ",
             "Reply 'Yes' or 'No', then provide the reason if the question has any of these issues :"
         ],
+        "user_conf_rag_example" : [
+            "Read the document and the question. Check if the question contains any confusing parts, false assumptions, incorrect information, or mentions of people, locations, organizations, or other entities that are not present in the document.\n\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\nQuestion:\n\n{question}\n\n",
+            "Does the question contain ",
+            "any confusing parts, false assumptions, incorrect information, or mentions of people, locations, organizations, or other entities that are not present in the document? ",
+            "Please start by explaining your reasoning. End your response with 'The answer is: Yes or No.':"
+        ],
         "user_def_check": [
             "The question contains a confusing part that ",
             "either makes a false assumption or states incorrect information. ",

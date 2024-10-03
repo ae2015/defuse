@@ -194,6 +194,24 @@ def find_false_assumptions_in_questions(doc_schema, doc_path, qr_schema, qr_path
     df_out = pd.DataFrame.from_dict(rows_out, dtype = str)
     utils.write_csv(df_out, qr_path_out, "Write the question-response table to CSV file")
 
+def find_false_assumptions_in_questions_v2(doc_schema, doc_path, qr_schema, qr_path_in, qr_path_out):
+    documents = create_dictionary_of_indexed_documents(doc_schema, doc_path)
+    df_qr = utils.read_csv(qr_path_in, "Read the question-response table from CSV file")    
+    print("Ask LLM to find a false assumption in each question, or say 'none'")
+    rows_out = []
+    for _, row in tqdm(df_qr.iterrows(), total = df_qr.shape[0]):
+        doc_id = row[qr_schema["doc_id"]]
+        document = documents[doc_id]
+        question = row[qr_schema["question"]]
+        llm = row[qr_schema["LLM_r"]]
+        confusion = promptlib.find_false_assumption_v2(llm, document, question)
+        row_out = dict(row)
+        row_out[qr_schema["confusion"]] = confusion
+        rows_out.append(row_out)
+    df_out = pd.DataFrame.from_dict(rows_out, dtype = str)
+    utils.write_csv(df_out, qr_path_out, "Write the question-response table to CSV file")
+
+
 def check_if_response_defused_confusion(doc_schema, doc_path, qr_schema, qr_path_in, qr_path_out):
     documents = create_dictionary_of_indexed_documents(doc_schema, doc_path)
     df_qr = utils.read_csv(qr_path_in, "Read the question-response table from CSV file")
@@ -333,7 +351,7 @@ if __name__ == "__main__":
     ]
     for topic in topics:
         data_folder = f"data/processed/News1k2024-300/{topic}/20"
-        exp_folder = f"data/experiments/llmq-{llm_q}/llmr-{llm_r}/docp-{doc_prompt}/20-toy-dev/{topic}"
+        exp_folder = f"data/experiments/llmq-{llm_q}/llmr-{llm_r}/docp-{doc_prompt}/20-toy-conf_exp/{topic}"
         os.makedirs(exp_folder, exist_ok = True)
         doc_files = {
             "in" : "docs_in.csv",
@@ -390,7 +408,7 @@ if __name__ == "__main__":
         
         print("\nSTEP 6: Ask LLM to find the false assumption in each question\n")
 
-        find_false_assumptions_in_questions(doc_csv_schema, doc_paths["out"],
+        find_false_assumptions_in_questions_v2(doc_csv_schema, doc_paths["out"],
                                             qrc_csv_schema, qrc_paths[1], qrc_paths[2])
         
         print("\nSTEP 7: Ask LLM if its initial response pointed out the false assumption\n")

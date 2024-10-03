@@ -309,6 +309,50 @@ def find_false_assumption(llm, document, question, prompt_key = "r-z-1"):
         return "none"
     else:
         return confusion
+    
+def find_false_assumption_v2(llm, document, question, prompt_key = "r-z-1"):
+    exp_document = examples_of_questions["zpeng-sport-5-5"]["document"]
+    exp_ori_questions, exp_ori_reasonings, exp_conf_questions, exp_conf_reasonings = [], [], [], []
+    for t in examples_of_questions["zpeng-sport-5-5"]["conf_questions"]:
+        exp_ori_questions.append(t["question"])
+        exp_ori_reasonings.append(t["explanation"]+ " This answer is No.")
+    for t in examples_of_questions["zpeng-sport-5-5"]["conf_questions"]:
+        exp_conf_questions.append(t["question"])
+        exp_conf_reasonings.append(t["explanation"]+ " This answer is Yes.")
+    exp_questions = utils.enum_list(exp_ori_questions + exp_conf_questions)
+    exp_reasonings = "\n\n" + utils.enum_list(exp_ori_reasonings + exp_conf_reasonings)
+    prompt = []
+    if rag_confusion_check[prompt_key]["system"]:
+        prompt.append({
+            "role" : "system",
+            "content" : rag_confusion_check[prompt_key]["system"]
+        })
+    prompt.append({
+        "role" : "user",
+        "content" : rag_confusion_check[prompt_key]["user_conf_rag_example"].format(document = exp_document, question = exp_questions)
+    })
+    prompt.append({
+        "role" : "assistant",
+        "content" : exp_reasonings
+    })
+    prompt.append({
+        "role" : "user",
+        "content" : rag_confusion_check[prompt_key]["user_conf_rag_example"].format(document = document, question = question)
+    })
+    confusion = LLM.get(llm)(prompt)
+    if (
+            confusion.lower().endswith("no") or
+            confusion.lower().endswith("answer: no") or
+            confusion.lower().endswith("the answer is: no") or
+            confusion.lower().endswith("the answer is \"no\"") or
+            confusion.lower().endswith("no.") or
+            confusion.lower().endswith("answer: no.") or
+            confusion.lower().endswith("the answer is: no.") or
+            confusion.lower().endswith("the answer is \"no.\"")
+        ):
+        return "none"
+    else:
+        return confusion
 
 
 def check_response_for_defusion(llm, document, question, response, prompt_key = "r-z-1"):
