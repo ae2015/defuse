@@ -3,6 +3,10 @@ import pandas as pd
 import os
 from os.path import join, exists
 
+# Example: 'data/experiments/llmq-gpt-4o-mini/llmr-gpt-3.5/docp-dt03'
+experiment_folder = "data/experiments/llmq-gpt-4o-mini/llmr-gpt-3.5/docp-dt-z-1"
+
+
 # Load CSV files
 @st.cache_data
 def load_csv_data(data_dir):
@@ -47,13 +51,12 @@ def init():
         """,
         unsafe_allow_html=True
     )
-
     return cwd 
     
-def sidebar_logic(cwd):
+def sidebar_logic(cwd, experiment_folder):
     # Sidebar for doc_id selection
     st.sidebar.header("Which Experiment/Topic to Work On")
-    base_path = join(cwd, 'experiments/llmq-gpt-4o-mini/llmr-gpt-3.5/docp-dt03')
+    base_path = join(cwd, experiment_folder)
     # Get the list of experiment folders 
     try:
         exp_folders = [f for f in os.listdir(base_path) if os.path.isdir(join(base_path, f))]
@@ -108,17 +111,8 @@ def check_username_csv_path(cwd, exp_name):
     return csv_path
 
 def check_and_create_annotations_csv(csv_path):
-    
     # Check if the CSV file exists
     if not exists(csv_path):
-        # st.warning(f"{csv_filename} not found, creating a new file.")
-        # # Create the DataFrame with the specified columns
-        # columns = ['doc_id', 'q_id', 'supposed_to_be_confusing', 'llm_confuse_label', 'llm_defuse_label', 'human_confuse_label', 'human_defuse_label', 
-        #            'human_confuse_reason', 'human_defuse_reason', 'question_category']
-        # annotations_df = pd.DataFrame(columns=columns)
-        # # Save the DataFrame as a CSV file
-        # annotations_df.to_csv(csv_path, index=False)
-        # st.success(f"{csv_filename} created successfully.")
         st.warning(f"{csv_path} not found.")
 
         # Check if the user has made a choice already
@@ -220,12 +214,16 @@ def check_if_document_fully_annotated(annotations_df, doc_id, selected_qrc):
     else:
         remaining = len(all_questions - annotated_questions)
         st.info(f"{remaining} questions remaining to annotate for Document ID {doc_id}.")
-
-
-        
+ 
 def show_question_contents_and_annotation_form(qrc_data, doc_id, csv_path):
     
-    selected_qrc = qrc_data[(qrc_data["doc_id"] == doc_id)]
+    selected_qrc = qrc_data[
+        (qrc_data["doc_id"] == doc_id) &
+        (
+            (qrc_data["is_confusing"] == 'no') | 
+            ((qrc_data["is_confusing"] == 'yes') & (qrc_data["confusion"] == 'yes'))
+        )
+    ]
     
     # Shuffle
     selected_qrc = selected_qrc.sample(frac=1, random_state=42).reset_index(drop=True)
@@ -273,7 +271,7 @@ def show_question_contents_and_annotation_form(qrc_data, doc_id, csv_path):
 
 cwd = init() 
 
-exp_name, doc_id, doc_data, qrc_data = sidebar_logic(cwd)
+exp_name, doc_id, doc_data, qrc_data = sidebar_logic(cwd, experiment_folder)
 
 csv_path = check_username_csv_path(cwd, exp_name)
 
