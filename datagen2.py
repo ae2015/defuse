@@ -1,11 +1,11 @@
 import pandas as pd
 import os
-import utils, promptlib
 from tqdm import tqdm
 from os.path import join
 from dotenv import load_dotenv
 load_dotenv()
-print(os.getenv('OPENAI_API_KEY'))
+import utils, promptlib
+
 def record_llm_and_prompts(llm, doc_prompt, schema, path_in, path_out):
     """
     Record LLM(s) and prompt(s) into the CSV table to use for generating confusing questions
@@ -194,7 +194,7 @@ def find_false_assumptions_in_questions(doc_schema, doc_path, qr_schema, qr_path
     df_out = pd.DataFrame.from_dict(rows_out, dtype = str)
     utils.write_csv(df_out, qr_path_out, "Write the question-response table to CSV file")
 
-def find_false_assumptions_in_questions_v2(doc_schema, doc_path, qr_schema, qr_path_in, qr_path_out):
+def find_false_assumptions_in_questions_v2(doc_schema, doc_path, qr_schema, qr_path_in, qr_path_out, n=1):
     documents = create_dictionary_of_indexed_documents(doc_schema, doc_path)
     df_qr = utils.read_csv(qr_path_in, "Read the question-response table from CSV file")    
     print("Ask LLM to find a false assumption in each question, or say 'none'")
@@ -204,7 +204,7 @@ def find_false_assumptions_in_questions_v2(doc_schema, doc_path, qr_schema, qr_p
         document = documents[doc_id]
         question = row[qr_schema["question"]]
         llm = row[qr_schema["LLM_r"]]
-        confusion = promptlib.find_false_assumption_v2(llm, document, question)
+        confusion = promptlib.find_false_assumption_v2(llm, document, question, n)
         row_out = dict(row)
         row_out[qr_schema["confusion"]] = confusion
         rows_out.append(row_out)
@@ -235,7 +235,7 @@ def check_if_response_defused_confusion(doc_schema, doc_path, qr_schema, qr_path
     df_out = pd.DataFrame.from_dict(rows_out, dtype = str)
     utils.write_csv(df_out, qr_path_out, "Write the question-response table to CSV file")
 
-def check_if_response_defused_confusion_v2(doc_schema, doc_path, qr_schema, qr_path_in, qr_path_out):
+def check_if_response_defused_confusion_v2(doc_schema, doc_path, qr_schema, qr_path_in, qr_path_out, n=1):
     documents = create_dictionary_of_indexed_documents(doc_schema, doc_path)
     df_qr = utils.read_csv(qr_path_in, "Read the question-response table from CSV file")
     print("Ask LLM to check if its own response defused the confusion")
@@ -250,7 +250,7 @@ def check_if_response_defused_confusion_v2(doc_schema, doc_path, qr_schema, qr_p
         if confusion == "none":
             defusion, is_defused = "n/a", "n/a"
         else:
-            defusion, is_defused = promptlib.check_response_for_defusion_v2(llm, document, question, response)
+            defusion, is_defused = promptlib.check_response_for_defusion_v2(llm, document, question, response, n)
         row_out = dict(row)
         row_out[qr_schema["defusion"]] = defusion
         row_out[qr_schema["is_defused"]] = is_defused
@@ -306,7 +306,7 @@ def filter_undefused_confusions_and_compute_metrics(qr_schema, qr_path, filter_p
 
 
 if __name__ == "__main__":
-
+    start_time = utils.get_time()
     doc_csv_schema = {
         "doc_id" : "doc_id",           # Column with a unique document ID
         "source" : "source",           # Column with document source (e.g. URL)
@@ -351,7 +351,7 @@ if __name__ == "__main__":
     ]
     for topic in topics:
         data_folder = f"data/processed/News1k2024-300/{topic}/20"
-        exp_folder = f"data/experiments/llmq-{llm_q}/llmr-{llm_r}/docp-{doc_prompt}/20-toy-conf_exp/{topic}"
+        exp_folder = f"data/experiments/llmq-{llm_q}/llmr-{llm_r}/docp-{doc_prompt}/20-toy-dev-n9/{topic}"
         os.makedirs(exp_folder, exist_ok = True)
         doc_files = {
             "in" : "docs_in.csv",
@@ -409,14 +409,16 @@ if __name__ == "__main__":
         print("\nSTEP 6: Ask LLM to find the false assumption in each question\n")
 
         find_false_assumptions_in_questions_v2(doc_csv_schema, doc_paths["out"],
-                                            qrc_csv_schema, qrc_paths[1], qrc_paths[2])
+                                            qrc_csv_schema, qrc_paths[1], qrc_paths[2], n=9)
         
         print("\nSTEP 7: Ask LLM if its initial response pointed out the false assumption\n")
 
         check_if_response_defused_confusion_v2(doc_csv_schema, doc_paths["out"],
-                                            qrc_csv_schema, qrc_paths[2], qrc_paths["out"])
+                                            qrc_csv_schema, qrc_paths[2], qrc_paths["out"], n=9)
         
         print("\nSTEP 8: Compute performance metrics across all original and modified questions")
 
         filter_undefused_confusions_and_compute_metrics(qrc_csv_schema, qrc_paths["out"], qrc_paths["filter"], metric_path)
+        end_time = utils.get_time()
+        print(f"Time taken: {end_time - start_time:.2f} seconds")
     

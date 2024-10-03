@@ -310,7 +310,7 @@ def find_false_assumption(llm, document, question, prompt_key = "r-z-1"):
     else:
         return confusion
     
-def find_false_assumption_v2(llm, document, question, prompt_key = "r-z-1"):
+def find_false_assumption_v2(llm, document, question, n, prompt_key = "r-z-1"):
     exp_document = examples_of_questions["zpeng-sport-5-5"]["document"]
     exp_ori_questions, exp_ori_reasonings, exp_conf_questions, exp_conf_reasonings = [], [], [], []
     for t in examples_of_questions["zpeng-sport-5-5"]["conf_questions"]:
@@ -339,7 +339,25 @@ def find_false_assumption_v2(llm, document, question, prompt_key = "r-z-1"):
         "role" : "user",
         "content" : rag_confusion_check[prompt_key]["user_conf_rag_example"].format(document = document, question = question)
     })
-    confusion = LLM.get(llm)(prompt)
+    confusion = LLM.get(llm)(prompt, n=n)
+    if n != 1:
+        answers = []
+        for conf in confusion:
+            if (
+                conf.lower().endswith("no") or
+                conf.lower().endswith("answer: no") or
+                conf.lower().endswith("the answer is: no") or
+                conf.lower().endswith("the answer is \"no\"") or
+                conf.lower().endswith("no.") or
+                conf.lower().endswith("answer: no.") or
+                conf.lower().endswith("the answer is: no.") or
+                conf.lower().endswith("the answer is \"no.\"")
+            ):
+                answers.append("none")
+            else:
+                answers.append("yes")
+        majority = max(answers, key = answers.count)
+        return majority
     if (
             confusion.lower().endswith("no") or
             confusion.lower().endswith("answer: no") or
@@ -393,7 +411,7 @@ def check_response_for_defusion(llm, document, question, response, prompt_key = 
         is_defused = "unsure"
     return defusion, is_defused
 
-def check_response_for_defusion_v2(llm, document, question, response, prompt_key = "r-z-1", shot = 2):
+def check_response_for_defusion_v2(llm, document, question, response, n, prompt_key = "r-z-1", shot = 2):
     prompt = []
     if rag_confusion_check[prompt_key]["system"]:
         prompt.append({
@@ -439,7 +457,44 @@ def check_response_for_defusion_v2(llm, document, question, response, prompt_key
         "role" : "user",
         "content" : rag_confusion_check[prompt_key]["user_def_check"]
     })
-    defusion = LLM.get(llm)(prompt)
+    defusion = LLM.get(llm)(prompt, n=n)
+    if n != 1:
+        answers = []
+        for defu in defusion:
+            if (
+                defu.lower().endswith("no") or
+                defu.lower().endswith("answer: no") or
+                defu.lower().endswith("the answer is: no") or
+                defu.lower().endswith("the answer is \"no\"") or
+                defu.lower().endswith("no.") or
+                defu.lower().endswith("answer: no.") or
+                defu.lower().endswith("the answer is: no.") or
+                defu.lower().endswith("the answer is \"no.\"")
+            ):
+                answers.append("no")
+                no_defu = defu
+            elif (
+                defu.lower().endswith("yes") or
+                defu.lower().endswith("answer: yes") or
+                defu.lower().endswith("the answer is: yes") or
+                defu.lower().endswith("the answer is \"yes\"") or
+                defu.lower().endswith("yes.") or
+                defu.lower().endswith("answer: yes.") or
+                defu.lower().endswith("the answer is: yes.") or
+                defu.lower().endswith("the answer is \"yes.\"")
+            ):
+                answers.append("yes") 
+                yes_defu = defu
+            else:
+                answers.append("unsure")
+                unsure_defu = defu
+        majority = max(answers, key = answers.count)
+        if majority == "no":
+            return no_defu, majority
+        elif majority == "yes":
+            return yes_defu, majority
+        else:
+            return unsure_defu, majority
     if (
             defusion.lower().endswith("no") or
             defusion.lower().endswith("answer: no") or

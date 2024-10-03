@@ -1,5 +1,6 @@
 import pandas as pd
 import re
+import time
 
 def read_csv(path, comment):
     print(comment + ":\n    " + path)
@@ -51,5 +52,8 @@ def parse_numbered_questions(text): # , min_number_of_items = 2):
     add_question_from_chunks()
     # print(questions)
     return questions
+
+def get_time():
+    return time.time()
 
 

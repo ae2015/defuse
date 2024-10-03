@@ -53,7 +53,7 @@ class LLM:
     def __str__(self):
         return self.name
 
-    def __call__(self, prompt):
+    def __call__(self, prompt, **kwargs):
         """
         Issues a POST call to perform LLM inference
 
@@ -97,6 +97,7 @@ class LLM:
             "model" : self.model,
             "messages" : messages
         }
+        self.parameters.update(kwargs)
         json_data.update(self.parameters)
         start_time = time.time()
         response = requests.post(self.url, headers = self.headers, json = json_data)
@@ -108,7 +109,10 @@ class LLM:
                 f"Prompt: {prompt}\nResponse: {response.json()}" # {json.dumps(response)}"
             )
         # print("text_output = " + str(response.json()))
-        text_output = response.json()["choices"][0]["message"]["content"]
+        if kwargs.get("n", 1) != 1:
+            text_output = [message["message"]["content"] for message in response.json()["choices"]]
+        else:
+            text_output = response.json()["choices"][0]["message"]["content"]
         # print(f"Response from OpenAI: {response.json()}\n")
         return text_output
 
