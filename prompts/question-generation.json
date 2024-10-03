@@ -23,11 +23,11 @@
         ],
         "user_orig" : [
             "Read the document and write a numbered list of {num_q} best ",
-            "questions that are answered in the document.\n\n",
+            "questions that are answered in the document. The question should not contain any confusing parts, false assumptions, incorrect information, or mentions of people, locations, organizations, or other entities that are not present in the document.\n\n",
             "Document:\n\n\"\"\"{document}\"\"\"\n\nQuestions:"
         ],
         "user_conf" : [
-            "Read the document and the list of hallucinated facts. For each hallucinated fact, create a question that includes the key part of the hallucinated fact, making the question based on a false assumption. Ensure that this question cannot be answered using any information from the document. If it’s not possible to form such a question for a particular hallucinated fact, feel free to skip it.\n\n",
+            "Read the document and the list of hallucinated facts. For each hallucinated fact, create a question that includes the key part of the hallucinated fact, making the question is confusing. Ensure that this question cannot be answered using any information from the document. If it’s not possible to form such a question for a particular hallucinated fact, feel free to skip it.\n\n",
             "Document:\n\n\"\"\"{document}\"\"\"\n\nhallucinated facts:\n\n{hallucinated_facts}\n\nQuestions:"
         ]
     },

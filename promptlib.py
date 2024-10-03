@@ -70,7 +70,6 @@ def read_prompts(folder):
         example["conf_questions"] = example_raw["conf_questions"]
         examples_of_questions[key] = example
 
-
 def reduce_document(llm, document, num_fact, prompt_key):
     prompt = []
     if document_transforms[prompt_key]["system"]:
@@ -205,6 +204,35 @@ def generate_questions(llm, document, num_q, prompt_key = "q-z-1"):
     questions = utils.parse_numbered_questions(raw_questions)
     return questions
 
+def generate_questions_v2(llm, document, num_q, prompt_key = "q-z-1"):
+    exp_document = examples_of_questions["zpeng-sport-5-5"]["document"]
+    exp_ori_questions = []
+    for t in examples_of_questions["zpeng-sport-5-5"]["orig_questions"]:
+        exp_ori_questions.append(t["question"])
+    exp_num_q = len(exp_ori_questions)
+    exp_ori_questions = utils.enum_list(exp_ori_questions)
+    prompt = []
+    if question_generation[prompt_key]["system"]:
+        prompt.append({
+            "role" : "system",
+            "content" : question_generation[prompt_key]["system"]
+        })
+    prompt.append({
+            "role" : "user",
+            "content" : question_generation[prompt_key]["user_orig"].format(num_q = exp_num_q, document = exp_document)
+        })
+    prompt.append({
+        "role" : "assistant",
+        "content" : exp_ori_questions
+    })
+    prompt.append({
+        "role" : "user",
+        "content" : question_generation[prompt_key]["user_orig"].format(num_q = num_q, document = document)
+    })
+    # print("\n\n" + str(prompt) + "\n\n")
+    raw_questions = LLM.get(llm)(prompt)
+    questions = utils.parse_numbered_questions(raw_questions)
+    return questions
 
 def confuse_questions(llm, document, questions, prompt_key = "q01"):
     example_keys = ["Weywot-1", "ElDorado-1"]
@@ -269,7 +297,6 @@ def confuse_questions_v2(llm, document, hallucinated_facts, prompt_key = "q-z-1"
     questions = utils.parse_numbered_questions(raw_questions)
     return questions
 
-
 def generate_response(llm, document, question, prompt_key = "r-z-1"):
     prompt = []
     if rag_confusion_check[prompt_key]["system"]:
@@ -283,7 +310,6 @@ def generate_response(llm, document, question, prompt_key = "r-z-1"):
     })
     response = LLM.get(llm)(prompt)
     return response
-
 
 def find_false_assumption(llm, document, question, prompt_key = "r-z-1"):
     prompt = []
@@ -371,7 +397,6 @@ def find_false_assumption_v2(llm, document, question, n, prompt_key = "r-z-1"):
         return "none"
     else:
         return confusion
-
 
 def check_response_for_defusion(llm, document, question, response, prompt_key = "r-z-1"):
     prompt = []

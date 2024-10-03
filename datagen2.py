@@ -116,6 +116,29 @@ def generate_questions_for_documents(num_q, schema, col_refs, path_in, path_out)
         # break
     utils.write_csv(df, path_out, "Write the document table with questions to CSV file")
 
+def generate_questions_for_documents_v2(num_q, schema, col_refs, path_in, path_out):
+    """
+    For each original document, ask LLM to write `num_q` questions answered in the document
+    """
+    doc_ref = col_refs[0]
+    que_ref = col_refs[1]
+    df = utils.read_csv(path_in, "Read the document table from CSV file")
+    # Check that the correct columns are present in the CSV
+    assert schema["LLM_q"] in set(df.columns)
+    assert schema[doc_ref] in set(df.columns)
+    assert schema[que_ref] not in set(df.columns)
+
+    df = df.reindex(columns = df.columns.tolist() + [schema[que_ref]])
+    df = df.astype({schema[que_ref]: str}, copy = False)
+    print(f"Generate {num_q} questions for each document from column {schema[doc_ref]}")
+    for row_id, row in tqdm(df.copy().iterrows(), total = df.shape[0]):
+        llm = row[schema["LLM_q"]]
+        document = utils.prepare_document(row[schema[doc_ref]])
+        questions = promptlib.generate_questions_v2(llm, document, num_q)
+        df.loc[row_id, schema[que_ref]] = "\n".join([f"{i}. {q}" for i, q in enumerate(questions, start = 1)])
+        # break
+    utils.write_csv(df, path_out, "Write the document table with questions to CSV file")
+
 def generate_confused_questions_for_documents(num_q, schema, col_refs, path_in, path_out):
     """
     Convert each hellucianted fact into a question which can only be answered by the hallucinated fact itself and can't be answered by the original document
@@ -351,7 +374,7 @@ if __name__ == "__main__":
     ]
     for topic in topics:
         data_folder = f"data/processed/News1k2024-300/{topic}/20"
-        exp_folder = f"data/experiments/llmq-{llm_q}/llmr-{llm_r}/docp-{doc_prompt}/20-toy-dev-n9/{topic}"
+        exp_folder = f"data/experiments/llmq-{llm_q}/llmr-{llm_r}/docp-{doc_prompt}/20-toy-dev-n9-newori/{topic}"
         os.makedirs(exp_folder, exist_ok = True)
         doc_files = {
             "in" : "docs_in.csv",
@@ -393,7 +416,7 @@ if __name__ == "__main__":
         print(f"\nSTEP 3: For each original document, ask LLM to write " +
             f"{num_q_orig} questions answered in the document\n")
 
-        generate_questions_for_documents(num_q_orig, doc_csv_schema, ["document", "orig_qs"],
+        generate_questions_for_documents_v2(num_q_orig, doc_csv_schema, ["document", "orig_qs"],
                                         doc_paths[2], doc_paths[3])
 
         print(f"\nSTEP 4: For each modified reduced document, ask LLM to write at most " +
