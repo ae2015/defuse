@@ -90,7 +90,8 @@ class LLM:
         else:
             raise LLMException(f"Incompatible prompt: {prompt}")
 
-        # print(f"\nMessages:\n{messages}\n\n")
+        for message in messages:
+            print(f"\n{message['role']}: {message['content']}\n")
 
         json_data = {
             "model" : self.model,

@@ -43,9 +43,9 @@ st.title("Data Viewer")
 
 # Sidebar for doc_id selection
 st.sidebar.header("Document")
-default_exp_name = "20-toy"
+default_exp_name = "20-toy-dev"
 exp_name = st.text_input("Experiment Name: ", value=default_exp_name)
-experiment_dir = join(cwd, 'data/experiments/llmq-gpt-4o-mini/llmr-gpt-3.5/docp-dt03', exp_name)
+experiment_dir = join(cwd, 'data/experiments/llmq-gpt-4o-mini/llmr-gpt-3.5/docp-dt-z-1', exp_name)
 topic = st.sidebar.selectbox("Choose topic:", topics)
 
 # Read the CSV files
@@ -70,9 +70,10 @@ if st.button("Show Question Content"):
 
     if not selected_qrc.empty:
         for index, row in selected_qrc.iterrows():
-            st.write(f"**Question ID**: {row['q_id']} | Confusion: {row['confusion']}, Defused: {row['is_defused']}")
+            st.write(f"**Question ID**: {row['q_id']} | Confusion: {row['confusion']}, is_defused: {row['is_defused']}")
             st.text_area("Question:", value=row['question'], height=100, key=f"question_{index}")
             st.text_area("Response:", value=row['response'], height=100, key=f"response_{index}")
+            st.text_area("Defusion:", value=row['defusion'], height=100, key=f"defusion_{index}")
             st.write("---")  # Add a separator between entries
     else:
         st.write("No data found for the selected document and confusion status.")

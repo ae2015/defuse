@@ -54,22 +54,16 @@
         ],
         "user_reduce" : [
             "Read the document and list 12 most important facts provided in the document. ",
-            "Each fact should be a single, independent sentence and must contain enough context to be understood on its own, without using undefined pronouns.\n\n",
+            "Each fact must be a single independent sentence and must be written in ",
+            "very simple language so that even kindergarten children can understand it.\n\n",
             "Document:\n\n\"\"\"{document}\"\"\"\n\n12 most important facts:"
         ],
         "user_modify" : [
-            "Read the document below with a list of 12 facts based on a newspaper article. ",
-            "Note that some of the facts are missing represented by (missing). ",
-            "Your task is to guess the missing facts could have said and complete the missing facts. ",
-            "Each fact should be a single, independent sentence and must contain enough context to be understood on its own, without using undefined pronouns. ",
-            "Please complete the missing facts and return all the 12 facts in original order. You must return all the 12 facts.\n\n",
+            "Read the document below with a list of facts based on a newspaper article. ",
+            "Note that some of the facts are missing, either in full or in part. ",
+            "Your task is to guess what the original facts could have said. ",
+            "Please write out the completed list of facts without anything missing.\n\n",
             "Document:\n\n\"\"\"{document}\"\"\"\n\nCompleted list of facts:"
-        ],
-        "user_remove" : [
-            "Read the document below with a list of 12 ground-truth facts based on a newspaper article and a list of 12 hallucinated facts. ",
-            "Your task is to removed any hallucinated facts that can be supported by either the document or the 12 ground-truth facts. ",
-            "Please only return the remaining hallucinated facts, along with their original order numbers.\n",
-            "Document:\n\n\"\"\"{document}\"\"\"\n\n12 ground-truth facts:\n\n{ori_facts}\n\n12 hallucinated facts\n\n{hallucinated_facts}\n\nRemaining hallucinated facts:"
         ],
         "user_expand" : [
             "You are a student journalist solving a challenging exercise. In this exercise, ",
@@ -80,6 +74,31 @@
             "specifics, technical terms, and details, including those omitted in the list ",
             "of facts. Use your creativity to reconstruct the missing information.\n\n",
             "Document:\n\n\"\"\"{document}\"\"\"\n\nNewspaper article:"
+        ]
+    },
+    "dt-z-1" : {
+        "system" : [
+            "You will be provided with a document delimited by triple quotes. ",
+            "Read the document and follow user's instructions."
+        ],
+        "user_reduce" : [
+            "Read the document and list {num_fact} most important facts it contains. ",
+            "Each fact should be stated in a clear, standalone sentence with sufficient context to be understood independently, avoiding undefined pronouns. Ensure that each fact is directly derived from the document and does not include any information not mentioned within it.\n\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\n{num_fact} most important facts:"
+        ],
+        "user_modify" : [
+            "Read the document below with a list of {num_fact} facts it contains. ",
+            "Note that some of the facts are missing represented by (missing). ",
+            "Your task is to guess the missing facts could have said and complete the missing facts. ",
+            "Each fact should be stated in a clear, standalone sentence with sufficient context to be understood independently, avoiding undefined pronouns. ",
+            "Please complete the missing facts and return all the {num_fact} facts in original order. You must return all the {num_fact} facts.\n\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\nCompleted list of facts:"
+        ],
+        "user_remove" : [
+            "Read the document below with a list of {num_fact} ground-truth facts it contains and a list of {num_fact} hallucinated facts that are not supported by the document. ",
+            "Your task is to remove any hallucinated facts that can be supported by either the document or the {num_fact} ground-truth facts. ",
+            "Please only return the remaining hallucinated facts, along with their original order numbers.\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\n{num_fact} ground-truth facts:\n\n{ori_facts}\n\n{num_fact} hallucinated facts\n\n{hallucinated_facts}\n\nRemaining hallucinated facts:"
         ]
     }
 }

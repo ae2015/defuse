@@ -15,10 +15,6 @@
             "Does the question contain a false assumption? Answer 'Yes' or 'No', then ",
             "provide the false assumption if the question has it:"
         ],
-        "user_conf_check" : [
-            "Does the question contain a false assumption? Answer 'Yes' or 'No', then ",
-            "provide the false assumption if the question has it:"
-        ],
         "user_def_check": [
             "Now read the answer you gave to the question. Did your answer point out ",
             "the false assumption in the question? Answer 'Yes' or 'No', then explain:"
@@ -41,11 +37,6 @@
             "any confusing parts, false assumptions, incorrect information, or mentions of people, locations, organizations, or other entities that are not present in the document? ",
             "Reply 'Yes' or 'No', then provide the reason if the question has any of these issues :"
         ],
-        "user_conf_check" : [
-            "Does the question contain ",
-            "a confusing part that either makes a false assumption or states incorrect information? ",
-            "Reply 'Yes' or 'No', then provide the confusing part if the question has it:"
-        ],
         "user_def_check": [
             "The question contains a confusing part that ",
             "either makes a false assumption or states incorrect information. ",
@@ -54,6 +45,30 @@
             "Reply 'Yes' or 'No'. ",
             "If you replied 'Yes', then quote exactly where your answer explains the confusion to the user. ",
             "Reply 'No' if your answer just repeats or answers the confusing part like a normal part. "
+        ]
+    },
+    "r-z-1" : {
+        "system" : [
+            "You will be provided with a document delimited by triple quotes. ",
+            "Read the document and follow user's instructions."
+        ],
+        "user_rag" : [
+            "Read the document and answer the question based on the document.\n\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\nQuestion:\n\n{question}\n\nAnswer:"
+        ],
+        "user_conf_rag" : [
+            "Read the document and the question. Check if the question contains any confusing parts, false assumptions, incorrect information, or mentions of people, locations, organizations, or other entities that are not present in the document.\n\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\nQuestion:\n\n{question}\n\n",
+            "Does the question contain ",
+            "any confusing parts, false assumptions, incorrect information, or mentions of people, locations, organizations, or other entities that are not present in the document? ",
+            "Reply 'Yes' or 'No', then provide the reason if the question has any of these issues :"
+        ],
+        "user_def_check": [
+            "The question contains a confusing part that ",
+            "either makes a false assumption or states incorrect information. ",
+            "Now read the answer you gave to the user's question. ",
+            "Does your answer clearly explain to the user which part of the question is confusing? ",
+            "Please start by explaining your reasoning, such as how the answer resolves or fails to resolve the confusion. End your response with 'The answer is: Yes or No.':"
         ]
     }
 

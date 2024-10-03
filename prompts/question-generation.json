@@ -14,8 +14,19 @@
             "by replacing some entities or actions ",
             "with very similar (and never opposite) entities or actions from the document, ",
             "so that each modified question starts with a fake assumption and has no good answer:"
+        ]
+    },
+    "q-z-1" : {
+        "system" : [
+            "You will be provided with a document delimited by triple quotes. ",
+            "Read the document and follow user's instructions."
         ],
-        "user_conf_facts" : [
+        "user_orig" : [
+            "Read the document and write a numbered list of {num_q} best ",
+            "questions that are answered in the document.\n\n",
+            "Document:\n\n\"\"\"{document}\"\"\"\n\nQuestions:"
+        ],
+        "user_conf" : [
             "Read the document and the list of hallucinated facts. For each hallucinated fact, create a question that includes the key part of the hallucinated fact, making the question based on a false assumption. Ensure that this question cannot be answered using any information from the document. If it’s not possible to form such a question for a particular hallucinated fact, feel free to skip it.\n\n",
             "Document:\n\n\"\"\"{document}\"\"\"\n\nhallucinated facts:\n\n{hallucinated_facts}\n\nQuestions:"
         ]
