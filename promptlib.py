@@ -177,8 +177,6 @@ def expand_document(llm, reduce_doc, prompt_key):
     expand_doc = LLM.get(llm)(prompt)
     return expand_doc
 
-
-
 def generate_questions(llm, document, num_q, prompt_key = "q-z-1"):
     example_keys = ["Weywot-1", "ElDorado-1"]
     prompt = []
@@ -272,7 +270,7 @@ def confuse_questions_v2(llm, document, hallucinated_facts, prompt_key = "q-z-1"
     return questions
 
 
-def generate_response(llm, document, question, prompt_key = "r02"):
+def generate_response(llm, document, question, prompt_key = "r-z-1"):
     prompt = []
     if rag_confusion_check[prompt_key]["system"]:
         prompt.append({
@@ -287,7 +285,7 @@ def generate_response(llm, document, question, prompt_key = "r02"):
     return response
 
 
-def find_false_assumption(llm, document, question, prompt_key = "r02"):
+def find_false_assumption(llm, document, question, prompt_key = "r-z-1"):
     prompt = []
     if rag_confusion_check[prompt_key]["system"]:
         prompt.append({
@@ -313,7 +311,7 @@ def find_false_assumption(llm, document, question, prompt_key = "r02"):
         return confusion
 
 
-def check_response_for_defusion(llm, document, question, response, prompt_key = "r02"):
+def check_response_for_defusion(llm, document, question, response, prompt_key = "r-z-1"):
     prompt = []
     if rag_confusion_check[prompt_key]["system"]:
         prompt.append({

@@ -42,7 +42,7 @@ def reduce_original_documents(schema, num_fact, path_in, path_out):
         document = utils.prepare_document(row[schema["document"]])
         reduce_doc = promptlib.reduce_document(llm, document, num_fact, prompt_key)
         df.loc[row_id, schema["reduce_doc"]] = reduce_doc
-        break
+        # break
     utils.write_csv(df, path_out, "Write the document table with the reduced versions to CSV file")
 
 
@@ -67,7 +67,7 @@ def modify_reduced_documents(schema, num_fact, path_in, path_out):
         document = utils.prepare_document(row[schema["document"]])
         modify_doc = promptlib.modify_reduced_document(llm, document, reduce_doc, num_fact, prompt_key)
         df.loc[row_id, schema["modify_doc"]] = modify_doc
-        break
+        # break
     utils.write_csv(df, path_out, "Write the document table with the modified versions of reduced docs to CSV file")
 
 def expand_modified_documents(schema, path_in, path_out):
@@ -113,7 +113,7 @@ def generate_questions_for_documents(num_q, schema, col_refs, path_in, path_out)
         document = utils.prepare_document(row[schema[doc_ref]])
         questions = promptlib.generate_questions(llm, document, num_q)
         df.loc[row_id, schema[que_ref]] = "\n".join([f"{i}. {q}" for i, q in enumerate(questions, start = 1)])
-        break
+        # break
     utils.write_csv(df, path_out, "Write the document table with questions to CSV file")
 
 def generate_confused_questions_for_documents(num_q, schema, col_refs, path_in, path_out):
@@ -137,7 +137,7 @@ def generate_confused_questions_for_documents(num_q, schema, col_refs, path_in, 
         hallucinated_facts = utils.prepare_document(row[schema["modify_doc"]])
         questions = promptlib.confuse_questions_v2(llm, document, hallucinated_facts= hallucinated_facts)
         df.loc[row_id, schema[que_ref]] = "\n".join([f"{i}. {q}" for i, q in enumerate(questions, start = 1)])
-        break
+        # break
     utils.write_csv(df, path_out, "Write the document table with questions to CSV file")
 
 def generate_RAG_responses(llm, doc_schema, doc_path, qr_schema, qr_path):
@@ -164,7 +164,7 @@ def generate_RAG_responses(llm, doc_schema, doc_path, qr_schema, qr_path):
                 qr_schema["response"] : response_q
             }
             rows_out.append(row_out)
-        break
+        # break
     df_out = pd.DataFrame.from_dict(rows_out, dtype = str)
     utils.write_csv(df_out, qr_path, "Write the question-response table to CSV file")
 
