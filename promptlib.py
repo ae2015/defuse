@@ -339,7 +339,7 @@ def find_false_assumption(llm, document, question, prompt_key = "r-z-1"):
 def find_false_assumption_v2(llm, document, question, n, prompt_key = "r-z-1"):
     exp_document = examples_of_questions["zpeng-sport-5-5"]["document"]
     exp_ori_questions, exp_ori_reasonings, exp_conf_questions, exp_conf_reasonings = [], [], [], []
-    for t in examples_of_questions["zpeng-sport-5-5"]["conf_questions"]:
+    for t in examples_of_questions["zpeng-sport-5-5"]["orig_questions"]:
         exp_ori_questions.append(t["question"])
         exp_ori_reasonings.append(t["explanation"]+ " This answer is No.")
     for t in examples_of_questions["zpeng-sport-5-5"]["conf_questions"]:

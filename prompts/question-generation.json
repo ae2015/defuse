@@ -27,7 +27,7 @@
             "Document:\n\n\"\"\"{document}\"\"\"\n\nQuestions:"
         ],
         "user_conf" : [
-            "Read the document and the list of hallucinated facts. For each hallucinated fact, create a question that includes the key part of the hallucinated fact, making the question is confusing. Ensure that this question cannot be answered using any information from the document. If it’s not possible to form such a question for a particular hallucinated fact, feel free to skip it.\n\n",
+            "Read the document and review the list of hallucinated facts. For each hallucinated fact, craft a question that incorporates the key element of the fact, ensuring the question is intentionally confusing. The question should not be answerable using any information present in the document. If a question cannot be formulated for a particular hallucinated fact, you may omit it.\n\n",
             "Document:\n\n\"\"\"{document}\"\"\"\n\nhallucinated facts:\n\n{hallucinated_facts}\n\nQuestions:"
         ]
     },
