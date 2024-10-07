@@ -217,7 +217,7 @@ def find_false_assumptions_in_questions(doc_schema, doc_path, qr_schema, qr_path
     df_out = pd.DataFrame.from_dict(rows_out, dtype = str)
     utils.write_csv(df_out, qr_path_out, "Write the question-response table to CSV file")
 
-def find_false_assumptions_in_questions_v2(doc_schema, doc_path, qr_schema, qr_path_in, qr_path_out, n=1):
+def find_false_assumptions_in_questions_v2(llm, doc_schema, doc_path, qr_schema, qr_path_in, qr_path_out, n=1):
     documents = create_dictionary_of_indexed_documents(doc_schema, doc_path)
     df_qr = utils.read_csv(qr_path_in, "Read the question-response table from CSV file")    
     print("Ask LLM to find a false assumption in each question, or say 'none'")
@@ -226,7 +226,7 @@ def find_false_assumptions_in_questions_v2(doc_schema, doc_path, qr_schema, qr_p
         doc_id = row[qr_schema["doc_id"]]
         document = documents[doc_id]
         question = row[qr_schema["question"]]
-        llm = row[qr_schema["LLM_r"]]
+        # llm = row[qr_schema["LLM_r"]]
         confusion = promptlib.find_false_assumption_v2(llm, document, question, n)
         row_out = dict(row)
         row_out[qr_schema["confusion"]] = confusion
@@ -258,7 +258,7 @@ def check_if_response_defused_confusion(doc_schema, doc_path, qr_schema, qr_path
     df_out = pd.DataFrame.from_dict(rows_out, dtype = str)
     utils.write_csv(df_out, qr_path_out, "Write the question-response table to CSV file")
 
-def check_if_response_defused_confusion_v2(doc_schema, doc_path, qr_schema, qr_path_in, qr_path_out, n=1):
+def check_if_response_defused_confusion_v2(llm, doc_schema, doc_path, qr_schema, qr_path_in, qr_path_out, n=1, shot=2):
     documents = create_dictionary_of_indexed_documents(doc_schema, doc_path)
     df_qr = utils.read_csv(qr_path_in, "Read the question-response table from CSV file")
     print("Ask LLM to check if its own response defused the confusion")
@@ -267,14 +267,14 @@ def check_if_response_defused_confusion_v2(doc_schema, doc_path, qr_schema, qr_p
         doc_id = row[qr_schema["doc_id"]]
         document = documents[doc_id]
         question = row[qr_schema["question"]]
-        llm = row[qr_schema["LLM_r"]]
+        # llm = row[qr_schema["LLM_r"]]
         response = row[qr_schema["response"]]
         # confusion = row[qr_schema["confusion"]]
         confusion = row[qr_schema["is_conf"]]
         if confusion == "no":
             defusion, is_defused = "n/a", "n/a"
         else:
-            defusion, is_defused = promptlib.check_response_for_defusion_v2(llm, document, question, response, n)
+            defusion, is_defused = promptlib.check_response_for_defusion_v2(llm, document, question, response, n, shot)
         row_out = dict(row)
         row_out[qr_schema["defusion"]] = defusion
         row_out[qr_schema["is_defused"]] = is_defused
@@ -360,6 +360,7 @@ if __name__ == "__main__":
 
     llm_q = "gpt-4o-mini"  # LLM for generating questions (stronger)
     llm_r = "gpt-3.5"  # LLM for generating responses (weaker)
+    llm_eval = "gpt-4o-mini"
 
     doc_prompt = "dt-z-1"
 
@@ -375,7 +376,7 @@ if __name__ == "__main__":
     ]
     for topic in topics:
         data_folder = f"data/processed/News1k2024-300/{topic}/20"
-        exp_folder = f"data/experiments/llmq-{llm_q}/llmr-{llm_r}/docp-{doc_prompt}/20-toy-concise_ori_refine_13to18_example_3iter_6facts_newhfactorder_1/{topic}"
+        exp_folder = f"data/experiments/llmq-{llm_q}/llmr-{llm_r}/llmeval-{llm_eval}/docp-{doc_prompt}/20-toy-concise_ori_refine_13to18_example_3iter_6facts_newhfactorder_shot5_newcheckp_debug/{topic}"
         os.makedirs(exp_folder, exist_ok = True)
         doc_files = {
             "in" : "docs_in.csv",
@@ -428,13 +429,13 @@ if __name__ == "__main__":
         
         print("\nSTEP 6: Ask LLM to find the false assumption in each question\n")
 
-        find_false_assumptions_in_questions_v2(doc_csv_schema, doc_paths["out"],
+        find_false_assumptions_in_questions_v2(llm_eval, doc_csv_schema, doc_paths["out"],
                                             qrc_csv_schema, qrc_paths[1], qrc_paths[2], n=9)
         
         print("\nSTEP 7: Ask LLM if its initial response pointed out the false assumption\n")
 
-        check_if_response_defused_confusion_v2(doc_csv_schema, doc_paths["out"],
-                                            qrc_csv_schema, qrc_paths[2], qrc_paths["out"], n=9)
+        check_if_response_defused_confusion_v2(llm_eval, doc_csv_schema, doc_paths["out"],
+                                            qrc_csv_schema, qrc_paths[2], qrc_paths["out"], n=9, shot=5)
         
         print("\nSTEP 8: Compute performance metrics across all original and modified questions")
 

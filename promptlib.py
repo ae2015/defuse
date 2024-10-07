@@ -465,7 +465,7 @@ def check_response_for_defusion(llm, document, question, response, prompt_key = 
         is_defused = "unsure"
     return defusion, is_defused
 
-def check_response_for_defusion_v2(llm, document, question, response, n, prompt_key = "r-z-1", shot = 2):
+def check_response_for_defusion_v2(llm, document, question, response, n, shot, prompt_key = "r-z-1"):
     prompt = []
     if rag_confusion_check[prompt_key]["system"]:
         prompt.append({
