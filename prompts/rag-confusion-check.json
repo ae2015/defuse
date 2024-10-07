@@ -70,11 +70,17 @@
             "any confusing parts, false assumptions, incorrect information, or mentions of people, locations, organizations, or other entities that are not present in the document? ",
             "Please start by explaining your reasoning. End your response with 'The answer is: Yes or No.':"
         ],
-        "user_def_check": [
+        "user_def_check_old": [
             "The question contains a confusing part that ",
             "either makes a false assumption or states incorrect information. ",
             "Now read the answer you gave to the user's question. ",
             "Does your answer clearly explain to the user which part of the question is confusing? ",
+            "Please start by explaining your reasoning, such as how the answer resolves or fails to resolve the confusion. End your response with 'The answer is: Yes or No.':"
+        ],
+        "user_def_check": [
+            "The question is confusing and cannot be answered by the document. ",
+            "Now read the answer to this questioin. ",
+            "Does the answer point out that the question is confusing? ",
             "Please start by explaining your reasoning, such as how the answer resolves or fails to resolve the confusion. End your response with 'The answer is: Yes or No.':"
         ]
     }
