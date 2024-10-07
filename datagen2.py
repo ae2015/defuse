@@ -269,8 +269,9 @@ def check_if_response_defused_confusion_v2(doc_schema, doc_path, qr_schema, qr_p
         question = row[qr_schema["question"]]
         llm = row[qr_schema["LLM_r"]]
         response = row[qr_schema["response"]]
-        confusion = row[qr_schema["confusion"]]
-        if confusion == "none":
+        # confusion = row[qr_schema["confusion"]]
+        confusion = row[qr_schema["is_conf"]]
+        if confusion == "no":
             defusion, is_defused = "n/a", "n/a"
         else:
             defusion, is_defused = promptlib.check_response_for_defusion_v2(llm, document, question, response, n)
@@ -363,7 +364,7 @@ if __name__ == "__main__":
     doc_prompt = "dt-z-1"
 
     num_q_orig =  5  # Number of questions per original document
-    num_fact = 9  # Number of questions per expanded document
+    num_fact = 6  # Number of questions per expanded document
     # topics = [
     #     'sport', 'business', 'science', 'finance', 'food',
     #     'politics', 'economics', 'travel', 'entertainment',
@@ -374,7 +375,7 @@ if __name__ == "__main__":
     ]
     for topic in topics:
         data_folder = f"data/processed/News1k2024-300/{topic}/20"
-        exp_folder = f"data/experiments/llmq-{llm_q}/llmr-{llm_r}/docp-{doc_prompt}/20-toy/{topic}"
+        exp_folder = f"data/experiments/llmq-{llm_q}/llmr-{llm_r}/docp-{doc_prompt}/20-toy-concise_ori_refine_13to18_example_3iter_6facts_newhfactorder_1/{topic}"
         os.makedirs(exp_folder, exist_ok = True)
         doc_files = {
             "in" : "docs_in.csv",
@@ -408,10 +409,6 @@ if __name__ == "__main__":
         print(f"\nSTEP 2: Ask LLM to modify or impute information into each reduced document\n")
 
         modify_reduced_documents(doc_csv_schema, num_fact, doc_paths[1], doc_paths[2])
-
-        # print(f"\nSTEP 3: Ask LLM to expand the modified/reduced version to the detailed document\n")
-
-        # expand_modified_documents(doc_csv_schema, doc_paths[2], doc_paths[3])
 
         print(f"\nSTEP 3: For each original document, ask LLM to write " +
             f"{num_q_orig} questions answered in the document\n")

@@ -95,10 +95,10 @@
             "Document:\n\n\"\"\"{document}\"\"\"\n\nCompleted list of facts:"
         ],
         "user_remove" : [
-            "Read the document below with a list of {num_fact} ground-truth facts it contains and a list of {num_fact} hallucinated facts that are not supported by the document. ",
-            "Your task is to remove any hallucinated facts that can be supported by either the document or the {num_fact} ground-truth facts. ",
+            "Read the document below with a list of {num_true_fact} ground-truth facts it contains and a list of {num_false_fact} hallucinated facts that are not supported by the document. ",
+            "Your task is to remove any hallucinated facts that can be supported by either the document or the {num_true_fact} ground-truth facts. ",
             "Please only return the remaining hallucinated facts, along with their original order numbers.\n",
-            "Document:\n\n\"\"\"{document}\"\"\"\n\n{num_fact} ground-truth facts:\n\n{ori_facts}\n\n{num_fact} hallucinated facts\n\n{hallucinated_facts}\n\nRemaining hallucinated facts:"
+            "Document:\n\n\"\"\"{document}\"\"\"\n\n{num_true_fact} ground-truth facts:\n\n{ori_facts}\n\n{num_false_fact} hallucinated facts\n\n{hallucinated_facts}\n\nRemaining hallucinated facts:"
         ]
     }
 }

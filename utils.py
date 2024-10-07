@@ -25,8 +25,8 @@ def prepare_document(raw_document):
     document = re.sub(r"\n\s*\n", "\n", raw_document)  # Remove excessive empty lines
     return document
 
-def enum_list(questions):
-    return "\n".join([f"{i}. {q}" for i, q in enumerate(questions, start = 1)])
+def enum_list(questions, start=1):
+    return "\n".join([f"{i}. {q}" for i, q in enumerate(questions, start = start)])
 
 def parse_numbered_questions(text): # , min_number_of_items = 2):
     lines = text.splitlines()

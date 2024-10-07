@@ -68,6 +68,8 @@ def read_prompts(folder):
         # assert example["num_q"] == len(example_raw["conf_questions"])
         example["orig_questions"] = example_raw["orig_questions"]
         example["conf_questions"] = example_raw["conf_questions"]
+        if "facts" in example_raw:
+            example["facts"] = example_raw["facts"]
         examples_of_questions[key] = example
 
 def reduce_document(llm, document, num_fact, prompt_key):
@@ -102,7 +104,15 @@ def modify_reduced_document(llm, document, reduce_doc, num_fact, prompt_key):
     doc_10 = impute_facts(llm, doc_9, num_fact, prompt_key)
     doc_11 = suppress_facts(doc_10, lambda i: (i % 3 == 0))
     doc_12 = impute_facts(llm, doc_11, num_fact, prompt_key)
-    modify_doc = doc_12
+
+    doc_13 = suppress_facts(doc_12, lambda i: (i % 3 == 2))
+    doc_14 = impute_facts(llm, doc_13, num_fact, prompt_key)
+    doc_15 = suppress_facts(doc_14, lambda i: (i % 3 == 1))
+    doc_16 = impute_facts(llm, doc_15, num_fact, prompt_key)
+    doc_17 = suppress_facts(doc_16, lambda i: (i % 3 == 0))
+    doc_18 = impute_facts(llm, doc_17, num_fact, prompt_key)
+
+    modify_doc = doc_18
     remained_facts = remove_facts(llm, document, reduce_doc, modify_doc, num_fact, prompt_key)
     return remained_facts
 
@@ -124,6 +134,15 @@ def impute_facts(llm, missing_facts_doc, num_fact, prompt_key):
     return imputed_facts_doc
 
 def remove_facts(llm, document, ori_facts, hallucinated_facts, num_fact, prompt_key):
+    example_document = examples_of_questions["zpeng-sport-5-5"]["document"]
+    true_facts_list = examples_of_questions["zpeng-sport-5-5"]["facts"]["true_facts"]
+    # false_facts_list = examples_of_questions["zpeng-sport-5-5"]["facts"]["hallucinated_facts"]
+    false_facts_list = examples_of_questions["zpeng-sport-5-5"]["facts"]["exp_hallucinated_facts"]
+    true_facts = utils.enum_list(true_facts_list[:4])
+    # false_facts = utils.enum_list(true_facts_list[4:]+false_facts_list)
+    # remained_facts = utils.enum_list(false_facts_list, start=4)
+    false_facts = "\n".join(false_facts_list)
+    remained_facts = "\n".join(examples_of_questions["zpeng-sport-5-5"]["facts"]["remained_hallucinated_facts"])
     prompt = []
     if document_transforms[prompt_key]["system"]:
         prompt.append({
@@ -132,7 +151,17 @@ def remove_facts(llm, document, ori_facts, hallucinated_facts, num_fact, prompt_
         })
     prompt.append({
         "role" : "user",
-        "content" : document_transforms[prompt_key]["user_remove"].format(document = document, ori_facts = ori_facts, hallucinated_facts = hallucinated_facts, num_fact=num_fact)
+        "content" : document_transforms[prompt_key]["user_remove"].format(document = example_document, ori_facts = true_facts, hallucinated_facts = false_facts, num_true_fact=len(true_facts_list[:4]), num_false_fact=len(false_facts_list))
+    })
+
+    prompt.append({
+        "role" : "assistant",
+        "content" : remained_facts
+    })
+
+    prompt.append({
+        "role" : "user",
+        "content" : document_transforms[prompt_key]["user_remove"].format(document = document, ori_facts = ori_facts, hallucinated_facts = hallucinated_facts, num_true_fact=num_fact, num_false_fact=num_fact)
     })
     remained_facts = LLM.get(llm)(prompt)
     # lines = imputed_facts_doc.splitlines()
