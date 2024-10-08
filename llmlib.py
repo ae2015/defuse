@@ -103,17 +103,31 @@ class LLM:
         response = requests.post(self.url, headers = self.headers, json = json_data)
         end_time = time.time()
         duration = end_time - start_time
+        # if response.status_code != 200:
+        #     raise LLMException(
+        #         f"Model = {self.model}, Status Code = {response.status_code}, Duration = {duration}\n" +
+        #         f"Prompt: {prompt}\nResponse: {response.json()}" # {json.dumps(response)}"
+        #     )
+        # Check if the response status code indicates an error
         if response.status_code != 200:
-            raise LLMException(
-                f"Model = {self.model}, Status Code = {response.status_code}, Duration = {duration}\n" +
-                f"Prompt: {prompt}\nResponse: {response.json()}" # {json.dumps(response)}"
-            )
-        # print("text_output = " + str(response.json()))
+            raise Exception(f"Error: Received status code {response.status_code} for prompt: {prompt}")
+        
+        # Check if the response body is empty
+        if not response.text:
+            raise Exception(f"Error: Received empty response for prompt: {prompt}")
+        
+        try:
+            response_json = response.json()
+        except requests.exceptions.JSONDecodeError as e:
+            raise Exception(f"Error decoding JSON: {e.msg} for prompt: {prompt}\nResponse text: {response.text}")
+        # if kwargs.get("n", 1) != 1:
+        #     text_output = [message["message"]["content"] for message in response.json()["choices"]]
+        # else:
+        #     text_output = response.json()["choices"][0]["message"]["content"]
         if kwargs.get("n", 1) != 1:
-            text_output = [message["message"]["content"] for message in response.json()["choices"]]
+            text_output = [message["message"]["content"] for message in response_json["choices"]]
         else:
-            text_output = response.json()["choices"][0]["message"]["content"]
-        # print(f"Response from OpenAI: {response.json()}\n")
+            text_output = response_json["choices"][0]["message"]["content"]
         return text_output
 
 

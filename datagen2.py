@@ -376,7 +376,7 @@ if __name__ == "__main__":
     ]
     for topic in topics:
         data_folder = f"data/processed/News1k2024-300/{topic}/20"
-        exp_folder = f"data/experiments/llmq-{llm_q}/llmr-{llm_r}/llmeval-{llm_eval}/docp-{doc_prompt}/20-toy-concise_ori_refine_13to18_example_3iter_6facts_newhfactorder_shot5_newcheckp_debug/{topic}"
+        exp_folder = f"data/experiments/llmq-{llm_q}/llmr-{llm_r}/llmeval-{llm_eval}/docp-{doc_prompt}/20-toy-concise_ori_refine_13to18_example_3iter_6facts_newhfactorder_shot5_newcheckp/{topic}"
         os.makedirs(exp_folder, exist_ok = True)
         doc_files = {
             "in" : "docs_in.csv",

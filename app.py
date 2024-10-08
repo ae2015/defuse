@@ -45,7 +45,7 @@ st.title("Data Viewer")
 st.sidebar.header("Document")
 default_exp_name = "20-toy-dev"
 exp_name = st.text_input("Experiment Name: ", value=default_exp_name)
-experiment_dir = join(cwd, 'data/experiments/llmq-gpt-4o-mini/llmr-gpt-3.5/docp-dt-z-1', exp_name)
+experiment_dir = join(cwd, 'data/experiments/llmq-gpt-4o-mini/llmr-gpt-3.5/llmeval-gpt-4o-mini/docp-dt-z-1', exp_name)
 topic = st.sidebar.selectbox("Choose topic:", topics)
 
 # Read the CSV files
