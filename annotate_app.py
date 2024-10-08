@@ -6,7 +6,6 @@ from os.path import join, exists
 # Example: 'data/experiments/llmq-gpt-4o-mini/llmr-gpt-3.5/docp-dt03'
 experiment_folder = "data/experiments/llmq-gpt-4o-mini/llmr-gpt-3.5/docp-dt-z-1"
 
-
 # Load CSV files
 @st.cache_data
 def load_csv_data(data_dir):
@@ -52,9 +51,9 @@ def init():
         unsafe_allow_html=True
     )
     return cwd 
-    
+
 def sidebar_logic(cwd, experiment_folder):
-    # Sidebar for doc_id selection
+    # Sidebar for selecting Experiment and Topic
     st.sidebar.header("Which Experiment/Topic to Work On")
     base_path = join(cwd, experiment_folder)
     # Get the list of experiment folders 
@@ -65,7 +64,7 @@ def sidebar_logic(cwd, experiment_folder):
         exp_folders = []
     # Dropdown for selecting experiment folder
     if exp_folders:
-        exp_name = st.sidebar.selectbox("Choose Experiment Name: ", exp_folders)
+        exp_name = st.sidebar.selectbox("Choose Experiment Name:", exp_folders)
         experiment_dir = join(base_path, exp_name)
     else:
         st.error("No experiments found in the base path.")
@@ -85,11 +84,7 @@ def sidebar_logic(cwd, experiment_folder):
         st.error("No topics found in the experiment path")
         st.stop()
         
-    doc_data, qrc_data, qrc_filter_data = load_csv_data(data_dir)
-
-    doc_id = st.sidebar.selectbox("Choose doc_id:", doc_data["doc_id"].unique())
-    
-    return exp_name, doc_id, doc_data, qrc_data
+    return exp_name, data_dir
 
 def check_username_csv_path(cwd, exp_name):
     # Check if annotator_name is in session_state
@@ -104,7 +99,7 @@ def check_username_csv_path(cwd, exp_name):
         st.warning("Please enter your Username to proceed.")
         st.stop()
     
-    csv_filename = f"{annotator_name}_{exp_name}_annotations.csv"
+    csv_filename = f"{annotator_name}_{exp_name}_labels.csv"
     csv_path = join(cwd, csv_filename)
     check_and_create_annotations_csv(csv_path)
     
@@ -113,11 +108,11 @@ def check_username_csv_path(cwd, exp_name):
 def check_and_create_annotations_csv(csv_path):
     # Check if the CSV file exists
     if not exists(csv_path):
-        st.warning(f"{csv_path} not found.")
+        st.warning(f"CSV does not yet exist: {csv_path}")
 
         # Check if the user has made a choice already
         if 'create_csv_choice' not in st.session_state:
-            st.write("### Do you want to create a new annotation CSV file? Make sure you have selected the correct Experiment Name")
+            st.write("### Do you want to create this new annotation CSV file? Make sure you have entered the correct Experiment Name and Username")
             choice = st.selectbox(
                 "Please select an option:",
                 ("Select an option", "Yes, create the file", "No, do not create")
@@ -136,7 +131,7 @@ def check_and_create_annotations_csv(csv_path):
                 columns = [
                     'doc_id', 'q_id', 'supposed_to_be_confusing', 'llm_confuse_label',
                     'llm_defuse_label', 'human_confuse_label', 'human_defuse_label',
-                    'human_confuse_reason', 'human_defuse_reason', 'question_category'
+                    'question_category'
                 ]
                 annotations_df = pd.DataFrame(columns=columns)
                 # Save the DataFrame as a CSV file
@@ -148,7 +143,25 @@ def check_and_create_annotations_csv(csv_path):
                 st.stop()
     else:
         st.success(f"Annotations will be saved to: \"{csv_path}\"")
-        
+
+def select_doc_id_with_checkmarks(doc_data, qrc_data, annotations_df):
+    doc_ids = doc_data["doc_id"].unique()
+    
+    doc_id_labels = []
+    doc_id_mapping = {}
+    for doc_id in doc_ids:
+        is_fully_annotated = check_if_document_fully_annotated(annotations_df, doc_id, qrc_data, return_bool=True)
+        if is_fully_annotated:
+            label = f"✅ {doc_id}"
+        else:
+            label = f"{doc_id}"
+        doc_id_labels.append(label)
+        doc_id_mapping[label] = doc_id
+
+    selected_label = st.sidebar.selectbox("Choose doc_id:", doc_id_labels)
+    doc_id = doc_id_mapping[selected_label]
+    return doc_id
+
 def show_instructions():
     st.write("### Instructions:")
     st.write('''Make sure Experiment, Topic, and doc_id is correct. Read the "Document", take your time and understand what it's talking about''')
@@ -164,7 +177,7 @@ def show_doc_contents(doc_data, doc_id):
         st.write(st.session_state.document_content)
 
 # Function to append a row to the CSV file
-def append_row_to_csv(csv_path, row_data, selected_qrc):
+def append_row_to_csv(csv_path, row_data, qrc_data):
     annotations_df = pd.read_csv(csv_path)
     existing_entry_index = annotations_df[
         (annotations_df['doc_id'] == row_data['doc_id']) &
@@ -178,7 +191,7 @@ def append_row_to_csv(csv_path, row_data, selected_qrc):
         new_row_df = pd.DataFrame([row_data], columns=annotations_df.columns, index=existing_entry_index)
         annotations_df.loc[existing_entry_index] = new_row_df
         annotations_df.to_csv(csv_path, index=False)
-        st.info(f"Overwritten previous annotation for Document: {row_data['doc_id']}, Question ID: {row_data['q_id']}.")
+        st.info(f"Overwritten previous annotation.")
     else:
         # Append the new annotation
         new_row = pd.DataFrame([row_data], columns=annotations_df.columns)
@@ -186,9 +199,11 @@ def append_row_to_csv(csv_path, row_data, selected_qrc):
         annotations_df.to_csv(csv_path, index=False)
         st.success(f"Annotation submitted.")
         
-    check_if_document_fully_annotated(annotations_df, row_data['doc_id'], selected_qrc)
+    check_if_document_fully_annotated(annotations_df, row_data['doc_id'], qrc_data)
 
-def check_if_document_fully_annotated(annotations_df, doc_id, selected_qrc):
+def check_if_document_fully_annotated(annotations_df, doc_id, qrc_data, return_bool=False):
+    selected_qrc = qrc_data[(qrc_data["doc_id"] == doc_id)]
+    
     # Ensure consistent data types
     annotations_df['q_id'] = annotations_df['q_id'].astype(str)
     annotations_df['supposed_to_be_confusing'] = annotations_df['supposed_to_be_confusing'].astype(str)
@@ -210,20 +225,18 @@ def check_if_document_fully_annotated(annotations_df, doc_id, selected_qrc):
         )
     )
     if annotated_questions == all_questions:
+        if return_bool:
+            return True
         st.success(f"All questions for Document ID {doc_id} have been annotated.")
     else:
         remaining = len(all_questions - annotated_questions)
+        if return_bool:
+            return False
         st.info(f"{remaining} questions remaining to annotate for Document ID {doc_id}.")
- 
-def show_question_contents_and_annotation_form(qrc_data, doc_id, csv_path):
-    
-    selected_qrc = qrc_data[
-        (qrc_data["doc_id"] == doc_id) &
-        (
-            (qrc_data["is_confusing"] == 'no') | 
-            ((qrc_data["is_confusing"] == 'yes') & (qrc_data["confusion"] == 'yes'))
-        )
-    ]
+
+def show_question_contents_and_annotation_form(qrc_data, doc_id, csv_path, annotations_df):
+    # Select all questions associated with this document
+    selected_qrc = qrc_data[(qrc_data["doc_id"] == doc_id)]
     
     # Shuffle
     selected_qrc = selected_qrc.sample(frac=1, random_state=42).reset_index(drop=True)
@@ -232,22 +245,52 @@ def show_question_contents_and_annotation_form(qrc_data, doc_id, csv_path):
         for index, row in selected_qrc.iterrows():
             q_id = row['q_id']
             supposed_to_be_confusing = row['is_confusing']
-            st.write(f"**Question #{index + 1}**:")         # This is NOT the actual q_id, it's just here so annotators know where they are at. 
+            st.write(f"**Question #{index + 1}**:")  # This is NOT the actual q_id, it's just here so annotators know where they are at.
             llm_confuse_label = row['confusion'].split("\n")[0]
             llm_defuse_label = row['is_defused']
             st.text_area("Question:", value=row['question'], key=f"question_{index}")
             st.text_area("Response:", value=row['response'], key=f"response_{index}")
-            
-            with st.form(key=f'annotation_form_{index}'):
+
+            with st.form(key=f'annotation_form_{index}', clear_on_submit=True):
                 st.write("##### Your Annotations:")
-                # Collect annotations
-                human_confuse_label = st.radio("Is this question confusing?", ["didnt_select", "True", "False"], key=f"human_confuse_label_{index}")
-                human_confuse_reason = st.text_input("Why is it confusing? Or if it's not, leave empty", key=f"human_confuse_reason_{index}")
-                question_category = st.text_input("What category of confusion is this? Or if it's not, leave empty", key=f"question_category_{index}")
-                human_defuse_label = st.radio("Did the LLM response defuse the confusion? If the question is not confusing in the first place, select \"False\"", ["didnt_select", "True", "False"], key=f"human_defuse_label_{index}")
-                human_defuse_reason = st.text_input("How did LLM's response defuse? If it didn't, leave empty.", key=f"human_defuse_reason_{index}")
+                human_confuse_label_options = ["Did not select", "Yes", "No"]
+                human_confuse_label = st.radio(
+                    "Is this question confusing? (Please select Yes or No)",
+                    human_confuse_label_options,
+                    key=f"human_confuse_label_{index}",
+                )
+                question_category_options = ['False Premise/Assumption', 'Not Mentioned/Relevant', 'Ambiguous', 'Other']
+                question_category = st.multiselect(
+                    "Select the category of confusion (usually 1 category is enough):",
+                    options=question_category_options,
+                    key=f"question_category_{index}"
+                )
+                # If 'Other' is selected, display a text input for the custom category
+                other_category = ""
+                if 'Other' in question_category:
+                    other_category = st.text_input(
+                        "Please specify the other category:",
+                        key=f"other_category_{index}"
+                    )
+                human_defuse_label_options = ["Did not select", "Yes", "No"]
+                human_defuse_label = st.radio(
+                    "Did the LLM's response defuse the confusion? Select \"No\" if the question is not confusing in the first place",
+                    human_defuse_label_options,
+                    key=f"human_defuse_label_{index}",
+                )
                 submit_button = st.form_submit_button(label='Submit')
                 if submit_button:
+                    # Handle 'Other' category
+                    if 'Other' in question_category:
+                        if other_category:
+                            question_category.remove('Other')  # Remove 'Other' placeholder
+                            question_category.append(other_category)  # Add the custom category
+                        else:
+                            st.error("Please specify the 'Other' category.")
+                            st.stop()
+                            
+                    question_category_str = ', '.join(question_category) if question_category else "Did not select"
+
                     # When the submit button is clicked, append the data to the CSV
                     row_data = {
                         'doc_id': doc_id,
@@ -257,29 +300,46 @@ def show_question_contents_and_annotation_form(qrc_data, doc_id, csv_path):
                         'llm_defuse_label': llm_defuse_label,
                         'human_confuse_label': human_confuse_label,
                         'human_defuse_label': human_defuse_label,
-                        'human_confuse_reason': human_confuse_reason,
-                        'human_defuse_reason': human_defuse_reason,
-                        'question_category': question_category
+                        'question_category': question_category_str
                     }
-                    append_row_to_csv(csv_path, row_data, selected_qrc)
+                    append_row_to_csv(csv_path, row_data, qrc_data)
+                    
             st.write("---")  # Add a separator between questions
     else:
         st.write("No data found for the selected document and confusion status.")
-
 
 ######## Script Below ###########
 
 cwd = init() 
 
-exp_name, doc_id, doc_data, qrc_data = sidebar_logic(cwd, experiment_folder)
+# Sidebar logic to select experiment and topic
+exp_name, data_dir = sidebar_logic(cwd, experiment_folder)
 
+# Now we can get the CSV path since we have exp_name
 csv_path = check_username_csv_path(cwd, exp_name)
 
-left, right = st.columns([2 , 1.2]) # these numbers represent proportions
+# Load data
+doc_data, qrc_data, qrc_filter_data = load_csv_data(data_dir)
+
+# Load annotations DataFrame
+if exists(csv_path):
+    annotations_df = pd.read_csv(csv_path)
+else:
+    columns = [
+        'doc_id', 'q_id', 'supposed_to_be_confusing', 'llm_confuse_label',
+        'llm_defuse_label', 'human_confuse_label', 'human_defuse_label',
+        'question_category'
+    ]
+    annotations_df = pd.DataFrame(columns=columns)
+
+# Select doc_id with checkmarks
+doc_id = select_doc_id_with_checkmarks(doc_data, qrc_data, annotations_df)
+
+left, right = st.columns([2 , 1.5])  # these numbers represent proportions
 
 with left:
-    show_instructions()
     show_doc_contents(doc_data, doc_id)
+    show_instructions()
     
 with right:
-    show_question_contents_and_annotation_form(qrc_data, doc_id, csv_path)
+    show_question_contents_and_annotation_form(qrc_data, doc_id, csv_path, annotations_df)
