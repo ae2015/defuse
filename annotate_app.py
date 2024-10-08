@@ -203,12 +203,11 @@ def append_row_to_csv(csv_path, row_data, qrc_data):
 
 def check_if_document_fully_annotated(annotations_df, doc_id, qrc_data, return_bool=False):
     selected_qrc = qrc_data[(qrc_data["doc_id"] == doc_id)]
+    selected_qrc = selected_qrc.sample(frac=1, random_state=42).reset_index(drop=True)
     
-    # Ensure consistent data types
-    annotations_df['q_id'] = annotations_df['q_id'].astype(str)
-    annotations_df['supposed_to_be_confusing'] = annotations_df['supposed_to_be_confusing'].astype(str)
-    selected_qrc['q_id'] = selected_qrc['q_id'].astype(str)
-    selected_qrc['is_confusing'] = selected_qrc['is_confusing'].astype(str)
+    question_mapping = {}
+    for index, row in selected_qrc.iterrows():
+        question_mapping[(row['q_id'], row['is_confusing'])] = index + 1
 
     # Create a set of unique identifiers for annotated questions
     annotated_questions = set(
@@ -224,23 +223,23 @@ def check_if_document_fully_annotated(annotations_df, doc_id, qrc_data, return_b
             selected_qrc['is_confusing']
         )
     )
-    if annotated_questions == all_questions:
+    remaining_questions = all_questions - annotated_questions
+    if not remaining_questions:
         if return_bool:
             return True
         st.success(f"All questions for Document ID {doc_id} have been annotated.")
     else:
-        remaining = len(all_questions - annotated_questions)
         if return_bool:
             return False
-        st.info(f"{remaining} questions remaining to annotate for Document ID {doc_id}.")
+        remaining_question_indexes = [question_mapping[question] for question in remaining_questions]
+        st.info(f"Question # not yet annotated: {sorted(remaining_question_indexes)} for Document {doc_id}")
 
 def show_question_contents_and_annotation_form(qrc_data, doc_id, csv_path, annotations_df):
     # Select all questions associated with this document
     selected_qrc = qrc_data[(qrc_data["doc_id"] == doc_id)]
-    
     # Shuffle
     selected_qrc = selected_qrc.sample(frac=1, random_state=42).reset_index(drop=True)
-    
+
     if not selected_qrc.empty:
         for index, row in selected_qrc.iterrows():
             q_id = row['q_id']
@@ -274,7 +273,7 @@ def show_question_contents_and_annotation_form(qrc_data, doc_id, csv_path, annot
                     )
                 human_defuse_label_options = ["Did not select", "Yes", "No"]
                 human_defuse_label = st.radio(
-                    "Did the LLM's response defuse the confusion? Select \"No\" if the question is not confusing in the first place",
+                    "Did the LLM's response defuse the confusion? Select \"Did not select\" if the question is not confusing in the first place",
                     human_defuse_label_options,
                     key=f"human_defuse_label_{index}",
                 )
@@ -303,6 +302,7 @@ def show_question_contents_and_annotation_form(qrc_data, doc_id, csv_path, annot
                         'question_category': question_category_str
                     }
                     append_row_to_csv(csv_path, row_data, qrc_data)
+                    
                     
             st.write("---")  # Add a separator between questions
     else:
@@ -338,8 +338,8 @@ doc_id = select_doc_id_with_checkmarks(doc_data, qrc_data, annotations_df)
 left, right = st.columns([2 , 1.5])  # these numbers represent proportions
 
 with left:
-    show_doc_contents(doc_data, doc_id)
     show_instructions()
+    show_doc_contents(doc_data, doc_id)
     
 with right:
     show_question_contents_and_annotation_form(qrc_data, doc_id, csv_path, annotations_df)
