@@ -82,6 +82,13 @@
             "Now read the answer to this questioin. ",
             "Does the answer point out that the question is confusing? ",
             "Please start by explaining your reasoning, such as how the answer resolves or fails to resolve the confusion. End your response with 'The answer is: Yes or No.':"
+        ],
+        "user_def_check_otc8": [
+            "The question is confusing and cannot be answered by the document. Now, carefully read the response to this question. Does the response convey that the question cannot be answered, or express any of the following:\n",
+	        "False Premise: The response points out that the question is based on an incorrect assumption.\n",
+	        "Not Mentioned: The response indicates that the information needed to answer the question is not available in the document.\n",
+	        "Ambiguous: The response highlights unclear pronouns or vague terms that prevent a clear answer.\n",
+            "Start by explaining your reasoning, specifying whether the response conveys that the question is unanswerable or reflects any of the above points. Finally, conclude with ‘The answer is: Yes’ or ‘The answer is: No,’ depending on whether the response effectively identifies this confusing question: "
         ]
     }
 

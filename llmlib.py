@@ -99,31 +99,30 @@ class LLM:
         }
         self.parameters.update(kwargs)
         json_data.update(self.parameters)
-        start_time = time.time()
-        response = requests.post(self.url, headers = self.headers, json = json_data)
-        end_time = time.time()
-        duration = end_time - start_time
-        # if response.status_code != 200:
-        #     raise LLMException(
-        #         f"Model = {self.model}, Status Code = {response.status_code}, Duration = {duration}\n" +
-        #         f"Prompt: {prompt}\nResponse: {response.json()}" # {json.dumps(response)}"
-        #     )
-        # Check if the response status code indicates an error
+
+        response = None
+        max_retries = 10
+        attempt = 0
+        while attempt < max_retries:
+            start_time = time.time()
+            response = requests.post(self.url, headers=self.headers, json=json_data)
+            end_time = time.time()
+            duration = end_time - start_time
+
+            if response.status_code == 200:
+                break
+            else:
+                attempt += 1
+                print(f"Attempt {attempt}: Received status code {response.status_code} - Retrying...")
+                time.sleep(30)
+
         if response.status_code != 200:
-            raise Exception(f"Error: Received status code {response.status_code} for prompt: {prompt}")
-        
-        # Check if the response body is empty
-        if not response.text:
-            raise Exception(f"Error: Received empty response for prompt: {prompt}")
-        
+            raise Exception(f"Error: Failed after {max_retries} attempts, status code {response.status_code}")
+
         try:
             response_json = response.json()
         except requests.exceptions.JSONDecodeError as e:
             raise Exception(f"Error decoding JSON: {e.msg} for prompt: {prompt}\nResponse text: {response.text}")
-        # if kwargs.get("n", 1) != 1:
-        #     text_output = [message["message"]["content"] for message in response.json()["choices"]]
-        # else:
-        #     text_output = response.json()["choices"][0]["message"]["content"]
         if kwargs.get("n", 1) != 1:
             text_output = [message["message"]["content"] for message in response_json["choices"]]
         else:
