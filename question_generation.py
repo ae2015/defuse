@@ -437,6 +437,13 @@ if __name__ == "__main__":
         print("\nSTEP 5: Give LLM the document and the question and record LLM's response\n")
 
         generate_RAG_responses(llm_r, doc_csv_schema, doc_paths["out"], qrc_csv_schema, qrc_paths[1])
+
+        print("\nSTEP 6: Ask LLM to find the false assumption in each question\n")
+
+        find_false_assumptions_in_questions_v2(llm_eval, doc_csv_schema, doc_paths["out"],
+                                            qrc_csv_schema, qrc_paths[1], qrc_paths[2], n=9)
         end_time = utils.get_time()
         print(f"{topic} takes: {end_time - start_time:.2f} seconds")
+
+        
     
