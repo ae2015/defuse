@@ -101,7 +101,7 @@ class LLM:
         json_data.update(self.parameters)
 
         response = None
-        max_retries = 10
+        max_retries = 20
         attempt = 0
         while attempt < max_retries:
             start_time = time.time()
@@ -114,7 +114,7 @@ class LLM:
             else:
                 attempt += 1
                 print(f"Attempt {attempt}: Received status code {response.status_code} - Retrying...")
-                time.sleep(30)
+                time.sleep(61)
 
         if response.status_code != 200:
             raise Exception(f"Error: Failed after {max_retries} attempts, status code {response.status_code}")
@@ -133,6 +133,7 @@ class LLM:
 
 openai_url = "https://api.openai.com/v1/chat/completions"
 runpod_llama3_url = f"https://api.runpod.ai/v2/{os.environ.get('RUNPOD_ENDPOINT_ID')}/openai/v1/chat/completions"
+together_ai_url = "https://api.together.xyz/v1/chat/completions"
 openai_headers_1 = {
     "Content-Type": "application/json",
     "Authorization": "Bearer " + os.getenv("OPENAI_API_KEY", ""),
@@ -146,6 +147,11 @@ openai_headers_2 = {
 runpod_llama3_headers = {
     "Content-Type": "application/json",
     "Authorization": "Bearer " + os.getenv("RUNPOD_API_KEY", "")
+}
+# Integrating Together AI models
+together_ai_headers = {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer " + os.getenv("TOGETHER_API_KEY"),
 }
 gpt_3_dot_5 = LLM(
     name = "gpt-3.5",
@@ -176,12 +182,85 @@ gpt_4o_mini = LLM(
     }
 )
 
-llama3_8B_in = LLM(
-    name = "llama3-8B-in",
-    model = "meta-llama/Meta-Llama-3-8B-Instruct",
-    url = runpod_llama3_url,
-    headers = runpod_llama3_headers,
+# llama3_8B_in = LLM(
+#     name = "llama3-8B-in",
+#     model = "meta-llama/Meta-Llama-3-8B-Instruct",
+#     url = runpod_llama3_url,
+#     headers = runpod_llama3_headers,
+#     parameters = {
+#         "temperature": 0.7
+#     }
+# )
+
+# ["gemma-2-27b-it", "gemma-2-9b-it", "Meta-Llama-3.1-8B-Instruct-Turbo", "Meta-Llama-3.1-70B-Instruct-Turbo", "Llama-3.2-3B-Instruct-Turbo", "Mistral-7B-Instruct-v0.3"]
+gemma_2_27b_it = LLM(
+    name="gemma-2-27b-it",
+    model="google/gemma-2-27b-it",
+    url=together_ai_url,
+    headers=together_ai_headers,
     parameters = {
-        "temperature": 0.7
+        "temperature": 0.7,
+        "max_tokens": 300,
+        "stream": False
+    }
+)
+
+gemma_2_9b_it = LLM(
+    name="gemma-2-9b-it",
+    model="google/gemma-2-9b-it",
+    url=together_ai_url,
+    headers=together_ai_headers,
+    parameters = {
+        "temperature": 0.7,
+        "max_tokens": 300,
+        "stream": False
+    }
+)
+
+Meta_Llama_3dot1_8B_Instruct_Turbo = LLM(
+    name="Meta-Llama-3.1-8B-Instruct-Turbo",
+    model="meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
+    url=together_ai_url,
+    headers=together_ai_headers,
+    parameters = {
+        "temperature": 0.7,
+        "max_tokens": 300,
+        "stream": False
+    }
+)
+
+Meta_Llama_3dot1_70B_Instruct_Turbo = LLM(
+    name="Meta-Llama-3.1-70B-Instruct-Turbo",
+    model="meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
+    url=together_ai_url,
+    headers=together_ai_headers,
+    parameters = {
+        "temperature": 0.7,
+        "max_tokens": 300,
+        "stream": False
+    }
+)
+
+Llama_3dot2_3B_Instruct_Turbo = LLM(
+    name="Llama-3.2-3B-Instruct-Turbo",
+    model="meta-llama/Llama-3.2-3B-Instruct-Turbo",
+    url=together_ai_url,
+    headers=together_ai_headers,
+    parameters = {
+        "temperature": 0.7,
+        "max_tokens": 300,
+        "stream": False
+    }
+)
+
+Mistral_7B_Instruct_v0dot3 = LLM(
+    name="Mistral-7B-Instruct-v0.3",
+    model="mistralai/Mistral-7B-Instruct-v0.3",
+    url=together_ai_url,
+    headers=together_ai_headers,
+    parameters = {
+        "temperature": 0.7,
+        "max_tokens": 300,
+        "stream": False
     }
 )
