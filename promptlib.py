@@ -587,9 +587,15 @@ def check_response_for_defusion_v3(llm, document, question, response, n, shot, p
     example_answers = examples_of_questions["zpeng-sport-5-5"]["facts"]["defuse"]["responses"]
     example_reasonings = examples_of_questions["zpeng-sport-5-5"]["facts"]["defuse"]["reasonings"]
     assert len(example_answers) == len(example_reasonings)
-    example_questions = utils.enum_list(example_questions*len(example_answers))
-    example_answers = utils.enum_list(example_answers)
-    example_reasonings = "\n\n" + utils.enum_list(example_reasonings)
+
+    exp_questions_extra = examples_of_questions["zpeng-sport-5-5"]["facts"]["defuse_extra"]["question"]
+    exp_answers_extra = examples_of_questions["zpeng-sport-5-5"]["facts"]["defuse_extra"]["responses"]
+    exp_reasonings_extra = examples_of_questions["zpeng-sport-5-5"]["facts"]["defuse_extra"]["reasonings"]
+    assert len(exp_answers_extra) == len(exp_reasonings_extra)
+
+    example_questions = utils.enum_list(example_questions*len(example_answers) + exp_questions_extra*len(exp_answers_extra))
+    example_answers = utils.enum_list(example_answers + exp_answers_extra)
+    example_reasonings = "\n\n" + utils.enum_list(example_reasonings + exp_reasonings_extra)
     prompt.append({
         "role" : "user",
         "content" : rag_confusion_check[prompt_key]["user_rag"].format(document = example_document, question = example_questions)

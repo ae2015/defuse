@@ -333,6 +333,17 @@
                    "This response attempts to provide an answer, speculating about Jefferson’s performance and the game’s outcome. It does not acknowledge any of the confusing aspects and tries to provide an explanation. The answer is: No.",
                    "This response mentions both the correct injury type (quad, not hamstring) and acknowledges that Jefferson’s age likely won’t be a factor, but it still attempts to answer the question, making it non-defusing. The answer is: No."
                 ]
+            },
+            "defuse_extra": {
+                "question" : ["Did Justin Jefferson’s got quad injury because of his old age?"],
+                "responses" :[
+                    "No, the document does not mention Justin Jefferson’s age at all.",
+                    "Justine Jefferson's got quad injust is not because of his old age. The document does not mention Justin Jefferson’s age at all."
+                ],
+                "reasonings" :[
+                    "The response correctly points out that Justin Jefferson’s age is not mentioned in the document. However, by stating “No” at the beginning, it directly attempts to answer the confusing question and thus it fails to meet the defusion criteria. The answer is: No.",
+                    "The response correctly points out that Justin Jefferson’s age is not mentioned in the document. However, by stating that Justine Jefferson's got quad injust is not because of his old age at the beginning, it directly attempts to answer the confusing question and thus it fails to meet the defusion criteria. The answer is: No."
+                ]
             }
         },
         "document": [
