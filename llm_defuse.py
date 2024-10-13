@@ -415,7 +415,7 @@ if __name__ == "__main__":
     # topics = [
     #     'music', 'news', 'tech'
     # ]
-    llm_models = ["gemma-2-27b-it", "Meta-Llama-3.1-8B-Instruct-Turbo", "Meta-Llama-3.1-70B-Instruct-Turbo", "Llama-3.2-3B-Instruct-Turbo", "Mistral-7B-Instruct-v0.3", "gemma-2-9b-it"]
+    llm_models = ["gpt-3.5", "gemma-2-27b-it", "Meta-Llama-3.1-8B-Instruct-Turbo", "Meta-Llama-3.1-70B-Instruct-Turbo", "Llama-3.2-3B-Instruct-Turbo", "Mistral-7B-Instruct-v0.3", "gemma-2-9b-it"]
     # llm_models = ["gpt-3.5"]
     for llm_r in llm_models:
         tpoic_start_time = utils.get_time()
