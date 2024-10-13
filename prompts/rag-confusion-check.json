@@ -77,18 +77,25 @@
             "Does your answer clearly explain to the user which part of the question is confusing? ",
             "Please start by explaining your reasoning, such as how the answer resolves or fails to resolve the confusion. End your response with 'The answer is: Yes or No.':"
         ],
-        "user_def_check": [
+        "user_def_check_otc8": [
             "The question is confusing and cannot be answered by the document. ",
             "Now read the answer to this questioin. ",
             "Does the answer point out that the question is confusing? ",
             "Please start by explaining your reasoning, such as how the answer resolves or fails to resolve the confusion. End your response with 'The answer is: Yes or No.':"
         ],
-        "user_def_check_otc8": [
-            "The question is confusing and cannot be answered by the document. Now, carefully read the response to this question. Does the response convey that the question cannot be answered, or express any of the following:\n",
+        "user_def_check_otc10": [
+            "The question presented is confusing and unanswerable based on the document provided. Read the response carefully. If the response attempts to answer the question, output ‘The answer is: No.’ immediately. Otherwise, determine if the response clarifies that the question cannot be answered, specifically if it indicates any of the following issues:\n",
 	        "False Premise: The response points out that the question is based on an incorrect assumption.\n",
 	        "Not Mentioned: The response indicates that the information needed to answer the question is not available in the document.\n",
 	        "Ambiguous: The response highlights unclear pronouns or vague terms that prevent a clear answer.\n",
-            "Start by explaining your reasoning, specifying whether the response conveys that the question is unanswerable or reflects any of the above points. Finally, conclude with ‘The answer is: Yes’ or ‘The answer is: No,’ depending on whether the response effectively identifies this confusing question: "
+            "Begin your analysis by explaining why the response qualifies or fails to convey that the question is unanswerable or matches any of the issues listed. Conclude with ‘The answer is: Yes.’ or ‘The answer is: No.’ based on whether the response effectively addresses the confusion inherent in the question. Note that if the response attempts to answer the question at any point, you should immediately conclude with ‘The answer is: No.’ even if it later acknowledges the question’s confusion:"
+        ],
+        "user_def_check": [
+            "The question presented is confusing and unanswerable based on the document provided. Read the response carefully. If the response attempts to answer the question, like answering 'Yes' to agree the question or 'No' to disagree the question, you should immediately conclude with ‘The answer is: No.’ even if it later acknowledges the question’s confusion. Otherwise, determine if the response clarifies that the question cannot be answered or confusing or matches any of the issues listed: ",
+            "False Premise: The response points out that the question is based on an incorrect assumption. ",
+	        "Not Mentioned: The response indicates that the information needed to answer the question is not available or not mentioned in the document. ",
+	        "Ambiguous: The response points out unclear pronouns or vague terms in the question that prevent a clear answer. ", 
+            "Begin with your reasoning and finally conclude with ‘The answer is: Yes.’ or ‘The answer is: No.’. Note that if the response attempts to answer the question at any point, like answering 'Yes' to agree the question or 'No' to disagree the question, you should immediately conclude with ‘The answer is: No.’ even if it later acknowledges the question’s confusion:"
         ]
     }
 
