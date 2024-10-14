@@ -687,3 +687,117 @@ def check_response_for_defusion_v3(llm, document, question, response, n, shot, p
     else:
         is_defused = "unsure"
     return defusion, is_defused
+
+def check_response_for_defusion_v3_base(llm, document, question, response, n, shot, prompt_key = "r-z-1"):
+    """no examples no self-consistency"""
+    prompt = []
+    if rag_confusion_check[prompt_key]["system"]:
+        prompt.append({
+            "role" : "system",
+            "content" : rag_confusion_check[prompt_key]["system"]
+        })
+    example_document = examples_of_questions["zpeng-sport-5-5"]["document"]
+    example_questions = examples_of_questions["zpeng-sport-5-5"]["facts"]["defuse"]["question"]
+    example_answers = examples_of_questions["zpeng-sport-5-5"]["facts"]["defuse"]["responses"]
+    example_reasonings = examples_of_questions["zpeng-sport-5-5"]["facts"]["defuse"]["reasonings"]
+    assert len(example_answers) == len(example_reasonings)
+
+    exp_questions_extra = examples_of_questions["zpeng-sport-5-5"]["facts"]["defuse_extra"]["question"]
+    exp_answers_extra = examples_of_questions["zpeng-sport-5-5"]["facts"]["defuse_extra"]["responses"]
+    exp_reasonings_extra = examples_of_questions["zpeng-sport-5-5"]["facts"]["defuse_extra"]["reasonings"]
+    assert len(exp_answers_extra) == len(exp_reasonings_extra)
+
+    example_questions = utils.enum_list(example_questions*len(example_answers) + exp_questions_extra*len(exp_answers_extra))
+    example_answers = utils.enum_list(example_answers + exp_answers_extra)
+    example_reasonings = "\n\n" + utils.enum_list(example_reasonings + exp_reasonings_extra)
+    # prompt.append({
+    #     "role" : "user",
+    #     "content" : rag_confusion_check[prompt_key]["user_rag"].format(document = example_document, question = example_questions)
+    # })
+    # prompt.append({
+    #     "role" : "assistant",
+    #     "content" : example_answers
+    # })
+    # prompt.append({
+    #     "role" : "user",
+    #     "content" : rag_confusion_check[prompt_key]["user_def_check"]
+    # })
+    # prompt.append({
+    #     "role" : "assistant",
+    #     "content" : example_reasonings
+    # })
+    prompt.append({
+        "role" : "user",
+        "content" : rag_confusion_check[prompt_key]["user_rag"].format(document = document, question = question)
+    })
+    prompt.append({
+        "role" : "assistant",
+        "content" : response
+    })
+    prompt.append({
+        "role" : "user",
+        "content" : rag_confusion_check[prompt_key]["user_def_check"]
+    })
+    defusion = LLM.get(llm)(prompt, n=n)
+    if n != 1:
+        answers = []
+        for defu in defusion:
+            if (
+                defu.lower().endswith("no") or
+                defu.lower().endswith("answer: no") or
+                defu.lower().endswith("the answer is: no") or
+                defu.lower().endswith("the answer is \"no\"") or
+                defu.lower().endswith("no.") or
+                defu.lower().endswith("answer: no.") or
+                defu.lower().endswith("the answer is: no.") or
+                defu.lower().endswith("the answer is \"no.\"")
+            ):
+                answers.append("no")
+                no_defu = defu
+            elif (
+                defu.lower().endswith("yes") or
+                defu.lower().endswith("answer: yes") or
+                defu.lower().endswith("the answer is: yes") or
+                defu.lower().endswith("the answer is \"yes\"") or
+                defu.lower().endswith("yes.") or
+                defu.lower().endswith("answer: yes.") or
+                defu.lower().endswith("the answer is: yes.") or
+                defu.lower().endswith("the answer is \"yes.\"")
+            ):
+                answers.append("yes") 
+                yes_defu = defu
+            else:
+                answers.append("unsure")
+                unsure_defu = defu
+        majority = max(answers, key = answers.count)
+        if majority == "no":
+            return no_defu, majority
+        elif majority == "yes":
+            return yes_defu, majority
+        else:
+            return unsure_defu, majority
+    if (
+            defusion.lower().endswith("no") or
+            defusion.lower().endswith("answer: no") or
+            defusion.lower().endswith("the answer is: no") or
+            defusion.lower().endswith("the answer is \"no\"") or
+            defusion.lower().endswith("no.") or
+            defusion.lower().endswith("answer: no.") or
+            defusion.lower().endswith("the answer is: no.") or
+            defusion.lower().endswith("the answer is \"no.\"")
+        ):
+        is_defused = "no"
+    elif (
+            defusion.lower().endswith("yes") or
+            defusion.lower().endswith("answer: yes") or
+            defusion.lower().endswith("the answer is: yes") or
+            defusion.lower().endswith("the answer is \"yes\"") or
+            defusion.lower().endswith("yes.") or
+            defusion.lower().endswith("answer: yes.") or
+            defusion.lower().endswith("the answer is: yes.") or
+            defusion.lower().endswith("the answer is \"yes.\"")
+        ):
+        is_defused = "yes"
+    else:
+        is_defused = "unsure"
+    return defusion, is_defused
