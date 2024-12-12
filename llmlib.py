@@ -241,6 +241,18 @@ Meta_Llama_3dot1_70B_Instruct_Turbo = LLM(
     }
 )
 
+Meta_Llama_3dot3_70B_Instruct_Turbo = LLM(
+    name="Meta-Llama-3.3-70B-Instruct-Turbo",
+    model="meta-llama/Llama-3.3-70B-Instruct-Turbo",
+    url=together_ai_url,
+    headers=together_ai_headers,
+    parameters = {
+        "temperature": 0.7,
+        "max_tokens": 300,
+        "stream": False
+    }
+)
+
 Llama_3dot2_3B_Instruct_Turbo = LLM(
     name="Llama-3.2-3B-Instruct-Turbo",
     model="meta-llama/Llama-3.2-3B-Instruct-Turbo",

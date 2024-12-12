@@ -340,6 +340,20 @@ def generate_response(llm, document, question, prompt_key = "r-z-1"):
     response = LLM.get(llm)(prompt)
     return response
 
+def generate_response_cot(llm, document, question, prompt_key = "r-z-1"):
+    prompt = []
+    if rag_confusion_check[prompt_key]["system"]:
+        prompt.append({
+            "role" : "system",
+            "content" : rag_confusion_check[prompt_key]["system"]
+        })
+    prompt.append({
+        "role" : "user",
+        "content" : rag_confusion_check[prompt_key]["user_rag_cot"].format(document = document, question = question)
+    })
+    response = LLM.get(llm)(prompt)
+    return response
+
 def find_false_assumption(llm, document, question, prompt_key = "r-z-1"):
     prompt = []
     if rag_confusion_check[prompt_key]["system"]:
