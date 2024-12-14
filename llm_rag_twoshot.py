@@ -388,7 +388,7 @@ if __name__ == "__main__":
     topics = [
         'travel', 'entertainment', 'music', 'news', 'tech'
     ]
-    llm_models = ["Meta-Llama-3.1-8B-Instruct-Turbo", "Meta-Llama-3.1-70B-Instruct-Turbo", "Meta-Llama-3.3-70B-Instruct-Turbo", "Llama-3.2-3B-Instruct-Turbo", "Mistral-7B-Instruct-v0.3"]
+    llm_models = ["gpt-3.5", "Meta-Llama-3.1-8B-Instruct-Turbo", "Meta-Llama-3.1-70B-Instruct-Turbo", "Meta-Llama-3.3-70B-Instruct-Turbo", "Llama-3.2-3B-Instruct-Turbo", "Mistral-7B-Instruct-v0.3"]
     for llm_r in llm_models:
         tpoic_start_time = utils.get_time()
         for topic in topics:
