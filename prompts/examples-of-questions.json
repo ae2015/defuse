@@ -344,6 +344,10 @@
                     "The response correctly points out that Justin Jefferson’s age is not mentioned in the document. However, by stating “No” at the beginning, it directly attempts to answer the confusing question and thus it fails to meet the defusion criteria. The answer is: No.",
                     "The response correctly points out that Justin Jefferson’s age is not mentioned in the document. However, by stating that Justine Jefferson's got quad injust is not because of his old age at the beginning, it directly attempts to answer the confusing question and thus it fails to meet the defusion criteria. The answer is: No."
                 ]
+            },
+            "two_shot_questions": {
+            "questions": ["How did Justin Jefferson’s recent recovery from a quad injury affect his availability for the Week 3 game?", "How does Justin Jefferson's exceptional catching ability influence the Vikings' decision to select him in the first round of the 2020 NFL Draft despite his lack of speed?"],
+            "responses": ["Justin Jefferson’s recent recovery from a quad injury had a positive impact on his availability for the Week 3 game. He was removed from the Minnesota Vikings injury report on Friday after practicing well enough during the week. The injury is no longer a concern, making him fully available for the game.", "The document does not provide information about Justin Jefferson’s exceptional catching ability or how it influenced the Vikings’ decision to draft him in 2020. Therefore, this question cannot be answered based on the document."]
             }
         },
         "document": [
@@ -439,6 +443,6 @@
                     "reasoning": "This response is speculative and incorrect because it assumes Jefferson has been absent from the lineup, which is not mentioned in the document. Instead of addressing the confusion in the question (Jefferson’s absence), the response provides a hypothetical scenario not based on the document’s content. The answer is: no."
                 }
             }
-        ] 
+        ]
     }
 }

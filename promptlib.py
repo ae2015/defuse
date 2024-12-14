@@ -340,6 +340,33 @@ def generate_response(llm, document, question, prompt_key = "r-z-1"):
     response = LLM.get(llm)(prompt)
     return response
 
+def generate_response_2shot(llm, document, question, prompt_key = "r-z-1"):
+    example_document = examples_of_questions["zpeng-sport-5-5"]["document"]
+    example_questions = examples_of_questions["zpeng-sport-5-5"]["facts"]["two_shot_questions"]["questions"]
+    example_answers = examples_of_questions["zpeng-sport-5-5"]["facts"]["two_shot_questions"]["responses"]
+    example_questions = utils.enum_list(example_questions)
+    example_answers = utils.enum_list(example_answers)
+    prompt = []
+    if rag_confusion_check[prompt_key]["system"]:
+        prompt.append({
+            "role" : "system",
+            "content" : rag_confusion_check[prompt_key]["system"]
+        })
+    prompt.append({
+        "role" : "user",
+        "content" : rag_confusion_check[prompt_key]["user_rag"].format(document = example_document, question = example_questions)
+    })
+    prompt.append({
+        "role" : "assistant",
+        "content" : example_answers
+    })
+    prompt.append({
+        "role" : "user",
+        "content" : rag_confusion_check[prompt_key]["user_rag"].format(document = document, question = question)
+    })
+    response = LLM.get(llm)(prompt)
+    return response
+
 def generate_response_cot(llm, document, question, prompt_key = "r-z-1"):
     prompt = []
     if rag_confusion_check[prompt_key]["system"]:
