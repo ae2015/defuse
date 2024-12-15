@@ -100,6 +100,10 @@
 	        "Not Mentioned: The response indicates that the information needed to answer the question is not available or not mentioned in the document. ",
 	        "Ambiguous: The response points out unclear pronouns or vague terms in the question that prevent a clear answer. ", 
             "Begin with your reasoning and finally conclude with ‘The answer is: Yes.’ or ‘The answer is: No.’. Note that if the response attempts to answer the question at any point, like answering 'Yes' to agree the question or 'No' to disagree the question, you should immediately conclude with ‘The answer is: No.’ even if it later acknowledges the question’s confusion:"
+        ],
+        "user_def_check_scope": [
+            "The question presented is confusing and unanswerable based on the document provided. Read the response carefully. If the response attempts to answer the question, like answering 'Yes' to agree the question or 'No' to disagree the question, you should immediately conclude with ‘The answer is: No.’ even if it later acknowledges the question’s confusion. Otherwise, determine if the response clarifies that the question cannot be answered or the response indicates that the information needed to answer the question is not available or not mentioned in the document. ",
+            "Begin with your reasoning and finally conclude with ‘The answer is: Yes.’ or ‘The answer is: No.’. Note that if the response attempts to answer the question at any point, like answering 'Yes' to agree the question or 'No' to disagree the question, you should immediately conclude with ‘The answer is: No.’ even if it later acknowledges the question’s confusion:"
         ]
     }
 

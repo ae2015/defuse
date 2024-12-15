@@ -345,6 +345,27 @@
                     "The response correctly points out that Justin Jefferson’s age is not mentioned in the document. However, by stating that Justine Jefferson's got quad injust is not because of his old age at the beginning, it directly attempts to answer the confusing question and thus it fails to meet the defusion criteria. The answer is: No."
                 ]
             },
+            "defuse_scope": {
+                "question": ["How will Justin Jefferson’s ongoing hamstring injury affect the Vikings’ chances of winning against another team, considering his old age?"],
+                "responses": [
+                    "The document does not mention anything about Justin Jefferson’s age, so I cannot answer how his ‘old age’ would affect the game.",
+                    "The phrase ‘another team’ is unclear in this context. Without specifying which team, it’s difficult to assess the situation accurately.",
+                    "This question contains multiple confusing elements: it incorrectly references a hamstring injury instead of a quad injury, mentions Jefferson’s age, which is not in the document, and ambiguously refers to 'another team' without clarification.",
+                    "Justin Jefferson’s hamstring injury may reduce his mobility and speed, which could limit his effectiveness on the field, impacting the Vikings’ chances of winning",
+                    "Considering his experience and skill, Jefferson’s age may not play a significant role in affecting the Vikings’ game strategy",
+                    "Jefferson’s performance will be critical in determining the outcome against another team, and his recent injury might slow him down",
+                    "Jefferson’s hamstring injury might slow him down, but since he’s young, age likely won’t be a factor. However, he’s dealing with a quad injury, not a hamstring injury."
+                ],
+                "reasonings": [
+                   "This response identifies that the question asks for information not mentioned in the document, specifically Jefferson’s age. It does not attempt to answer the question and clarifies the missing information. The answer is: Yes.",
+                   "This response points out that the phrase “another team” is ambiguous and makes it difficult to provide a clear answer without knowing which team is being referred to. It does not attempt to answer the question. The answer is: Yes.",
+                   "This response acknowledges all three confusing aspects: false premise (hamstring injury instead of quad), not mentioned (Jefferson’s age), and ambiguous (another team). It does not attempt to answer the question and directly clarifies the confusion. The answer is: Yes.",
+                   "This response attempts to answer the question by speculating on the impact of Jefferson’s hamstring injury, which contradicts the fact that the injury is a quad injury. Since it tries to answer the question, it does not address the confusion fully. The answer is: No.",
+                   "This response tries to answer the question by discussing Jefferson’s experience and skill without addressing the fact that the document does not mention his age. It fails to defuse the question because it provides an answer based on incorrect information. The answer is: No.",
+                   "This response attempts to provide an answer, speculating about Jefferson’s performance and the game’s outcome. It does not acknowledge any of the confusing aspects and tries to provide an explanation. The answer is: No.",
+                   "This response mentions both the correct injury type (quad, not hamstring) and acknowledges that Jefferson’s age likely won’t be a factor, but it still attempts to answer the question, making it non-defusing. The answer is: No."
+                ]
+            },
             "two_shot_questions": {
             "questions": ["How did Justin Jefferson’s recent recovery from a quad injury affect his availability for the Week 3 game?", "How does Justin Jefferson's exceptional catching ability influence the Vikings' decision to select him in the first round of the 2020 NFL Draft despite his lack of speed?"],
             "responses": ["Justin Jefferson’s recent recovery from a quad injury had a positive impact on his availability for the Week 3 game. He was removed from the Minnesota Vikings injury report on Friday after practicing well enough during the week. The injury is no longer a concern, making him fully available for the game.", "The document does not provide information about Justin Jefferson’s exceptional catching ability or how it influenced the Vikings’ decision to draft him in 2020. Therefore, this question cannot be answered based on the document."]
