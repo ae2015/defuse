@@ -436,43 +436,47 @@ if __name__ == "__main__":
     topics = [
         'travel', 'entertainment', 'music', 'news', 'tech'
     ]
-    llm_models = ["Meta-Llama-3.3-70B-Instruct-Turbo"]
+    llm_models = ["gpt-3.5", "Meta-Llama-3.1-8B-Instruct-Turbo", "Meta-Llama-3.1-70B-Instruct-Turbo", "Meta-Llama-3.3-70B-Instruct-Turbo", "Llama-3.2-3B-Instruct-Turbo", "Mistral-7B-Instruct-v0.3"]
     for llm_r in llm_models:
-        tpoic_start_time = utils.get_time()
-        for topic in topics:
-            llm_start_time = utils.get_time()
-            data_folder = f"data/processed/News1k2024-300/{topic}/{news_num}"
-            exp_folder = f"data/exps/llmq-{llm_q}/docp-{doc_prompt}/{news_num}/{topic}/llmr-{llm_r}"
-            os.makedirs(exp_folder, exist_ok = True)
-            doc_files = {
-                "in" : "docs_in.csv",
-                "out" : "docs_out.csv",
-                0 : "docs_0.csv",
-                1 : "docs_1.csv",
-                2 : "docs_2.csv",
-                3 : "docs_3.csv",
-                4 : "docs_4.csv"
-            }
-            qrc_files = {
-                "out" : "qrc_out_scope.csv",
-                "filter" : "qrc_filter.csv",
-                1 : "qrc_1.csv",
-                2 : "qrc_2.csv"
-            }
+        for suffix in ["", "twoshot", "cot"]:
+            tpoic_start_time = utils.get_time()
+            for topic in topics:
+                llm_start_time = utils.get_time()
+                data_folder = f"data/processed/News1k2024-300/{topic}/{news_num}"
+                if suffix:
+                    exp_folder = f"data/exps/llmq-{llm_q}/docp-{doc_prompt}/{news_num}/{topic}/llmr-{llm_r}-{suffix}"
+                else:
+                    exp_folder = f"data/exps/llmq-{llm_q}/docp-{doc_prompt}/{news_num}/{topic}/llmr-{llm_r}"
+                os.makedirs(exp_folder, exist_ok = True)
+                doc_files = {
+                    "in" : "docs_in.csv",
+                    "out" : "docs_out.csv",
+                    0 : "docs_0.csv",
+                    1 : "docs_1.csv",
+                    2 : "docs_2.csv",
+                    3 : "docs_3.csv",
+                    4 : "docs_4.csv"
+                }
+                qrc_files = {
+                    "out" : "qrc_out_scope.csv",
+                    "filter" : "qrc_filter.csv",
+                    1 : "qrc_1.csv",
+                    2 : "qrc_2.csv"
+                }
 
-            doc_paths = {k : join(data_folder, v) if k == "in" else join(dirname(exp_folder), v)  for k, v in doc_files.items()}
-            qrc_paths = {k : join(exp_folder, v) for k, v in qrc_files.items()}
-            metric_path = join(exp_folder, "metrics.txt")
-            promptlib.read_prompts("prompts")
+                doc_paths = {k : join(data_folder, v) if k == "in" else join(dirname(exp_folder), v)  for k, v in doc_files.items()}
+                qrc_paths = {k : join(exp_folder, v) for k, v in qrc_files.items()}
+                metric_path = join(exp_folder, "metrics.txt")
+                promptlib.read_prompts("prompts")
 
-            print(f"\nCollect the responses of {llm_r} for {topic}\n")
+                print(f"\nCollect the responses of {llm_r} for {topic}\n")
 
-            check_if_response_defused_confusion_v3_scope(llm_eval, doc_csv_schema, doc_paths["out"],
-                                            qrc_csv_schema, qrc_paths[1], qrc_paths["out"], n=9, shot=5)
+                check_if_response_defused_confusion_v3_scope(llm_eval, doc_csv_schema, doc_paths["out"],
+                                                qrc_csv_schema, qrc_paths[1], qrc_paths["out"], n=9, shot=5)
+                end_time = utils.get_time()
+                print(f"{topic} {llm_r} takes: {end_time - llm_start_time:.2f} seconds")
             end_time = utils.get_time()
-            print(f"{topic} {llm_r} takes: {end_time - llm_start_time:.2f} seconds")
-        end_time = utils.get_time()
-        print(f"{topic} takes: {end_time - tpoic_start_time:.2f} seconds")
+            print(f"{topic} takes: {end_time - tpoic_start_time:.2f} seconds")
 
         
     
